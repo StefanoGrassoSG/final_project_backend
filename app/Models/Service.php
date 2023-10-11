@@ -18,6 +18,6 @@ class Service extends Model
 
     public function apartments() {
 
-        return $this->belongsToMany(Aparment::class)
+        return $this->belongsToMany(Aparment::class);
     }
 }
