@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+//MODELS
+use app\Models\Apartment;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -19,7 +22,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'last_name',
         'email',
+        'date_of_birth',
         'password',
     ];
 
@@ -43,3 +48,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 }
+
+    //RELATIONSHIPS
+
+    public function apartment() {
+
+        return $this->belongto(Apartment::class)
+    }
