@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\admin\Controllers;
 
-use App\Models\Sponsorship;
-use App\Http\Requests\StoreSponsorshipRequest;
-use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\View;
+use App\Http\Requests\StoreViewRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateViewRequest;
 
-class SponsorshipController extends Controller
+class ViewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +28,7 @@ class SponsorshipController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSponsorshipRequest $request)
+    public function store(StoreViewRequest $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class SponsorshipController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Sponsorship $sponsorship)
+    public function show(View $view)
     {
         //
     }
@@ -43,7 +44,7 @@ class SponsorshipController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Sponsorship $sponsorship)
+    public function edit(View $view)
     {
         //
     }
@@ -51,7 +52,7 @@ class SponsorshipController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSponsorshipRequest $request, Sponsorship $sponsorship)
+    public function update(UpdateViewRequest $request, View $view)
     {
         //
     }
@@ -59,7 +60,7 @@ class SponsorshipController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Sponsorship $sponsorship)
+    public function destroy(View $view)
     {
         //
     }
