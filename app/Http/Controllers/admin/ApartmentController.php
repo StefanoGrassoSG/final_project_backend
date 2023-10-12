@@ -221,6 +221,12 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        $extra_images = Image::where('apartment_id',$apartment->id)->get();
+        if($extra_images){
+           foreach($extra_images as $img){
+            Storage::delete($img->path);
+           };
+        };
         Storage::delete($apartment->cover_img);
         $apartment->delete();
         return redirect()->route('admin.apartment.index');
