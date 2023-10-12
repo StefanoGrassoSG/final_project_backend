@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//HLEPERS
+use Illuminate\Support\Facades\Auth;
+
 class StoreImageRequest extends FormRequest
 {
     /**
@@ -11,7 +14,7 @@ class StoreImageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +25,7 @@ class StoreImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
         ];
     }
 }

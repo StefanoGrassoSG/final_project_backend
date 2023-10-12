@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Apartment;
 use App\Models\User;
 use App\Models\Service;
+use App\Models\Image;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
@@ -104,6 +105,18 @@ class ApartmentController extends Controller
                 $apartment->services()->attach($serviceId);
             }
         }
+        // adding more images
+        // dd($formData['extra_imgs']);
+        if(isset($formData['extra_imgs'])){
+            foreach($formData['extra_imgs'] as $singleImg){
+                $img = new Image();
+                $img_path = Storage::put('uploads/Apartment',$singleImg);
+                $img->path = $img_path;
+                $img->apartment_id = $apartment->id;
+                $img->save();
+                
+            }
+        }
 
         return redirect()->route('admin.apartment.index');
     }
@@ -184,6 +197,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        Storage::delete($apartment->cover_img);
         $apartment->delete();
         return redirect()->route('admin.apartment.index');
     }

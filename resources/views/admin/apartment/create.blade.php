@@ -82,6 +82,17 @@
                   </div>  
                   @endforeach
                 </div>
+                {{-- DA GESTIRE VISIVAMENTE AGGIUNTA DI FOTO --}}
+                <div>
+                  {{-- non mi prende la cazzo di checkbox nella request per dio --}}
+                  {{-- <label for="add_imgs"> add more images</label>
+                  <input class="form-check-input" type="checkbox" name="xxx" value="" id="flexCheckDefault">
+                  <br> --}}
+                  <label for="extra_imgs" class="form-label">select more image files</label>
+                  <input type="file" class="form-control" accept="image/*" id="extra_imgs" name="extra_imgs[]" aria-describedby="emailHelp" multiple>
+
+                </div>
+                
                 <button type="submit" class="btn my-4 btn-create-form">Invia</button>
             </form>
         </div>
