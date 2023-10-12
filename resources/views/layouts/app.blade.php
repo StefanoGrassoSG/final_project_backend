@@ -84,7 +84,7 @@
                 </aside>
     
                 <div class="main-container">
-                    <div class="main-header d-flex justify-content-between py-4 shadow p-2 mb-5 bg-body-tertiary rounded">
+                    <div class="main-header d-flex justify-content-between align-items-center py-4 shadow p-2 mb-5 bg-body-tertiary rounded">
                         <div class="col-4">
                             
                         </div>
