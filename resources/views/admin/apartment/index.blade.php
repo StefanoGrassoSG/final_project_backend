@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <ul>
+                        <a href="{{ route('admin.apartment.create') }}" class="btn btn-primary">create</a>
                         @foreach ($apartments as $singleApt)
                             <li>
                                 {{ $singleApt->name }}

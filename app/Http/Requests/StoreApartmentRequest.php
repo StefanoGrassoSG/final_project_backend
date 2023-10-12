@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//HLEPERS
+use Illuminate\Support\Facades\Auth;
+
 class StoreApartmentRequest extends FormRequest
 {
     /**
@@ -11,7 +14,7 @@ class StoreApartmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +25,20 @@ class StoreApartmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+           'room' => 'required|numeric|min:1|max:100',
+           'bathroom' => 'required|numeric|min:1|max:100',
+           'bed' => 'required|numeric|min:1|max:100',
+           'shared_bathroom' => 'nullable|boolean',
+           'address' => 'required|string|max:128',
+           'city' => 'required|string|max:128',
+           'visible' => 'nullable|boolean',
+           'name' => 'required|string|max:64',
+           'price' => 'required|decimal:2|max:9999',
+           'square_meter' => 'required|numeric|max:9999',
+           'description' => 'required|string|nullable',
+            'cover_img' => 'nulable|image|max:9999',
+           'service'=>'nullable|array',
+            'service.*'=>'exists:services,id',
         ];
     }
 }

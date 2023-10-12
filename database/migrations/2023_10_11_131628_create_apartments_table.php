@@ -18,14 +18,14 @@ return new class extends Migration
             $table->unsignedTinyInteger('bathroom');
             $table->boolean('shared_bathroom')->nullable();
             $table->string('address', 128);
-            $table->string('lat', 50);
-            $table->string('lon', 50);
-            $table->boolean('visible')->nullable();
+            $table->string('lat', 50)->nullable();
+            $table->string('lon', 50)->nullable();
+            $table->boolean('visible')->nullable()->default(true);
             $table->string('name', 64);
             $table->unsignedDecimal('price', $precision = 6, $scale = 2);
-            $table->unsignedDecimal('square_meter');
+            $table->unsignedSmallInteger('square_meter');
             $table->text('description')->nullable();
-            $table->string('cover_img', 2048);
+            $table->string('cover_img', 2048)->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();
