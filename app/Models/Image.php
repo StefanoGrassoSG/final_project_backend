@@ -12,7 +12,11 @@ class Image extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'path',
+        'src',
+        'apartment_id'
+    ];
 
     //RELATIONSHIPS
 

@@ -41,6 +41,8 @@ class StoreApartmentRequest extends FormRequest
             'cover_img' => 'required|image|max:9999',
            'service'=>'nullable|array',
             'service.*'=>'exists:services,id',
+            'xxx'=>'nullable',
+            'extra_imgs'=>'nullable|array',
         ];
     }
 }
