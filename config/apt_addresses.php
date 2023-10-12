@@ -5,6 +5,7 @@ return [
     /*
         vanno inseriti a mano inoltre lat e lon
         dovete fare una chiamata axios su postman del vostro indirizzo al tomtom con la vostra APIKEY
+        indirizzo e APIKEY sono params della chiamata url di tomtom
         e nella risposta json avrete i campi latitudine e longitudine da inserire
     */
     [
