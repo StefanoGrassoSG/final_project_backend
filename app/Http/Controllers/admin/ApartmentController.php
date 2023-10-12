@@ -35,6 +35,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {     $service = Service::all();
+        
        
         return view('admin.apartment.create', compact('service'));
     }
@@ -119,14 +120,19 @@ class ApartmentController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
-    {
+    {   
+        $img_path = $apartment->cover_img;
         $formData = $request->validated();
-        if(isset($formData['img_path'])){
-            $img_path = Storage::put('cover_img',$formData['cover_img']);
+
+        //CONTROLLA SE COVER_IMG è SETTATO ,E SE LO è A TRUE ,RIMUOVE L'IMMAGINE
+        if(isset($formData['cover_img'])){
+            if($apartment->cover_img){
+                Storage::delete($apartment->cover_img);
+            }
+            $img_path= Storage::put('uploads\Apartment',$formData['cover_img']);
         }
-        else {
-            $img_path = null;
-        }
+
+     
         if(!isset($formDAta['visible'])) {
             $formData['visible'] = null;
         }
@@ -140,6 +146,8 @@ class ApartmentController extends Controller
         else {
             $formData['visible'] = true;
         }
+
+
         $apartment->update([
             'room' => $formData['room'],
            'bathroom' => $formData['bathroom'],

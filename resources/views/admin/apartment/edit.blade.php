@@ -66,7 +66,7 @@
                   <input type="text" class="form-control" id="description" name="description" value="{{ old('description', $apartment->description) }}" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                  <label for="cover_img" class="form-label">cover image</label>
+                  <label for="cover_img" class="form-label">Cambia Immagine</label>
                   <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp">
                 </div>
                 <div>

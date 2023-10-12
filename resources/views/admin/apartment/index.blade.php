@@ -13,7 +13,11 @@
                             <li>
                                 {{ $singleApt->name }}
                                 <div class="img-fluid">
-                                    <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                                    @if(str_starts_with($singleApt->cover_img,'uploads'))
+                                        <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                                    @else 
+                                        <img src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                                    @endif
                                 </div>
                                 <a href="{{ route('admin.apartment.edit', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">edit</a>
                                 <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">view single</a>
