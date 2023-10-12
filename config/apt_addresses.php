@@ -2,115 +2,188 @@
 return [
     // es indirizzo PREFERIBILMENTE INDIRIZZI NELLA VOSTR CITTA ENTRO 20-35km distanza l'uno dall'altro
     // (so che non serve l'array di array associativi ma è più ordinato visivamente per noi scriverli)
+    /*
+        vanno inseriti a mano inoltre lat e lon
+        dovete fare una chiamata axios su postman del vostro indirizzo al tomtom con la vostra APIKEY
+        e nella risposta json avrete i campi latitudine e longitudine da inserire
+    */
     [
-        'address' => 'via Vittorio Veneto 14 , Rome'
+        'address' => 'via Vittorio Veneto 14 , Rome',
+        'lat' => '',
+        'lon' => ''
     ],
     // 7 indirizzi STEFANO
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
+    ],
+    [
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
+    ],
+    [
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
+    ],
+    [
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
         'address' => ''
     ],
     [
-        'address' => ''
-    ],
-    [
-        'address' => ''
-    ],
-    [
-        'address' => ''
-    ],
-    [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     // 7 indirizzi Ale M
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     // 7 indirizzi PIERPAOLO
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     //  7 indirizzi EROS
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     // 7 indirizzi ale ebr
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
     [
-        'address' => ''
+        'address' => '',
+        'lat' => '',
+        'lon' => ''
     ],
 ];
 
@@ -132,8 +205,8 @@ return [
                 'bathroom' => fake()->boolean(),
                 'shared_bathroom' => fake()->boolean(),
                 'address' => $singleAddress['address'],
-                'lat' => fake()->latitude($min = -90, $max = 90),
-                'lon' => fake()->longitude($min = -180, $max = 180),
+                'lat' => $singleAddress['lat'],
+                'lon' => $singleAddress['lon'],
                 'visible' => true,
                 'name' => fake()->streetName(),
                 'price' => fake()->randomFloat(2, 50, 9999),
