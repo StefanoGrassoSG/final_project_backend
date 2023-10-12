@@ -54,6 +54,33 @@
                     <div class="text-center py-5 fs-4 logo-aside">
                         <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
                     </div>
+                    <div class="aside-links mx-3 my-5">
+                        <h3 class="menu-title">
+                            MENU
+                        </h3>
+                        <ul>
+                            <li>
+                                <a class="" href="{{ route('admin.apartment.index') }}">
+                                    I tuoi appartamenti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="{{ route('admin.apartment.create') }}">
+                                    Inserisci appartamento
+                                </a>
+                            </li>
+                            <li>
+                                <a class="" href="">
+                                    Messaggi
+                                </a>                                
+                            </li>
+                            <li>
+                                <a class="" href="{{ route('admin.dashboard') }}">
+                                    Statistiche
+                                </a>  
+                            </li>
+                        </ul>
+                    </div>
                 </aside>
     
                 <div class="main-container">
