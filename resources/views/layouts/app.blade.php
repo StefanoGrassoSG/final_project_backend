@@ -7,12 +7,19 @@
 
         <title>@yield('page-title') | {{ config('app.name', 'Laravel') }}</title>
 
+        <!-- Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+
         <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+
+            {{-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container">
                     <a class="navbar-brand" href="/">Template</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,12 +46,42 @@
                         </form>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <main class="py-4">
-            <div class="container">
-                @yield('main-content')
+            </nav> --}}
+        </header>        
+        <main>
+            <div class="main-section d-flex">
+                <aside class="vh-100">
+                    <div class="text-center py-5 fs-4 logo-aside">
+                        <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
+                    </div>
+                </aside>
+    
+                <div class="main-container">
+                    <div class="main-header d-flex justify-content-between py-4 shadow p-2 mb-5 bg-body-tertiary rounded">
+                        <div class="col-4">
+                            
+                        </div>
+                        <div class="logo-complete col-4 text-center">
+                            <img src="{{ Vite::asset('resources/img/logo_giusto.png') }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-4 text-end px-5">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+    
+                                <button type="submit" class="btn btn-logout">
+                                    <div class="d-flex align-items-center fw-bold">
+                                        Log Out
+                                        <img src="{{ Vite::asset('resources/img/user_icon.png') }}" alt="" class="user-logo img-fluid d-line"> 
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="container mt-4">
+                        @yield('main-content')
+                    </div>
+                </div>
             </div>
         </main>
     </body>

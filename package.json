@@ -12,6 +12,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@canvas-fonts/arial-rounded-bold": "^1.0.4",
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.2",
         "rfs": "^10.0.0"
