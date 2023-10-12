@@ -13,6 +13,7 @@
                             <li>
                                 {{ $singleApt->name }}
 
+                                <a href="{{ route('admin.apartment.edit', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">edit</a>
                                 <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">view single</a>
                             </li>
                         @endforeach

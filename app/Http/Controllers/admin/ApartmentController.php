@@ -53,8 +53,12 @@ class ApartmentController extends Controller
         else {
             $img_path = null;
         }
+
         if($formData['visible']) {
             $formData['visible'] = false;
+        }
+        else {
+            $formData['visible'] = true;
         }
 
         $apartment = Apartment::create([
@@ -94,7 +98,13 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        $service = Service::all();
+        $aptSrvices = [];
+        foreach($apartment->services as $singleService){
+            $aptSrvices[] = $singleService;
+        }
+     
+        return view('admin.apartment.edit', compact('apartment', 'service', 'aptSrvices'));
     }
 
     /**
@@ -102,7 +112,35 @@ class ApartmentController extends Controller
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
-        //
+        $formData = $request->validated();
+        if(isset($formData['img_path'])){
+            $img_path = Storage::put('cover_img',$formData['cover_img']);
+        }
+        else {
+            $img_path = null;
+        }
+
+        if($formData['visible']) {
+            $formData['visible'] = false;
+        }
+        else {
+            $formData['visible'] = true;
+        }
+        $apartment->update([
+            'room' => $formData['room'],
+           'bathroom' => $formData['bathroom'],
+           'bed' => $formData['bed'],
+           'shared_bathroom' => $formData['shared_bathroom'],
+           'address' => $formData['address']. ', ' . $formData['city'],
+           'visible' => $formData['visible'],
+           'name' => $formData['name'],
+           'price' => $formData['price'],
+           'square_meter' => $formData['square_meter'],
+           'description' => $formData['description'],
+           'cover_img' => $img_path,
+        ]);
+        
+        return redirect()->route('admin.apartment.show', compact('apartment'));
     }
 
     /**
