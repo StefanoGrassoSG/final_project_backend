@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Http\admin\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Apartment;
+use App\Models\User;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Http\Controllers\Controller;
+
+//HELPERS
+use Illuminate\Support\Facades\Auth;
 
 class ApartmentController extends Controller
 {
@@ -13,8 +17,14 @@ class ApartmentController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   
+        //$apartments = Apartment::all();
+        $user = Auth::user();
+        $userId = Auth::id();
+        $apartments = Apartment::where('user_id', $user['id'])->get();
+       
+
+        return view('admin.apartment.index', compact('apartments'));
     }
 
     /**

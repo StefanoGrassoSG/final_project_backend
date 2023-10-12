@@ -52,6 +52,7 @@ class ApartmentSeeder extends Seeder
         foreach ($apt as $singleapt){
             $randServ = $serv->random(rand(1, 3))->pluck('id')->toArray();
             $singleapt->services()->attach($randServ);
+            
             $randspons = $sponsor->random(rand(1, 3))->pluck('id')->toArray();
             $singleapt->services()->attach($randspons);
 
