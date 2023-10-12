@@ -45,7 +45,6 @@ class ApartmentSeeder extends Seeder
             ]);
         }
 
-
         $apt = Apartment::all();
         $serv = Service::all();
         $sponsor = Sponsorship::all();
@@ -64,5 +63,4 @@ class ApartmentSeeder extends Seeder
             $singleapt->services()->attach($randServ);
         }
 
- 
 }}
