@@ -18,9 +18,9 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->unsignedBigInteger('sponsorhip_id')->nullable();
+            $table->unsignedBigInteger('sponsorship_id')->nullable();
 
-            $table->foreign('sponsorhip_id')
+            $table->foreign('sponsorship_id')
                 ->references('id')
                 ->on('sponsorships')
                 ->onUpdate('cascade')
