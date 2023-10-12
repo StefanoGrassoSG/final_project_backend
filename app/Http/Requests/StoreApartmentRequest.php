@@ -34,6 +34,8 @@ class StoreApartmentRequest extends FormRequest
            'visible' => 'nullable|boolean',
            'name' => 'required|string|max:64',
            'price' => 'required|decimal:0,2|max:9999',
+           'lat' => 'nullable',
+           'lon' => 'nullable',
            'square_meter' => 'required|numeric|max:9999',
            'description' => 'required|string|nullable',
             'cover_img' => 'required|image|max:9999',

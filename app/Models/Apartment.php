@@ -27,6 +27,8 @@ class Apartment extends Model
         'visible',
         'name',
         'price',
+        'lat',
+        'lon',
         'square_meter',
         'description',
         'cover_img',

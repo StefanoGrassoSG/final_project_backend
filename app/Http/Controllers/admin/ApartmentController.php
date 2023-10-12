@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Service;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 
 //HELPERS
@@ -45,9 +46,20 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {   
+
        
         $userId = Auth::id();
         $formData = $request->validated();
+
+        $response = Http::withoutVerifying()->get('https://api.tomtom.com/search/2/geocode/'.$formData['address'].','.$formData['city'].'.json?&key='.env('API_KEY'));
+
+            // Gestisci la risposta qui
+            $data = $response->json();
+       
+            $lat = $data['results'][0]['position']['lat'];
+            $lon =  $data['results'][0]['position']['lon'];
+
+       
 
         if(isset($formData['cover_img'])){
             $img_path = Storage::put('uploads/Apartment',$formData['cover_img']);
@@ -68,8 +80,8 @@ class ApartmentController extends Controller
         else {
             $formData['visible'] = true;
         }
-      
 
+       
         $apartment = Apartment::create([
             'room' => $formData['room'],
            'bathroom' => $formData['bathroom'],
@@ -77,6 +89,8 @@ class ApartmentController extends Controller
            'shared_bathroom' => $formData['shared_bathroom'],
            'address' => $formData['address']. ', ' . $formData['city'],
            'visible' => $formData['visible'],
+           'lat' => $lat,
+           'lon' => $lon,
            'name' => $formData['name'],
            'price' => $formData['price'],
            'square_meter' => $formData['square_meter'],
@@ -173,4 +187,9 @@ class ApartmentController extends Controller
         $apartment->delete();
         return redirect()->route('admin.apartment.index');
     }
+
 }
+
+
+
+
