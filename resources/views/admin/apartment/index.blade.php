@@ -12,7 +12,9 @@
                         @foreach ($apartments as $singleApt)
                             <li>
                                 {{ $singleApt->name }}
-
+                                <div class="img-fluid">
+                                    <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                                </div>
                                 <a href="{{ route('admin.apartment.edit', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">edit</a>
                                 <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">view single</a>
                                 <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1">

@@ -11,6 +11,7 @@ use Illuminate\Database\Seeder;
 
 // facades
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 
 class ApartmentSeeder extends Seeder
 {
@@ -24,9 +25,21 @@ class ApartmentSeeder extends Seeder
             Apartment::truncate();
         });
 
+        
+       // if (Storage::disk('public')->exists('uploads/Apartment')) {
+         //   Storage::disk('public')->deleteDirectory('uploads/Apartment');
+       // }
+       // Storage::disk('public')->makeDirectory('uploads/Apartment');
 
         for ($i=0; $i < 9; $i++) { 
-            
+
+            $imgPath = fake()->imageUrl();
+           // $imgContent = file_get_contents($imgPath);
+
+           // $newImagePath = storage_path('app/public/uploads/Apartment');
+           // $newImageName = rand(1000, 9999).'-'.rand(1000, 9999).'-'.rand(1000, 9999).'.png';
+           // $fullNewImagePath = $newImagePath.'/'.$newImageName;
+
             Apartment::create([
                 'room' => fake()->randomDigit(),
                 'bed'  => fake()->randomDigit(),
@@ -40,7 +53,7 @@ class ApartmentSeeder extends Seeder
                 'price' => fake()->randomFloat(2, 50, 9999),
                 'square_meter' => fake()->randomNumber(3, false),
                 'description' => fake()->paragraphs(3, true),
-                'cover_img' => fake()->imageUrl(),
+                'cover_img' =>  $imgPath,
                 'user_id' => rand(1, 2)
             ]);
         }

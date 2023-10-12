@@ -47,9 +47,9 @@ class ApartmentController extends Controller
        
         $userId = Auth::id();
         $formData = $request->validated();
-        
-        if(isset($formData['img_path'])){
-            $img_path = Storage::put('cover_img',$formData['cover_img']);
+
+        if(isset($formData['cover_img'])){
+            $img_path = Storage::put('uploads/Apartment',$formData['cover_img']);
         }
         else {
             $img_path = null;
