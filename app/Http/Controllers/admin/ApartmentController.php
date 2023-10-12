@@ -35,7 +35,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {     $service = Service::all();
-        
+       
         return view('admin.apartment.create', compact('service'));
     }
 
@@ -47,19 +47,27 @@ class ApartmentController extends Controller
        
         $userId = Auth::id();
         $formData = $request->validated();
-        if(isset($formData['img_path'])){
-            $img_path = Storage::put('cover_img',$formData['cover_img']);
+
+        if(isset($formData['cover_img'])){
+            $img_path = Storage::put('uploads/Apartment',$formData['cover_img']);
         }
         else {
             $img_path = null;
         }
 
+        if(!isset($formDAta['visible'])) {
+            $formData['visible'] = null;
+        }
+        if(!isset($formDAta['shared_bathroom'])) {
+            $formData['shared_bathroom'] = null;
+        }
         if($formData['visible']) {
             $formData['visible'] = false;
         }
         else {
             $formData['visible'] = true;
         }
+      
 
         $apartment = Apartment::create([
             'room' => $formData['room'],
@@ -119,6 +127,12 @@ class ApartmentController extends Controller
         else {
             $img_path = null;
         }
+        if(!isset($formDAta['visible'])) {
+            $formData['visible'] = null;
+        }
+        if(!isset($formDAta['shared_bathroom'])) {
+            $formData['shared_bathroom'] = null;
+        }
 
         if($formData['visible']) {
             $formData['visible'] = false;
@@ -148,6 +162,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+        return redirect()->route('admin.apartment.index');
     }
 }
