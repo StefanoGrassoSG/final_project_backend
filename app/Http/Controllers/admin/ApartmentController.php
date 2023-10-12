@@ -44,7 +44,7 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {   
-        $user = Auth::user();
+       
         $userId = Auth::id();
         $formData = $request->validated();
         if(isset($formData['img_path'])){

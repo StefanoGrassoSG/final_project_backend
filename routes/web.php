@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ApartmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::prefix('admin')
     ->group(function () {
         
         Route::resource('apartment', ApartmentController::class);
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     });
 
 require __DIR__.'/auth.php';
