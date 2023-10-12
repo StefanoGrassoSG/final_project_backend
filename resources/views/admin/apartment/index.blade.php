@@ -15,6 +15,13 @@
 
                                 <a href="{{ route('admin.apartment.edit', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">edit</a>
                                 <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-primary">view single</a>
+                                <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">
+                                      Delete
+                                    </button>
+                                  </form>
                             </li>
                         @endforeach
                     </ul>

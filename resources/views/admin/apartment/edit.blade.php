@@ -14,7 +14,8 @@
                 </ul>
             </div>
           @endif
-          <form action="{{route('admin.apartment.store')}}" method="POST" enctype="multipart/form-data">
+          <form action="{{route('admin.apartment.update', ['apartment' => $apartment->id])}}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">rooms</label>
