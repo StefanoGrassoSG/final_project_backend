@@ -139,8 +139,9 @@ class ApartmentController extends Controller
         foreach($apartment->services as $singleService){
             $aptSrvices[] = $singleService;
         }
-     
-        return view('admin.apartment.edit', compact('apartment', 'service', 'aptSrvices'));
+        $extra_images = Image::where('apartment_id',$apartment->id)->get();
+        // dd($extra_images);
+        return view('admin.apartment.edit', compact('apartment', 'service', 'aptSrvices', 'extra_images'));
     }
 
     /**
@@ -150,7 +151,17 @@ class ApartmentController extends Controller
     {   
         $img_path = $apartment->cover_img;
         $formData = $request->validated();
-
+        
+        // ELIMINAZIONE IMMAGINI EXTRA OLTRE LA COPERTINA
+        if(isset($formData['delete_imgs'])){
+            foreach($formData['delete_imgs'] as $key=>$value){
+                $extraImage = Image::where('id',$key)->first();
+                if($extraImage->path){
+                   Storage::delete($extraImage->path); 
+                   $extraImage->delete();
+                }  
+            };
+        };
         //CONTROLLA SE COVER_IMG è SETTATO ,E SE LO è A TRUE ,RIMUOVE L'IMMAGINE
         if(isset($formData['cover_img'])){
             if($apartment->cover_img){
@@ -188,6 +199,19 @@ class ApartmentController extends Controller
            'description' => $formData['description'],
            'cover_img' => $img_path,
         ]);
+
+        // adding more images
+        // dd($formData['extra_imgs']);
+        if(isset($formData['extra_imgs'])){
+            foreach($formData['extra_imgs'] as $singleImg){
+                $img = new Image();
+                $img_path = Storage::put('uploads/Apartment',$singleImg);
+                $img->path = $img_path;
+                $img->apartment_id = $apartment->id;
+                $img->save();
+                
+            }
+        }
         
         return redirect()->route('admin.apartment.show', compact('apartment'));
     }

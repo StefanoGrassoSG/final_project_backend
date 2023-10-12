@@ -82,7 +82,8 @@
                   </div>  
                   @endforeach
                 </div>
-                {{-- DA GESTIRE VISIVAMENTE AGGIUNTA DI FOTO --}}
+                
+                {{-- DA GESTIRE VISIVAMENTE AGGIUNTA DI FOTO cazzi di EROS --}}
                 <div>
                   {{-- non mi prende la cazzo di checkbox nella request per dio --}}
                   {{-- <label for="add_imgs"> add more images</label>

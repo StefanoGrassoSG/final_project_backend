@@ -81,6 +81,42 @@
                     >
                   @endforeach
                 </div>
+
+                <div>
+                  {{-- non mi prende la cazzo di checkbox nella request per dio --}}
+                  {{-- <label for="add_imgs"> add more images</label>
+                  <input class="form-check-input" type="checkbox" name="xxx" value="" id="flexCheckDefault">
+                  <br> --}}
+                  <label for="extra_imgs" class="form-label">select more image files</label>
+                  <input type="file" class="form-control" accept="image/*" id="extra_imgs" name="extra_imgs[]" aria-describedby="emailHelp" multiple>
+
+                </div>
+				{{-- CAMPO PER LE IMMAGINI EXTRA --}}
+                <div class="my-4">
+					
+                  @if ($extra_images)
+				  apt extra images:
+				  <div class="row my-4">
+					@foreach ($extra_images as $item)
+						<div class="col-auto">
+							<div class="card">
+								{{-- input per elimiare le immagini in PIU --}}
+								<label for="delete_img_{{$item->id}}">delete</label>
+								<input type="checkbox" name="delete_imgs[{{$item->id}}]" id="delete_img_{{$item->id}}">
+									<div class="img-fluid">
+										@if($item->path)
+											<img src="/storage/{{ $item->path }}" alt="" class="object-fit-contain">
+										@elseif($item->src) 
+											<img src="{{ $item->path }}" alt="" class="object-fit-contain">
+										@endif
+									</div>
+								
+							</div>
+						</div>
+					@endforeach
+				  
+                  @endif
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
