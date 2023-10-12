@@ -32,7 +32,7 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.apartment.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartment.show', compact('apartment'));
     }
 
     /**
