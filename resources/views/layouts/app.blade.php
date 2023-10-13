@@ -52,7 +52,9 @@
             <div class="main-section d-flex">
                 <aside class="vh-100">
                     <div class="text-center py-5 fs-4 logo-aside">
-                        <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
+                        <a href="{{ route('admin.dashboard') }}">
+                            <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
+                        </a>
                     </div>
                     <div class="aside-links mx-3 my-5">
                         <h3 class="menu-title">
@@ -60,24 +62,36 @@
                         </h3>
                         <ul>
                             <li>
-                                <a class="" href="{{ route('admin.apartment.index') }}">
-                                    I tuoi appartamenti
+                                <a href="{{ route('admin.apartment.index') }}">
+                                    <p class="all-ap-asidetext">
+                                        I tuoi appartamenti
+                                    </p>
+                                    <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="img-fluid icon-all-ap-aside">
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="{{ route('admin.apartment.create') }}">
-                                    Inserisci appartamento
+                                <a href="{{ route('admin.apartment.create') }}">
+                                    <p class="new-ap-asidetext">
+                                        Inserisci appartamento
+                                    </p>
+                                    <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="img-fluid icon-add-ap-aside">
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="">
-                                    Messaggi
-                                </a>                                
+                                <a href="">
+                                    <p class="messages-asidetext">
+                                        Messaggi
+                                    </p>
+                                    <img src="{{ Vite::asset('resources/img/logo_messaggi.png') }}" alt="" class="img-fluid icon-messages-aside">
+                                </a>                             
                             </li>
-                            <li>
+                            <li> 
                                 <a class="" href="{{ route('admin.dashboard') }}">
-                                    Statistiche
-                                </a>  
+                                    <p class="stats-asidetext">
+                                        Statistiche
+                                    </p>
+                                    <img src="{{ Vite::asset('resources/img/icon_stat.png') }}" alt="" class="img-fluid icon-stats-aside">
+                                </a>    
                             </li>
                         </ul>
                     </div>
@@ -97,8 +111,15 @@
     
                                 <button type="submit" class="btn btn-logout">
                                     <div class="d-flex align-items-center fw-bold">
-                                        Log Out
-                                        <img src="{{ Vite::asset('resources/img/user_icon.png') }}" alt="" class="user-logo img-fluid d-line"> 
+                                        <div class="text-out-lg">
+                                            Log Out
+                                        </div>
+                                        <div class="icon-out-lg">
+                                            <img src="{{ Vite::asset('resources/img/user_icon.png') }}" alt="" class="user-logo img-fluid d-line"> 
+                                        </div>                                           
+                                    </div>
+                                    <div class="icon-out-sm">
+                                        <img src="{{ Vite::asset('resources/img/icon_out.png') }}" alt="" class="user-logo img-fluid d-line icon-out">
                                     </div>
                                 </button>
                             </form>
