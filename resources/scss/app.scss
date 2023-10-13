@@ -140,7 +140,6 @@ main {
 
             .main-header {
                 width: calc(100% - 20vw);
-                height: 10vh;
                 position: fixed;
 
                 .btn-logout {
@@ -255,6 +254,26 @@ main {
     display: none;
 }
 
+//LAPTOP
+@media screen and (max-width: 2000px) {
+
+    .row-index {
+        background: none;
+    }
+
+    main {
+        .main-section {
+            .main-container {
+                .main-header {
+                    height: 10vh;
+                }
+            }
+        }
+    }
+
+}
+
+//TABLET
 @media screen and (max-width: 811px) {
 
     .icon-add-ap-aside {
@@ -290,16 +309,14 @@ main {
         width: 25px;
         display: block;
     }
-}
-
-@media screen and (max-width: 1000px) {
-
-    .row-index {
-        background: none;
+    .main-header {
+        height: 5vh;
     }
+
 }
 
-@media screen and (min-width: 820px) {
+//MOBILE-2
+@media screen and (min-width: 809px) and (max-width: 900px) {
     .img-div {
         border-start-start-radius: 10px;
         border-end-start-radius: 10px;
@@ -311,9 +328,21 @@ main {
             border-end-start-radius: 10px;
         }
     }
+
+    main {
+        .main-section {
+            .main-container {
+                .main-header {
+                    height: 5vh;
+                }
+            }
+        }
+    }
 }
 
-@media screen and (min-width: 375px) {
+
+//MOBILE 
+@media screen and (min-width: 375px) and (max-width: 580px) {
     .img-div {
         border-start-start-radius: 10px;
         border-start-end-radius: 10px;
@@ -324,6 +353,7 @@ main {
             border-start-start-radius: 10px;
             border-start-end-radius: 10px;
         }
+
     }
 
     .infos-apt {
@@ -343,5 +373,13 @@ main {
         }
     }
 
-
+    main {
+        .main-section {
+            .main-container {
+                .main-header {
+                    height: 5vh;
+                }
+            }
+        }
+    }
 }

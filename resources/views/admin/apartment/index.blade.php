@@ -5,11 +5,11 @@
 @section('main-content')
     <div class="row row-index">
         <div class="col">
-            <div class="title-create d-flex align-items-center">
+            <div class="title-create d-flex align-items-center justify-content-center justify-content-sm-start">
                 <h1>
                   I tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                 </h1>
-                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-index">
+                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-index d-none d-sm-block">
             </div>
             <div class="col-12 mb-4">
                 <a href="{{ route('admin.apartment.create') }}" class="btn btn-create-form w-100">
