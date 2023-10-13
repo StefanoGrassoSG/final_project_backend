@@ -4,6 +4,11 @@
 
 @section('main-content')
     <div class="row">
+        @if($apartment->sponsorships)  
+            <h1>
+                YOU HAVE A SPONSOR
+            </h1>
+        @endif
         <div class="col">
             <div class="title-create d-flex align-items-center">
                 <h1>
