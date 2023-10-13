@@ -6,6 +6,7 @@ use App\Models\Apartment;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Image;
+use App\Models\Message;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
