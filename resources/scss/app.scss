@@ -106,10 +106,23 @@ aside {
     img {
         margin-top: 85px;
         margin-bottom: 20px;
-        width: 38px;
         vertical-align: middle;
         margin-left: 5px;
     }
+    .logo-add-index{
+        width: 46px;
+    }
+    .logo-add-create{
+        width: 32px;
+    }
+    
+}
+
+.row-index {
+    background-image: url('../img/logobig5.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 main {
@@ -186,7 +199,7 @@ main {
                     max-height: 200px;
 
                     h3 {
-                        color: #00ABE8;
+                        color: #3461AB;
                         font-weight: bold;
                     }
 
@@ -195,17 +208,21 @@ main {
 
                         ul {
                             list-style: none;
+                            margin-top: 15px;
                             padding: 0;
 
                             .span-info-apt {
                                 color: #888A8C;
                                 font-weight: 800;
+                                font-size: 1.05rem;
                             }
                         }
                     }
 
                     .img-div {
                         height: 100%;
+                        -webkit-box-shadow: 7px 0px 12px -2px rgba(0,0,0,0.39); 
+                        box-shadow: 7px 0px 12px -2px rgba(0,0,0,0.39);
 
                         img {
                             width: 100%;
@@ -214,8 +231,6 @@ main {
                     }
                 }
             }
-
-
         }
     }
 }
@@ -272,5 +287,12 @@ main {
     .icon-out-sm {
         width: 25px;
         display: block;
+    }
+}
+
+@media screen and (max-width: 1439px) {
+
+    .row-index {
+        background: none;
     }
 }

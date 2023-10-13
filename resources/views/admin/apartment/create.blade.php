@@ -18,7 +18,7 @@
               <h1>
                 Inserisci il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
               </h1>
-              <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="logo-add-app">
+              <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="logo-add-create">
           </div>
           <form action="{{route('admin.apartment.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
