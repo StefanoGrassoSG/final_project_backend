@@ -17,39 +17,39 @@
                 </a>
             </div>
             @foreach ($apartments as $singleApt)
-            <div class="card-apartment d-flex my-3 border rounded-4">
-                <div class="col-3 d-none d-md-block">
+            <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex ">
+                <div class="col-12 col-md-3 d-block d-sm-none d-md-block">
                 @if(str_starts_with($singleApt->cover_img,'uploads'))
-                <div class="img-div">
+                <div class="img-div rounded-sm-top-4">
                     <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
                 </div>                    
                 @else
-                <div class="img-div ">
-                    <img class="rounded-start-4 " src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                <div class="img-div">
+                    <img class="" src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
                 </div>
                 @endif
                 </div>
-                <div class="col-9 col-md-7 pt-3 ps-3 infos-apt">
-                    <h3>
+                <div class="col-12 col-sm-6 pt-3 px-3 px-md-5 infos-apt">
+                    <h3 class="d-none d-sm-block">
                         Info
                     </h3>
                     <ul>
                         <li>
-                            <span class="span-info-apt">Nome: </span>{{ $singleApt->name }}
+                            <span class="span-info-apt d-block d-sm-inline" id="span-name-apt">Nome: </span>{{ $singleApt->name }}
                         </li>
-                        <li>
+                        <li class="d-none d-sm-block">
                             <span class="span-info-apt">Indirizzo: </span>{{ $singleApt->address }}
                         </li>
-                        <li>
+                        <li class="d-none d-sm-block">
                             <span class="span-info-apt">Metratura: </span>{{ $singleApt->square_meter }} mq
                         </li>
-                        <li>
+                        <li class="d-none d-sm-block">
                             <span class="span-info-apt">Prezzo: </span>{{ $singleApt->price }} &euro;
                         </li>
                     </ul>
                     
                 </div>
-                <div class="col-2 col-md-5 pt-3 py-3">
+                <div class="col-12 col-sm-6 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block">
                     <h3>
                         Azioni
                     </h3>
@@ -60,27 +60,13 @@
                         <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-create-card">Visualizza</a>
                     </div>
                         
-                    <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1 d-block">
+                    <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1 d-block pb-3">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-create-card btn-create-card-out">
+                        <button type="submit" class="btn d-block btn-create-card btn-create-card-out">
                                 Elimina
                         </button>
                     </form>
-                </div>
-            </div>
-
-
-
-            <div class="d-flex" style="width: 18rem;">
-                
-                <div class="card-body">
-                    <h5 class="card-title">
-                        
-                    </h5>
-                    <div class="card-text">
-                        
-                    </div>
                 </div>
             </div>
             @endforeach
