@@ -16,9 +16,9 @@
           @endif
           <div class="title-create d-flex align-items-center">
               <h1>
-                I tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
+                Inserisci il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
               </h1>
-              <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-app">
+              <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="logo-add-app">
           </div>
           <form action="{{route('admin.apartment.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -31,7 +31,7 @@
                   <input type="number" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-4">
-                  <label for="exampleInputEmail1" class="form-label">N. stanze</label>
+                  <label for="exampleInputEmail1" class="form-label">N. letti</label>
                   <input type="number" class="form-control" id="bed" name="bed" aria-describedby="emailHelp">
                 </div>
                 <div class="form-check mb-4">
@@ -89,12 +89,14 @@
                   {{-- <label for="add_imgs"> add more images</label>
                   <input class="form-check-input" type="checkbox" name="xxx" value="" id="flexCheckDefault">
                   <br> --}}
-                  <label for="extra_imgs" class="form-label">select more image files</label>
+                  <label for="extra_imgs" class="form-label">Aggiungi altre immagini </label>
                   <input type="file" class="form-control" accept="image/*" id="extra_imgs" name="extra_imgs[]" aria-describedby="emailHelp" multiple>
 
                 </div>
                 
-                <button type="submit" class="btn my-4 btn-create-form">Invia</button>
+                <button type="submit" class="btn my-5 btn-create-form">
+                  Invia
+                </button>
             </form>
         </div>
     </div>

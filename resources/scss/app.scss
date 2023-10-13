@@ -22,11 +22,18 @@ label {
 }
 
 .btn-create-form {
-    font-size: 14px;
+    font-size: 18px;
     background-color: #00ABE8;
     color: white;
+    font-weight: bold;
     border-radius: 10px;
 }
+.btn-create-form:hover {
+    background-color: #3461AB;
+    color: white;
+    font-weight: bold;
+}
+
 
 .check-box-services {
     display: inline-block;
@@ -77,8 +84,6 @@ aside {
                 }
             }
         }
-
-
     }
 }
 
@@ -93,9 +98,9 @@ aside {
     img {
         margin-top: 85px;
         margin-bottom: 20px;
-        width: 50px;
+        width: 33px;
         vertical-align: middle;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 }
 
@@ -146,5 +151,44 @@ main {
 
             }
         }
+    }
+}
+
+//MEDIA QUERY
+
+.all-ap-asidetext, .new-ap-asidetext, .messages-asidetext, .stats-asidetext, .text-out-lg {
+    display: block;
+}
+
+.icon-add-ap-aside, .icon-all-ap-aside, .icon-messages-aside, .icon-stats-aside, .icon-out-sm{
+    display: none;
+}
+
+@media screen and (max-width: 811px) {
+
+    .icon-add-ap-aside {
+        width: 40px;
+        display: block;
+    }
+
+    .all-ap-asidetext, .new-ap-asidetext, .messages-asidetext, .stats-asidetext, .text-out-lg, .icon-out-lg {
+        display: none;
+    }
+
+    .icon-all-ap-aside {
+        width: 55px;
+        display: block;
+    }
+    .icon-messages-aside {
+        width: 40px;
+        display: block;
+    }
+    .icon-stats-aside {
+        width: 40px;
+        display: block;
+    }
+    .icon-out-sm {
+        width: 25px;
+        display: block;
     }
 }
