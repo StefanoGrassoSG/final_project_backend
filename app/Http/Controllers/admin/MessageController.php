@@ -50,9 +50,12 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Message $message)
+    public function show(string $id)
     {
-        //
+        $messages = Message::where('apartment_id', $id)->get();
+     
+
+        return view('admin.apartment.singleMessage', compact('messages'));
     }
 
     /**
