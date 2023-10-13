@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('apartment_sponsorship', function (Blueprint $table) {
             $table->id();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->dateTimeTz('start_date');
+            $table->dateTimeTz('end_date');
             $table->timestamps();
 
 

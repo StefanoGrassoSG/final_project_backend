@@ -70,9 +70,9 @@ class ApartmentSeeder extends Seeder
 
 
             //$startDate = now();  // Sostituisci con la tua data di inizio desiderata
-            //$endDate = now()->addDays(30);  // Sostituisci con la tua data di fine desiderata
+           // $endDate = now()->addDays(1);  // Sostituisci con la tua data di fine desiderata
         
-           // $singleapt->sponsorships()->attach($randspons, ['start_date' => $startDate, 'end_date' => $endDate]);
+            //$singleapt->sponsorships()->attach($randspons, ['start_date' => $startDate, 'end_date' => $endDate]);
             $singleapt->services()->attach($randServ);
         }
 
