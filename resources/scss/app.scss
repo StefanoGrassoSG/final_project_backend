@@ -28,6 +28,7 @@ label {
     font-weight: bold;
     border-radius: 10px;
 }
+
 .btn-create-form:hover {
     background-color: #3461AB;
     color: white;
@@ -105,7 +106,7 @@ aside {
     img {
         margin-top: 85px;
         margin-bottom: 20px;
-        width: 33px;
+        width: 38px;
         vertical-align: middle;
         margin-left: 5px;
     }
@@ -156,8 +157,52 @@ main {
                     margin-bottom: 20px;
                 }
 
+                .btn-create-card {
+                    font-size: 13px;
+                    background-color: #00ABE8;
+                    color: white;
+                    font-weight: bold;
+                    border-radius: 10px;
+                }
+
+                .btn-create-card:hover {
+                    background-color: #3461AB;
+                    color: white;
+                    font-weight: bold;
+                }
+
+
+                .btn-create-card-out {
+                    background-color: #F18C8E;
+                }
+
+                .btn-create-card-out:hover {
+                    background-color: #E56A76;
+                    color: white;
+                    font-weight: bold;
+                }
+
                 .card-apartment {
                     max-height: 200px;
+
+                    h3 {
+                        color: #00ABE8;
+                        font-weight: bold;
+                    }
+
+                    .infos-apt {
+                        margin-left: 20px;
+
+                        ul {
+                            list-style: none;
+                            padding: 0;
+
+                            .span-info-apt {
+                                color: #888A8C;
+                                font-weight: 800;
+                            }
+                        }
+                    }
 
                     .img-div {
                         height: 100%;
@@ -177,11 +222,19 @@ main {
 
 //MEDIA QUERY
 
-.all-ap-asidetext, .new-ap-asidetext, .messages-asidetext, .stats-asidetext, .text-out-lg {
+.all-ap-asidetext,
+.new-ap-asidetext,
+.messages-asidetext,
+.stats-asidetext,
+.text-out-lg {
     display: block;
 }
 
-.icon-add-ap-aside, .icon-all-ap-aside, .icon-messages-aside, .icon-stats-aside, .icon-out-sm{
+.icon-add-ap-aside,
+.icon-all-ap-aside,
+.icon-messages-aside,
+.icon-stats-aside,
+.icon-out-sm {
     display: none;
 }
 
@@ -192,7 +245,12 @@ main {
         display: block;
     }
 
-    .all-ap-asidetext, .new-ap-asidetext, .messages-asidetext, .stats-asidetext, .text-out-lg, .icon-out-lg {
+    .all-ap-asidetext,
+    .new-ap-asidetext,
+    .messages-asidetext,
+    .stats-asidetext,
+    .text-out-lg,
+    .icon-out-lg {
         display: none;
     }
 
@@ -200,14 +258,17 @@ main {
         width: 55px;
         display: block;
     }
+
     .icon-messages-aside {
         width: 40px;
         display: block;
     }
+
     .icon-stats-aside {
         width: 40px;
         display: block;
     }
+
     .icon-out-sm {
         width: 25px;
         display: block;
