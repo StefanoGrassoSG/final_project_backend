@@ -26,11 +26,11 @@ class SetSponsorController extends Controller
         if(count($apartment->sponsorships) > 0){
             $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
 
-            $startDate = now()->setTimezone('Europe/Rome');
+            $startDate = now();
 
             if($lastSponsor >= $startDate) {
                 $endDate = date('Y-m-d H:i',strtotime('+'. $sponsor->time .'hours',strtotime($lastSponsor)));
-                dd($endDate, gettype( $endDate));
+                dd($sponsor->time);
             }
             else {
                 $endDate = now()->addHours($sponsor->time);
@@ -40,7 +40,7 @@ class SetSponsorController extends Controller
         }
         else {
             $startDate = now()->setTimezone('Europe/Rome');
-            $endDate = now()->addHours($sponsor->time);
+            $endDate = now()->setTimezone('Europe/Rome')->addHours($sponsor->time);
 
             $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $startDate, 'end_date' => $endDate]);
 
