@@ -14,7 +14,7 @@
                 <h1>
                   Il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                 </h1>
-                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-app">
+                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-index">
             </div>
             <div class="card">
                 {{ $apartment->name }}

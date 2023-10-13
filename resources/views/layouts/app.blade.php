@@ -56,7 +56,7 @@
                             <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
                         </a>
                     </div>
-                    <div class="aside-links mx-3 my-5">
+                    <div class="aside-links mx-0 mx-sm-3 my-5">
                         <h3 class="menu-title">
                             MENU
                         </h3>
