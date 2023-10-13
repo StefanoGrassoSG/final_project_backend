@@ -78,7 +78,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="">
+                                <a href="{{ route('admin.message.index') }}">
                                     <p class="messages-asidetext">
                                         Messaggi
                                     </p>
