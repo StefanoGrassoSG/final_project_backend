@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\admin\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Sponsorship;
 use App\Http\Requests\StoreSponsorshipRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\Apartment;
 
 class SponsorshipController extends Controller
 {
@@ -28,17 +29,26 @@ class SponsorshipController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSponsorshipRequest $request)
+    public function store(StoreSponsorshipRequest $request, Apartment $apartment)
     {
         //
+    }
+
+    public function test(StoreSponsorshipRequest $request, string $id)
+    {   
+        dd($request);
+        $formdata = $request->validate();
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Sponsorship $sponsorship)
+    public function show(string $id)
     {
-        //
+        $sponsorships = Sponsorship::all();
+        $apartment = Apartment::where('id', $id)->first();
+        return view('admin.apartment.sponsorship', compact('sponsorships', 'apartment'));
     }
 
     /**
