@@ -23,10 +23,33 @@ class SetSponsorController extends Controller
         $sponsor = Sponsorship::where('id', $formdata['sponsor'])->first();
         $apartment = Apartment::where('id', $id)->first();
         
-        $startDate = now()->setTimezone('Europe/Rome');
-        $endDate = now()->addHours($sponsor->time);
+        if(count($apartment->sponsorships) > 0){
+            $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
 
-        $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $startDate, 'end_date' => $endDate]);
+            $startDate = now()->setTimezone('Europe/Rome');
+
+            if($lastSponsor >= $startDate) {
+               
+                $endDate = date('Y-m-d H:i',strtotime('+'. $sponsor->time .'hours',strtotime($lastSponsor)));
+                dd($endDate, gettype( $endDate));
+            }
+            else {
+                $endDate = now()->addHours($sponsor->time);
+            }
+
+            $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $startDate, 'end_date' => $endDate]);
+        }
+        else {
+            $startDate = now()->setTimezone('Europe/Rome');
+            $endDate = now()->addHours($sponsor->time);
+
+            $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $startDate, 'end_date' => $endDate]);
+
+            
+        }
+      
+       
+      
 
         return redirect()->route('admin.apartment.show', compact('apartment'));
     }

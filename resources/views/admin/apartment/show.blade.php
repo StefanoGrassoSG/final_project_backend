@@ -4,10 +4,12 @@
 
 @section('main-content')
     <div class="row">
-        @if($apartment->sponsorships)  
+        @if(count($apartment->sponsorships) > 0)
+            @if($apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date >= $todayDate) 
             <h1>
                 YOU HAVE A SPONSOR
             </h1>
+            @endif
         @endif
         <div class="col">
             <div class="title-create d-flex align-items-center">

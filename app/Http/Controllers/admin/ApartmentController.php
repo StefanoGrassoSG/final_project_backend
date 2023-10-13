@@ -126,8 +126,9 @@ class ApartmentController extends Controller
      * Display the specified resource.
      */
     public function show(Apartment $apartment)
-    {
-        return view('admin.apartment.show', compact('apartment'));
+    {   
+        $todayDate = now()->setTimezone('Europe/Rome');
+        return view('admin.apartment.show', compact('apartment', 'todayDate'));
     }
 
     /**
