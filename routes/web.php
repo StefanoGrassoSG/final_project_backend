@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ApartmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::prefix('admin')
         
         Route::resource('apartment', ApartmentController::class);
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::resource('message', MessageController::class); 
     });
 
 require __DIR__.'/auth.php';
