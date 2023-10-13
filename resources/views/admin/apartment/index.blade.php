@@ -28,7 +28,7 @@
                                     <button type="submit" class="btn btn-danger">
                                       Delete
                                     </button>
-                                  </form>
+                                </form>
                             </li>
                         @endforeach
                     </ul>
