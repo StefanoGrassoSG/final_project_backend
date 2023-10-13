@@ -70,7 +70,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="" href="">
+                                <a class="" href="{{ route('admin.message.index') }}">
                                     Messaggi
                                 </a>                                
                             </li>

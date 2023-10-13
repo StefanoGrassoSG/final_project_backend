@@ -77,6 +77,6 @@ class MessageController extends Controller
     public function destroy(Message $message)
     {
         $message->delete();
-        return redirect()->route('admin.apartment.index');
+        return redirect()->route('admin.message.index');
     }
 }
