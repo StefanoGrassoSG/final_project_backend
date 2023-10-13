@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//HLEPERS
+use Illuminate\Support\Facades\Auth;
 class StoreSponsorshipRequest extends FormRequest
 {
     /**
@@ -11,7 +13,7 @@ class StoreSponsorshipRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +24,7 @@ class StoreSponsorshipRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'sponsor' => 'required'
         ];
     }
 }
