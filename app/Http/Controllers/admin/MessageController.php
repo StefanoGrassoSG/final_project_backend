@@ -23,9 +23,11 @@ class MessageController extends Controller
         $messages = [];
         foreach ($apartments as $singleApt) {
             $message = Message::where('apartment_id', $singleApt['id'])->get();
-            $messages[]= $message;
+            foreach ($message as $singleMess) {
+                $messages[] = $singleMess;
+            }
         };
-      
+
         return view('admin.apartment.message', compact('messages'));
     }
 
@@ -74,6 +76,7 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        $message->delete();
+        return redirect()->route('admin.apartment.index');
     }
 }
