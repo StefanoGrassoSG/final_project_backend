@@ -5,6 +5,12 @@
 @section('main-content')
     <div class="row">
         <div class="col">
+            <div class="title-create d-flex align-items-center">
+                <h1>
+                  Il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
+                </h1>
+                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-app">
+            </div>
             <div class="card">
                 {{ $apartment->name }}
             </div>
