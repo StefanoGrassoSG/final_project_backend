@@ -30,7 +30,8 @@ Route::prefix('admin')
         
         Route::resource('apartment', ApartmentController::class);
         Route::resource('sponsorship', SponsorshipController::class);
-        Route::get('/order', [OrderController::class, 'generate']);
+        Route::any('/token', [OrderController::class, 'generate']);
+        Route::any('/payment', [OrderController::class, 'makePayment'])->name('payment');
         Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('message', MessageController::class)->only([
@@ -41,7 +42,7 @@ Route::prefix('admin')
     });
 
     
-    Route::post('/makePayment', [OrderController::class, 'makePayment']);
+    
    
     
 require __DIR__.'/auth.php';

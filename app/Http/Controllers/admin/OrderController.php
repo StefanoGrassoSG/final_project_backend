@@ -14,13 +14,12 @@ class OrderController extends Controller
         $client = $gateway->clientToken()->generate();
       
 
-      
+      return view('admin.apartment.payment', compact('client'));
     }
 
     public function makePayment(Request $request, Gateway $gateway) {
 
         $sponsor = Sponsorship::find(2);
-        dd($sponsor);
         
         $result = $gateway->transaction()->sale([
             'amount' => $sponsor->price,

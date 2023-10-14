@@ -20,15 +20,6 @@ class SetSponsorController extends Controller
         $formdata = $request->validate([
             'sponsor' => 'required'
         ]);
-      
-        $response = Http::withoutVerifying()->get('http://127.0.0.1:8000/generate');
-
-      
-
-       
-        dd( $response);    
-    
-
 
 
         $sponsor = Sponsorship::where('id', $formdata['sponsor'])->first();

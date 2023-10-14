@@ -14,7 +14,9 @@
 
         
         <!-- Scripts -->
+
         @vite('resources/js/app.js')
+        <script src="https://js.braintreegateway.com/web/dropin/1.40.2/js/dropin.js"></script>
     </head>
     <body>     
         <main>
@@ -94,6 +96,7 @@
                             </form>
                         </div>
                     </div>
+                    
                     
                     <div class="container mt-4">
                         @yield('main-content')
