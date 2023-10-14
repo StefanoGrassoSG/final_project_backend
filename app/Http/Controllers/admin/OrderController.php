@@ -12,8 +12,9 @@ class OrderController extends Controller
 {
     public function generate(Request $request, Gateway $gateway) {
         $client = $gateway->clientToken()->generate();
+      
 
-        return view('admin.apartment.sponsorship', compact('client'));
+      
     }
 
     public function makePayment(Request $request, Gateway $gateway) {

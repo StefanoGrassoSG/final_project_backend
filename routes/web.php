@@ -30,7 +30,7 @@ Route::prefix('admin')
         
         Route::resource('apartment', ApartmentController::class);
         Route::resource('sponsorship', SponsorshipController::class);
-        Route::get('order', [OrderController::class, 'generate']);
+        Route::get('/order', [OrderController::class, 'generate']);
         Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('message', MessageController::class)->only([
