@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateSponsorshipRequest;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\admin\OrderController;
 
 use Illuminate\Http\Request;
 
@@ -19,17 +20,13 @@ class SetSponsorController extends Controller
         $formdata = $request->validate([
             'sponsor' => 'required'
         ]);
+      
+        $response = Http::withoutVerifying()->get('http://127.0.0.1:8000/generate');
 
-        $key = base64_encode(env('BRAINTREE_PUBLIC_KEY').env('BRAINTREE_PRIVATE_KEY'));
-        $response = Http::withoutVerifying()->withHeaders([
-            'Authorization' => 'Basic '.$key,
-            'Authorization' => 'Bearer '. env('TOKENIZATION_KEY'),
-            'Braintree-Version' => 2023-10-13,
-            'Content-Type: application/json'
-        ])->post('https://payments.sandbox.braintree-api.com/graphql');
+      
 
-        dd($response->json());
-
+       
+        dd( $response);    
     
 
 

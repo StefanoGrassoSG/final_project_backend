@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('page-title', 'Dashboard')
@@ -28,4 +29,21 @@
           </form>
         </div>
     </div>
+
+    <script>
+        <script src="https://js.braintreegateway.com/web/dropin/1.30.1/js/dropin.min.js"></script>
+        var button = document.querySelector('#submit-button');
+        braintree.dropin.create({
+            authorization: '{{ $client }}',
+            container: '#dropin-container'
+        }, function (createErr, instance) {
+            button.addEventListener('click', function () {
+                instance.requestPaymentMethod(function (err, payload) {
+                    // Submit payload.nonce to your server
+                });
+            });
+        });
+    </script>
+    
+
 @endsection

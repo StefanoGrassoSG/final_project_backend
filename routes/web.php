@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\ApartmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\MessageController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\admin\SponsorshipController;
 use App\Http\Controllers\admin\SetSponsorController;
 /*
@@ -29,6 +30,7 @@ Route::prefix('admin')
         
         Route::resource('apartment', ApartmentController::class);
         Route::resource('sponsorship', SponsorshipController::class);
+        Route::get('order', [OrderController::class, 'generate']);
         Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('message', MessageController::class)->only([
@@ -38,4 +40,8 @@ Route::prefix('admin')
         ]);
     });
 
+    
+    Route::post('/makePayment', [OrderController::class, 'makePayment']);
+   
+    
 require __DIR__.'/auth.php';
