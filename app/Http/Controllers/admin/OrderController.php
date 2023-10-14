@@ -18,18 +18,18 @@ class OrderController extends Controller
     }
 
     public function makePayment(Request $request, Gateway $gateway) {
-
+      
         $sponsor = Sponsorship::find(2);
-        
+       // dd($request);
         $result = $gateway->transaction()->sale([
             'amount' => $sponsor->price,
-            'paymentMethodNonce' => 'fake-valid-nonce',
+            'paymentMethodNonce' => $request->input('payment_method_nonce'),
             'options' => [
                 'submitForSettlement' => true
             ]
         ]);
         
-
+        //dd($result);
         if($result->success){
             $data = [
                 'success' => true,

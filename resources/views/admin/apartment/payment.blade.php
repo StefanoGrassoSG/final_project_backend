@@ -6,6 +6,7 @@
     <div class="row mt-5">
         <div class="col-4 mt-5">
             <form id="payment-form" action="{{ route('admin.payment') }}" method="post">
+                @csrf
                 <div id="dropin-container"></div>
                 <input type="submit" id="submit-button" class="button button--small button--green">
                 <input type="hidden" id="nonce" name="payment_method_nonce" />
@@ -21,23 +22,27 @@
         authorization: '{{ $client }}',
         container: '#dropin-container'
         }, (error, dropinInstance) => {
-        if (error) console.error(error);
+        if (error) console.error(error);  
 
-        form.addEventListener('submit', event => {
-            event.preventDefault();
+        
 
-            dropinInstance.requestPaymentMethod((error, payload) => {
-            if (error) console.error(error);
+        form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-            // Step four: when the user is ready to complete their
-            //   transaction, use the dropinInstance to get a payment
-            //   method nonce for the user's selected payment method, then add
-            //   it a the hidden field before submitting the complete form to
-            //   a server-side integration
-            document.getElementById('nonce').value = payload.nonce;
-            form.submit();
-            });
-        });
+        dropinInstance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
+            if (requestPaymentMethodErr) {
+                console.error(requestPaymentMethodErr);
+            return;
+        }
+
+       
+        document.getElementById('nonce').value = payload.nonce;
+
+
+        form.submit();
+    });
+    });
+
 });
     </script>
 @endsection
