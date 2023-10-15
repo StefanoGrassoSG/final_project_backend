@@ -3,13 +3,13 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-    <div class="row">
+    <div class="row my-row">
         <div class="col">
-            <div class="title-create d-flex align-items-center">
+            <div class="title-main d-flex align-items-center">
                 <h1>
                     Statistiche dei tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                 </h1>
-                <img src="{{ Vite::asset('resources/img/logo_app_plus.png') }}" alt="" class="logo-add-app">
+                <img src="{{ Vite::asset('resources/img/icon_stat.png') }}" alt="" class="logo-add-create d-none d-sm-block">
             </div>
             
             <div class="card">

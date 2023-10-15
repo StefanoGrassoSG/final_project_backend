@@ -3,7 +3,7 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-    <div class="row">
+    <div class="row my-row">
         <div class="col">
             <div class="card">
                @foreach ($messages as $singleMessage)

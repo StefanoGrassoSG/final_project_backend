@@ -51,6 +51,41 @@ label {
     }
 }
 
+.form-sponsor {
+
+    .title-form-sponsor {
+        color: #3461AB;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .span-info-sponsor {
+        color: #888A8C;
+        font-weight: 800;
+    }
+
+    .btn-sponsor {
+        border: none;
+        cursor: pointer;
+    }
+
+    .form-check-input {
+        border-color: #00ABE8 !important;
+    }
+
+    .form-check-input:checked[type=radio] {
+        background-color: #3461AB !important;
+        border-color: #3461AB !important;
+    }
+
+    .checkbox-sponsor:hover {
+        cursor: pointer;
+    }
+
+
+}
+
+
 aside {
     background-color: #D2E6F8;
     width: 20vw;
@@ -102,9 +137,9 @@ aside {
     }
 }
 
-.title-create {
+.title-main {
+
     img {
-        margin-top: 85px;
         margin-bottom: 20px;
         vertical-align: middle;
         margin-left: 5px;
@@ -120,11 +155,12 @@ aside {
 
 }
 
-.row-index {
+.my-row {
     background-image: url('../img/logobig5.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-top: 95px;
 }
 
 main {
@@ -167,7 +203,6 @@ main {
                 h1 {
                     color: #888A8C;
                     font-weight: bold;
-                    margin-top: 85px;
                     margin-bottom: 20px;
                 }
 
@@ -257,7 +292,7 @@ main {
 //LAPTOP
 @media screen and (max-width: 2000px) {
 
-    .row-index {
+    .my-row {
         background: none;
     }
 
@@ -309,24 +344,21 @@ main {
         width: 25px;
         display: block;
     }
+
     .main-header {
         height: 5vh;
     }
 
 }
 
+
 //MOBILE-2
-@media screen and (min-width: 809px) and (max-width: 900px) {
+@media screen and (min-width: 577px) and (max-width: 900px) {
     .img-div {
         border-start-start-radius: 10px;
         border-end-start-radius: 10px;
         -webkit-box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
         box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
-
-        img {
-            border-start-start-radius: 10px;
-            border-end-start-radius: 10px;
-        }
     }
 
     main {
@@ -335,14 +367,19 @@ main {
                 .main-header {
                     height: 5vh;
                 }
+
+                .my-row {
+                    margin-top: 80px;
+                }
             }
         }
     }
+
 }
 
 
 //MOBILE 
-@media screen and (min-width: 375px) and (max-width: 580px) {
+@media screen and (min-width: 375px) and (max-width: 576px) {
     .img-div {
         border-start-start-radius: 10px;
         border-start-end-radius: 10px;
@@ -378,6 +415,10 @@ main {
             .main-container {
                 .main-header {
                     height: 5vh;
+                }
+
+                .my-row {
+                    margin-top: 80px;
                 }
             }
         }

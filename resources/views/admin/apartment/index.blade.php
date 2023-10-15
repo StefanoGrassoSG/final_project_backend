@@ -3,9 +3,9 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-    <div class="row row-index">
+    <div class="row row-index my-row ">
         <div class="col">
-            <div class="title-create d-flex align-items-center justify-content-center justify-content-sm-start">
+            <div class="title-main d-flex align-items-center justify-content-center justify-content-sm-start">
                 <h1>
                   I tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                 </h1>
