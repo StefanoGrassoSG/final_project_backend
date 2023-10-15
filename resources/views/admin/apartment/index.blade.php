@@ -29,7 +29,7 @@
                 </div>
                 @endif
                 </div>
-                <div class="col-12 col-sm-6 pt-3 px-3 px-md-5 infos-apt">
+                <div class="col-12 col-sm-8 col-md pt-3 px-3 px-md-5 infos-apt">
                     <h3 class="d-none d-sm-block">
                         Info
                     </h3>
@@ -49,7 +49,7 @@
                     </ul>
                     
                 </div>
-                <div class="col-12 col-sm-6 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block">
+                <div class="col-12 col-sm-4 col-md-3 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block">
                     <h3>
                         Azioni
                     </h3>
@@ -60,10 +60,10 @@
                         <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-create-card">Visualizza</a>
                     </div>
                     <div class="my-2">
-                        <a href="{{ route('admin.sponsorship.show', ['sponsorship' => $singleApt->id]) }}" class="btn btn-create-card">sponsorizza</a>
+                        <a href="{{ route('admin.sponsorship.show', ['sponsorship' => $singleApt->id]) }}" class="btn btn-create-card">Sponsorizza</a>
                     </div>
                         
-                    <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1 d-block pb-3">
+                    <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1 pb-3 d-flex justify-content-center d-sm-block">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn d-block btn-create-card btn-create-card-out">
