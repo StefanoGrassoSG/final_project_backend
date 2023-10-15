@@ -3,7 +3,7 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
-    <div class="row">
+    <div class="row my-row ">
         <div class="col">
           @if ($errors->any())
             <div class="alert alert-danger">
@@ -14,11 +14,11 @@
                 </ul>
             </div>
           @endif
-          <div class="title-create d-flex align-items-center">
+          <div class="title-main d-flex align-items-center">
             <h1>
               Modifica il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
             </h1>
-            <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="logo-add-create">
+            <img src="{{ Vite::asset('resources/img/icon_add_ap.png') }}" alt="" class="logo-add-create d-none d-sm-block">
         </div>
           <form action="{{route('admin.apartment.update', ['apartment' => $apartment->id])}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
