@@ -15,15 +15,14 @@
             </div>
 
                 
-            <form action="{{ route('admin.single') }}" method="get" class="ms-5 mb-3">
+            <form action="{{ route('admin.single') }}" method="get" class="form-messages mb-4">
                 @csrf
-                <label for="search">Filtra per appartamento</label>
-                <select id="search" name="apt_message">
+                <select id="search" name="apt_message" class="form-select border rounded-4 form-select-lg mb-3 d-inline">
                     @foreach ($apartments as $singleApt)
                         <option value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
                     @endforeach
                 </select>
-                <button type="submit">cerca</button>
+                <button type="submit" class="btn btn-form-messages mx-3">Filtra</button>
             </form>
        
 
