@@ -16,6 +16,6 @@ class Message extends Model
 
     public function apartment() {
 
-        return $this->belongTo(Apartment::class);
+        return $this->belongsTo(Apartment::class);
     }
 }

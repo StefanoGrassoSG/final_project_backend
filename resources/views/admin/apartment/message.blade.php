@@ -38,7 +38,7 @@
                             <span class="fw-bold">Oggetto: </span>{{$singleMessage->object}}
                         </div>
                         <div>
-                            <span class="fw-bold">Appartamento: </span>{{$singleMessage->apartment_id}}
+                            <span class="fw-bold">Appartamento: </span> {{$singleMessage->apartment->name}}
                         </div>
                     </p>
                     {{ $singleMessage->content }}
