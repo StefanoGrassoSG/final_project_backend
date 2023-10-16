@@ -292,10 +292,6 @@ main {
 //LAPTOP
 @media screen and (max-width: 2000px) {
 
-    .my-row {
-        background: none;
-    }
-
     main {
         .main-section {
             .main-container {
@@ -311,9 +307,8 @@ main {
 //TABLET
 @media screen and (max-width: 811px) {
 
-    .icon-add-ap-aside {
-        width: 40px;
-        display: block;
+    .my-row {
+        background: none;
     }
 
     .all-ap-asidetext,
@@ -323,6 +318,11 @@ main {
     .text-out-lg,
     .icon-out-lg {
         display: none;
+    }
+
+    .icon-add-ap-aside {
+        width: 40px;
+        display: block;
     }
 
     .icon-all-ap-aside {
@@ -353,23 +353,27 @@ main {
 
 
 //MOBILE-2
-@media screen and (min-width: 577px) and (max-width: 900px) {
+@media screen and (min-width: 577px) and (max-width: 2000px) {
     .img-div {
         border-start-start-radius: 10px;
         border-end-start-radius: 10px;
         -webkit-box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
         box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
+            img {
+                border-start-start-radius: 10px;
+                border-end-start-radius: 10px;
+            }
     }
 
     main {
         .main-section {
             .main-container {
                 .main-header {
-                    height: 5vh;
+                    // height: 5vh;
                 }
 
                 .my-row {
-                    margin-top: 80px;
+                    margin-top: 95px;
                 }
             }
         }
@@ -393,12 +397,44 @@ main {
 
     }
 
-    .infos-apt {
-        text-align: center;
+    .icon-add-ap-aside {
+        width: 30px;
+        display: block;
+        margin-left: 9px;
+    }
 
-        #span-name-apt {
-            font-size: 1.7rem;
+    .icon-all-ap-aside {
+        width: 40px;
+        display: block;
+        margin-left: 9px;
+    }
+
+    .icon-messages-aside {
+        width: 30px;
+        display: block;
+        margin-left: 9px;
+    }
+
+    .icon-stats-aside {
+        width: 30px;
+        display: block;
+        margin-left: 9px;
+    }
+
+    aside {
+        .logo-aside {
+            img {
+                width: 40px;
+            }
         }
+    }
+
+    .infos-apt {
+    text-align: center;
+
+    #span-name-apt {
+        font-size: 1.7rem;
+    }
     }
 
     .action-apt {
