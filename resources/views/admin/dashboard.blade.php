@@ -7,18 +7,72 @@
         <div class="col">
             <div class="title-main d-flex align-items-center">
                 <h1>
-                    Statistiche dei tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
+                    Le Statistiche dei tuoi bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                 </h1>
                 <img src="{{ Vite::asset('resources/img/icon_stat.png') }}" alt="" class="logo-add-create d-none d-sm-block">
             </div>
-            
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="text-center text-success">
-                        Sei loggato!
-                    </h1>
-                    <br>
-                    La dashboard è una pagina privata (protetta dal middleware)
+
+            <div class="stats-container d-flex flex-wrap justify-content-between">
+                <div class="card-stats border rounded-4 col-4">
+                    <a href="{{ route('admin.message.index') }}">
+                        <div class="count-text-one">
+                            Hai
+                        </div>
+                        <div class="count-number-card">
+                            58
+                        </div>
+                        <div class="count-text-two">
+                            Messaggi
+                        </div>
+                    </a>
+                </div>
+                <div class="card-stats border rounded-4 col-4">
+                    <div class="count-text-one">
+                        Hai
+                    </div>
+                    <div class="count-number-card">
+                        15
+                    </div>
+                    <div class="count-text-two">
+                        Appartamenti
+                    </div>
+                </div>
+                <div class="card-stats border rounded-4 col-4">
+                    <div class="count-text-one">
+                        Hai
+                    </div>
+                    <div class="count-number-card">
+                        150
+                    </div>
+                    <div class="count-text-two">
+                        Visualizzazioni
+                    </div>
+                </div>
+                <div class="card-stats border rounded-4 col-4">
+                    <a href="{{ route('admin.message.index') }}">
+                        <div class="count-text-one">
+                            Hai
+                        </div>
+                        <div class="count-number-card">
+                            25
+                        </div>
+                        <div class="count-text-two">
+                            Sponsorizzazioni
+                        </div>
+                    </a>
+                </div>
+                <div class="card-stats-large card-stats border rounded-4 col-6">
+                    <a href="{{ route('admin.message.index') }}">
+                        <div class="count-text-one">
+                            L'appartamento più visto:
+                        </div>
+                        <div class="count-number-card">
+                            Nome app
+                        </div>
+                        <div class="count-text-two">
+                            Ha 100 visualizzazioni
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
