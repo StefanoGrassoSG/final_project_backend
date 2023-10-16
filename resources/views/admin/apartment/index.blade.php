@@ -17,19 +17,19 @@
                 </a>
             </div>
             @foreach ($apartments as $singleApt)
-            <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex ">
-                <div class="col-12 col-md-3 d-block d-sm-none d-md-block">
-                @if(str_starts_with($singleApt->cover_img,'uploads'))
-                <div class="img-div rounded-sm-top-4">
-                    <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
-                </div>                    
-                @else
-                <div class="img-div">
-                    <img class="" src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+            <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex flex-wrap">
+                <div class="col-12 col-md-4 col-lg-3 d-block d-sm-none d-md-block">
+                    @if(str_starts_with($singleApt->cover_img,'uploads'))
+                        <div class="img-div rounded-sm-top-4">
+                            <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                        </div>                    
+                    @else
+                        <div class="img-div">
+                            <img class="" src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
+                        </div>
+                    @endif
                 </div>
-                @endif
-                </div>
-                <div class="col-12 col-sm-8 col-md pt-3 px-3 px-md-5 infos-apt">
+                <div class="col-12 col-sm-8 col-md col-lg pt-3 px-3 px-md-5 infos-apt">
                     <h3 class="d-none d-sm-block">
                         Info
                     </h3>
@@ -47,9 +47,8 @@
                             <span class="span-info-apt">Prezzo: </span>{{ $singleApt->price }} &euro;
                         </li>
                     </ul>
-                    
                 </div>
-                <div class="col-12 col-sm-4 col-md-3 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block">
+                <div class="col-12 col-sm-4 col-md-3 col-lg-3 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block d-md-inline">
                     <h3>
                         Azioni
                     </h3>
