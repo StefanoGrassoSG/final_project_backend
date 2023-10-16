@@ -5,8 +5,16 @@
 @section('main-content')
     <div class="row mt-5">
         <div class="col-4 mt-5">
-            <form id="payment-form" action="{{ route('admin.payment') }}" method="post">
+            <form id="payment-form" action="{{ route('admin.payment', ['apartment' => $apartment->id]) }}" method="post">
                 @csrf
+                @foreach ($sponsorships as $singleSponsor)
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="radio" name="sponsor" value="{{ $singleSponsor->id }}" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            PREZZO:{{ $singleSponsor->price }} DURATA:{{ $singleSponsor->time }} 
+                        </label>
+                    </div>
+                 @endforeach
                 <div id="dropin-container"></div>
                 <input type="submit" id="submit-button" class="button button--small button--green">
                 <input type="hidden" id="nonce" name="payment_method_nonce" />

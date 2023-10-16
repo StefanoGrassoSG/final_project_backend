@@ -30,8 +30,8 @@ Route::prefix('admin')
         
         Route::resource('apartment', ApartmentController::class);
         Route::resource('sponsorship', SponsorshipController::class);
-        Route::any('/token', [OrderController::class, 'generate']);
-        Route::post('/payment', [OrderController::class, 'makePayment'])->name('payment');
+        Route::any('/token/{token}', [OrderController::class, 'generate'])->name('token');
+        Route::post('/payment/{apartment}', [OrderController::class, 'makePayment'])->name('payment');
         Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('message', MessageController::class)->only([
