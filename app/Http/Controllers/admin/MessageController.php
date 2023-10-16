@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateMessageRequest;
 use App\Models\Apartment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
@@ -28,7 +29,22 @@ class MessageController extends Controller
             }
         };
 
-        return view('admin.apartment.message', compact('messages'));
+        return view('admin.apartment.message', compact('messages', 'apartments'));
+    }
+
+    public function single(Request $request)   
+
+    {   
+        
+        $user = Auth::user();
+        $userId = Auth::id();
+        $form_data = $request->validate(['apt_message' => 'required']);
+        $apartments = Apartment::where('user_id', $user['id'])->get();
+        $apt = Apartment::where('id', $form_data['apt_message'])->first();
+        $mess = Message::where('apartment_id', $form_data['apt_message'])->get();
+      
+
+        return view('admin.apartment.single', compact('mess', 'apartments', 'apt'));
     }
 
     /**
