@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 // facades
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminController extends Controller
@@ -25,9 +26,21 @@ class AdminController extends Controller
         $user = Auth::user();
         $userId = Auth::id();
         $apartments = Apartment::where('user_id', $user['id'])->count();
+       
+     
+       $mess = Message::join('apartments','messages.apartment_id','=','apartments.id')
+          ->join('users','apartments.user_id','=','users.id')
+          ->where('user_id', $userId)
+          ->count();
+     
+        $sponsor = DB::table('apartment_sponsorship')
+            ->join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
+            ->join('users','apartments.user_id','=','users.id')
+            ->where('user_id', $userId)
+            ->distinct('apartment_id')
+            ->count();
+
         
-
-
-        return view('admin.dashboard', 'apartments');
+        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor'));
      }
 }

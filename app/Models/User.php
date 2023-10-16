@@ -52,7 +52,7 @@ class User extends Authenticatable
 
      public function apartment() {
 
-        return $this->belongto(Apartment::class);
+        return $this->hasMany(Apartment::class);
     }
 }
 

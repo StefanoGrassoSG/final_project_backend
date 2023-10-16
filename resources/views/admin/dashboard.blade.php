@@ -19,7 +19,7 @@
                             Hai
                         </div>
                         <div class="count-number-card">
-                            58
+                           {{ $mess }}
                         </div>
                         <div class="count-text-two">
                             Messaggi
@@ -31,7 +31,7 @@
                         Hai
                     </div>
                     <div class="count-number-card">
-                        15
+                        {{ $apartments }}
                     </div>
                     <div class="count-text-two">
                         Appartamenti
@@ -54,10 +54,10 @@
                             Hai
                         </div>
                         <div class="count-number-card">
-                            25
+                           {{ $sponsor }}
                         </div>
                         <div class="count-text-two">
-                            Sponsorizzazioni
+                            Bool Sponsor
                         </div>
                     </a>
                 </div>

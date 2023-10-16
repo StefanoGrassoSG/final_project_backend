@@ -47,6 +47,7 @@ class OrderController extends Controller
            //dd($apartment->id, $result);
             return redirect()->route('admin.apartment.show', compact('apartment', 'result'));
         }
+        //DA RICOONTROLLARE QUESTO ELSE CHE DA FALSE A CASO
         else {
             $data = [
                 'success' => false,
