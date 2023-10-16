@@ -21,7 +21,13 @@
     <body>     
         <main>
             <div class="main-section d-flex">
+                <div>
+                    <img src="{{ Vite::asset('resources/img/big_logo_meglio.png') }}" alt="" class="img-back">
+                </div>
                 <aside class="vh-100">
+                    <div>
+                        <img src="{{ Vite::asset('resources/img/astro_blu.png') }}" alt="" class="astro-img">
+                    </div> 
                     <div class="text-center py-5 fs-4 logo-aside">
                         <a href="{{ route('admin.dashboard') }}">
                             <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="img-fluid">
@@ -56,14 +62,14 @@
                                     <img src="{{ Vite::asset('resources/img/logo_messaggi.png') }}" alt="" class="img-fluid icon-messages-aside">
                                 </a>                             
                             </li>
-                            <li> 
+                            {{-- <li> 
                                 <a class="" href="{{ route('admin.dashboard') }}">
                                     <p class="stats-asidetext">
                                         Statistiche
                                     </p>
                                     <img src="{{ Vite::asset('resources/img/icon_stat.png') }}" alt="" class="img-fluid icon-stats-aside">
                                 </a>    
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </aside>

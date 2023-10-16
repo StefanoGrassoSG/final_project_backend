@@ -99,29 +99,30 @@
                   <input type="file" class="form-control" accept="image/*" id="extra_imgs" name="extra_imgs[]" aria-describedby="emailHelp" multiple>
 
                 </div>
-				{{-- CAMPO PER LE IMMAGINI EXTRA --}}
-            <div class="my-4">
-              @if ($extra_images)
-                Img extra:
-                <div class="row my-4">
-                   @foreach ($extra_images as $item)
-                    <div class="col-auto">
-                    <div class="card">
-                      {{-- input per elimiare le immagini in PIU --}}
-                      <label for="delete_img_{{$item->id}}">Elimina</label>
-                      <input type="checkbox" name="delete_imgs[{{$item->id}}]" id="delete_img_{{$item->id}}">
-                        <div class="img-fluid">
-                          @if($item->path)
-                            <img src="/storage/{{ $item->path }}" alt="" class="object-fit-contain">
-                          @elseif($item->src) 
-                            <img src="{{ $item->path }}" alt="" class="object-fit-contain">
-                          @endif
-                    </div> 
-                  </div>
+				          {{-- CAMPO PER LE IMMAGINI EXTRA --}}
+                <div class="my-4">
+					
+                  @if ($extra_images)
+                    Img extra:
+                    <div class="row my-4">
+                    @foreach ($extra_images as $item)
+                      <div class="col-auto">
+                        <div class="card">
+                          {{-- input per elimiare le immagini in PIU --}}
+                          <label for="delete_img_{{$item->id}}">Elimina</label>
+                          <input type="checkbox" name="delete_imgs[{{$item->id}}]" id="delete_img_{{$item->id}}">
+                            <div class="img-fluid">
+                              @if($item->path)
+                                <img src="/storage/{{ $item->path }}" alt="" class="object-fit-contain">
+                              @elseif($item->src) 
+                                <img src="{{ $item->path }}" alt="" class="object-fit-contain">
+                              @endif
+                            </div>
+                        </div>
+                      </div>
+                    @endforeach
+                  @endif
                 </div>
-                @endforeach
-              @endif
-            </div>
                 <button type="submit" class="btn btn-primary">Aggiorna</button>
             </form>
         </div>

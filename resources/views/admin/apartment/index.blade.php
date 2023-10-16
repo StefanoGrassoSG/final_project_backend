@@ -59,7 +59,7 @@
                         <a href="{{ route('admin.apartment.show', ['apartment' => $singleApt->id]) }}" class="btn btn-create-card">Visualizza</a>
                     </div>
                     <div class="my-2">
-                        <a href="{{ route('admin.token', ['token' => $singleApt->id]) }}" class="btn btn-create-card">sponsorizza</a>
+                        <a href="{{ route('admin.token', ['token' => $singleApt->id]) }}" class="btn btn-create-card">Sponsorizza</a>
                     </div>
                         
                     <form action="{{route('admin.apartment.destroy',['apartment'=>$singleApt->id])}}" method="POST" class="my-1 pb-3 d-flex justify-content-center d-sm-block">
