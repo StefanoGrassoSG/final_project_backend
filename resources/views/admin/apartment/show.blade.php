@@ -5,11 +5,13 @@
 @section('main-content')
     <div class="row my-row ">
         @if(count($apartment->sponsorships) > 0)
-            @if($apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date >= $todayDate) 
-            <h1>
-                YOU HAVE A SPONSOR
-            </h1>
-            @endif
+           @php $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
+                $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
+                dd($apartment->sponsorships[count($apartment->sponsorships) - 1])
+           @endphp
+           @if($lastSponsor >= $todayDate)
+                la tua sponsor finisce {{ $lastSponsor }}
+           @endif
         @endif
         <div class="col">
             <div class="title-create d-flex align-items-center">

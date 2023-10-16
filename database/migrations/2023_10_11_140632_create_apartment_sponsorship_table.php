@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->dateTimeTz('start_date');
             $table->dateTimeTz('end_date');
-            $table->timestamps();
+            $table->timestamps(0);
 
 
             $table->unsignedBigInteger('sponsorship_id')->nullable();
