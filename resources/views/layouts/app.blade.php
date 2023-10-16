@@ -22,7 +22,7 @@
         <main>
             <div class="main-section d-flex">
                 <div>
-                    <img src="{{ Vite::asset('resources/img/big_logo_meglio.png') }}" alt="" class="img-back">
+                    <img src="{{ Vite::asset('resources/img/big_logo_meglio.png') }}" alt="" class="img-back d-none d-lg-block">
                 </div>
                 <aside class="vh-100">
                     <div>
