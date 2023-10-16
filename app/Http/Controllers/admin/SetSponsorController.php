@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateSponsorshipRequest;
 use App\Models\Apartment;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\admin\OrderController;
 
 use Illuminate\Http\Request;
 
@@ -15,10 +17,10 @@ class SetSponsorController extends Controller
 {
     public function test(Request $request, string $id)
     {   
-      
         $formdata = $request->validate([
             'sponsor' => 'required'
         ]);
+
 
         $sponsor = Sponsorship::where('id', $formdata['sponsor'])->first();
         $apartment = Apartment::where('id', $id)->first();

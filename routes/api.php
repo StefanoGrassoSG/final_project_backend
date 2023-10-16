@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+   // Route::post('/makePayment', [OrderController::class, 'makePayment']);
+   
 });
+
+//Route::any('/payment', [OrderController::class, 'makePayment'])->name('payment');
