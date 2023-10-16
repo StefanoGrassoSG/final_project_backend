@@ -7,7 +7,6 @@
         @if(count($apartment->sponsorships) > 0)
            @php $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
                 $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
-                dd($apartment->sponsorships[count($apartment->sponsorships) - 1])
            @endphp
            @if($lastSponsor >= $todayDate)
                 la tua sponsor finisce {{ $lastSponsor }}

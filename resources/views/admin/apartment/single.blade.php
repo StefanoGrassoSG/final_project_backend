@@ -20,7 +20,11 @@
                 <label for="search">Filtra per appartamento</label>
                 <select id="search" name="apt_message">
                     @foreach ($apartments as $singleApt)
-                        <option value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
+                        <option
+                        @if($apt->id == $singleApt->id)
+                            selected="selected"
+                        @endif
+                        value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
                     @endforeach
                 </select>
                 <button type="submit">cerca</button>
@@ -28,7 +32,7 @@
        
 
 
-            @foreach ($messages as $singleMessage)
+            @foreach ($mess as $singleMessage)
                 <div class="card-message mb-3 p-3 border rounded-4">
                     <h3>    
                         {{ $singleMessage->name }}
