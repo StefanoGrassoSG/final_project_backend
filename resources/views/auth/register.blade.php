@@ -4,6 +4,16 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <!-- Name -->
         <div>
             <label for="name">
@@ -12,13 +22,30 @@
             <input type="text" id="name" name="name">
         </div>
 
-        <!-- Email Address -->
+        <div>
+            <label for="name">
+                Last name
+            </label>
+            <input type="text" id="name" name="last_name">
+        </div>
+
+
+        <!-- date -->
         <div class="mt-4">
             <label for="email">
+                Date of birth
+            </label>
+            <input type="date" id="email" name="date_of_birth">
+        </div>
+
+        <!-- email -->
+        <div class="mt-4">
+            <label for="password">
                 Email
             </label>
-            <input type="email" id="email" name="email">
+            <input type="password" id="password" name="email">
         </div>
+
 
         <!-- Password -->
         <div class="mt-4">
