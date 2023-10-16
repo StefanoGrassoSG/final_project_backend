@@ -266,10 +266,32 @@ main {
                         }
                     }
                 }
+
+                form {
+                    label:not(.check-services) {
+                        font-weight: bold;
+
+                    }
+
+                    label {
+                        color: #888A8C;
+                    }
+                }
+
+                .form-control {
+                    background-color: transparent !important;
+                }
             }
         }
     }
 }
+
+
+
+
+
+
+
 
 //MEDIA QUERY
 
@@ -359,10 +381,11 @@ main {
         border-end-start-radius: 10px;
         -webkit-box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
         box-shadow: 7px 0px 12px -2px rgba(0, 0, 0, 0.39);
-            img {
-                border-start-start-radius: 10px;
-                border-end-start-radius: 10px;
-            }
+
+        img {
+            border-start-start-radius: 10px;
+            border-end-start-radius: 10px;
+        }
     }
 
     main {
@@ -430,11 +453,11 @@ main {
     }
 
     .infos-apt {
-    text-align: center;
+        text-align: center;
 
-    #span-name-apt {
-        font-size: 1.7rem;
-    }
+        #span-name-apt {
+            font-size: 1.7rem;
+        }
     }
 
     .action-apt {
