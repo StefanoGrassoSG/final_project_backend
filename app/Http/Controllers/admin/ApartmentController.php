@@ -140,7 +140,12 @@ class ApartmentController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Apartment $apartment)
-    {
+    {   
+        if ($apartment->user_id !== Auth::id()) {
+           
+            return abort(403, 'Unauthorized');
+        }
+        
         $service = Service::all();
         $aptSrvices = [];
         foreach($apartment->services as $singleService){
