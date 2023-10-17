@@ -27,22 +27,22 @@
             <div class="d-flex align-items-center">
               <div class="mb-4 col-12 col-md-6">
                 <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" max="64" required>
               </div>
             </div>
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">Stanze</label>
-                  <input type="number" class="form-control" id="room" name="room" aria-describedby="emailHelp">
+                  <input type="number" class="form-control" id="room" name="room" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">N. letti</label>
-                  <input type="number" class="form-control" id="bed" name="bed" aria-describedby="emailHelp">
+                  <input type="number" class="form-control" id="bed" name="bed" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">N. bagni</label>
-                  <input type="number" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp">
+                  <input type="number" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="form-check me-2 mb-4 me-5 col-12 col-md-3">
                   <input class="form-check-input" type="checkbox" name="shared_bathroom" value="" id="flexCheckDefault">
@@ -55,22 +55,22 @@
             <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 col-12 col-md-3 me-5">
                   <label for="city" class="form-label">Città</label>
-                  <input type="text" class="form-control" id="city" name="city" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" id="city" name="city" aria-describedby="emailHelp" max="128" required>
                 </div>
                 <div class="mb-4 col-12 col-md-8">
                   <label for="address" class="form-label">Indirizzo</label>
-                  <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" max="128" required>
                 </div>
             </div>
             
             <div class="d-flex align-items-center flex-wrap">
               <div class="mb-4 col-12 col-md-3 me-5">
                   <label for="square_meter" class="form-label">Metratura</label>
-                  <input type="number" class="form-control" id="square_meter" name="square_meter" aria-describedby="emailHelp">
+                  <input type="number" class="form-control" id="square_meter" name="square_meter" aria-describedby="emailHelp" min="1" max="9999" required>
               </div>
               <div class="form-check mb-4">
-                  <input class="form-check-input" type="checkbox" name="visible" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <input class="form-check-input" type="checkbox" name="visible" value="" id="check-visible">
+                  <label class="form-check-label" for="check-visible">
                     Non visibile
                   </label>
               </div>
@@ -94,7 +94,7 @@
 
             <div class="mb-4 col-12 col-md-3">
               <label for="price" class="form-label">Prezzo</label>
-              <input type="number" step=".01" class="form-control" id="price" name="price" aria-describedby="emailHelp">
+              <input type="number" step=".01" class="form-control" id="price" name="price" aria-describedby="emailHelp" min="1" max="9999" required>
             </div>
 
             <div class="mb-4 col-12 col-md-10">
@@ -105,7 +105,7 @@
             <div class="d-flex flex-wrap align-items-center">
               <div class="col-12 col-md-5 mb-4">
                 <label for="cover_img" class="form-label">Immagine di copertina</label>
-                <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp">
+                <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999" required>
               </div>
               <div class="col-12 col-md-5 mx-0 mx-md-5 mb-4">                  
                 {{-- <label for="add_imgs"> add more images</label>
