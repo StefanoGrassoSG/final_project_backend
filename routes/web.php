@@ -34,7 +34,7 @@ Route::prefix('admin')
         Route::post('/payment/{apartment}', [OrderController::class, 'makePayment'])->name('payment');
         Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/singleApt', [MessageController::class, 'single'])->name('single');
+        Route::post('/singleApt', [MessageController::class, 'single'])->name('single');
         Route::resource('message', MessageController::class)->only([
             'index',
             'show',

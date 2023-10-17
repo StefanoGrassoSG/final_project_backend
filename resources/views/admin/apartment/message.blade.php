@@ -15,7 +15,7 @@
             </div>
 
                 
-            <form action="{{ route('admin.single') }}" method="get" class="form-messages mb-4">
+            <form action="{{ route('admin.single') }}" method="post" class="form-messages mb-4">
                 @csrf
                 <select id="search" name="apt_message" class="form-select border rounded-4 form-select-lg mb-3 d-inline">
                     @foreach ($apartments as $singleApt)
