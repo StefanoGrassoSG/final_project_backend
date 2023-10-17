@@ -15,9 +15,9 @@
             </div>
 
                 
-            <form action="{{ route('admin.single') }}" method="get" class="form-messages mb-4">
+            <form action="{{ route('admin.single') }}" method="get" class="form-messages mb-4 d-flex align-items-center">
                 @csrf
-                <select id="search" name="apt_message" class="form-select border rounded-4 form-select-lg mb-3 d-inline">
+                <select id="search" name="apt_message" class="form-select border rounded-4 form-select-md d-inline">
                     @foreach ($apartments as $singleApt)
                         <option value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
                     @endforeach
