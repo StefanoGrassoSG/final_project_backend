@@ -132,9 +132,11 @@
         }
         
         let tom = document.getElementById('tom');
-		tom.setAttribute('name','address');
         var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
         var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
-        tom.append(searchBoxHTML)
+		
+        tom.append(searchBoxHTML);
+		let x = document.getElementsByClassName("tt-search-box-input");
+		x[0].setAttribute("name", "address");
     </script>
 @endsection

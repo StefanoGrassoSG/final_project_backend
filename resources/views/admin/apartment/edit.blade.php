@@ -58,10 +58,18 @@
             <label for="city" class="form-label">Città</label>
             <input type="text" class="form-control" id="city" name="city" value="{{ old('city', $apartment->city) }}" aria-describedby="emailHelp">
           </div> --}}
-        <div class="mb-4 col-12 col-md-8">
+        {{-- <div class="mb-4 col-12 col-md-8">
           <label for="address" class="form-label">Indirizzo Completo (Esempio: Via Vittorio Veneto 1, Roma) <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $apartment->address) }}" aria-describedby="emailHelp" required>
-        </div>
+        </div> --}}
+
+        {{-- tomtom input --}}
+        <div class="d-flex flex-wrap align-items-center">
+			<div id="tom" class="mb-4 col-12 col-md-3 me-5">
+			  <label for="tom" class="form-label">Inserisci Indirizzo <span class="text-danger">*</span></label>
+			  {{-- input di tom tom --}}
+			</div>
+		</div>
 
         <div class="d-flex align-items-center flex-wrap">
           <div class="mb-4 col-12 col-md-3 me-5">
@@ -152,4 +160,27 @@
       </form>
     </div>
   </div>
+
+  <script>
+	var options = {
+	  searchOptions: {
+		key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
+		language: "en-GB",
+		limit: 5,
+	  },
+	  autocompleteOptions: {
+		key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
+		language: "en-GB",
+	  },
+	}
+	
+	let tom = document.getElementById('tom');
+	var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+	var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+	
+	tom.append(searchBoxHTML);
+	let x = document.getElementsByClassName("tt-search-box-input");
+	x[0].setAttribute("name", "address");
+	x[0].setAttribute("value", "{{ old('address', $apartment->address) }}");
+</script>
 @endsection

@@ -13,11 +13,16 @@
                     la tua sponsor finisce {{ $lastSponsor }}
                @endif
             @endif
-            <div class="title-main d-flex align-items-center ps-0">
-                <h1>
-                  Il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
-                </h1>
-                <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="logo-add-create d-none d-sm-block">
+            <div class="d-flex justify-content-between">
+                <div class="title-main d-flex align-items-center ps-0">
+                    <h1>
+                      Il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
+                    </h1>
+                    <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="logo-add-create d-none d-sm-block">
+                </div>
+                <div class="my-2">
+                    <a href="{{ route('admin.apartment.edit', ['apartment' => $apartment->id]) }}" class="btn btn-create-card">Modifica</a>
+                </div>
             </div>
             <div class="col-6 ps-0 pe-0">
                 <div class="img-fluid">
@@ -32,6 +37,12 @@
                 <h2 class="h2-show">
                     {{ $apartment->name }}
                 </h2>
+                <span>
+                    indirizzo:
+                </span>
+                <h4>
+                    <span>{{ $apartment->address }}
+                </h4>
                 <div class="rounded-line"></div>
                 <div class="info-single-ap">
                     <ul>
