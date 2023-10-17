@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\admin\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\ApartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
    
 });
 
-//Route::any('/payment', [OrderController::class, 'makePayment'])->name('payment');
+Route::get('apartment', [ApartmentController::class, 'index']);
