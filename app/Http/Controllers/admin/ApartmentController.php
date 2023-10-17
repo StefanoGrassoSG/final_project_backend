@@ -53,7 +53,7 @@ class ApartmentController extends Controller
         $userId = Auth::id();
         $formData = $request->validated();
 
-        $response = Http::withoutVerifying()->get('https://api.tomtom.com/search/2/geocode/'.$formData['address'].','.$formData['city'].'.json?&key='.env('API_KEY'));
+        $response = Http::withoutVerifying()->get('https://api.tomtom.com/search/2/geocode/'.$formData['address'].'.json?&key='.env('API_KEY'));
 
             // Gestisci la risposta qui
             $data = $response->json();
@@ -89,7 +89,7 @@ class ApartmentController extends Controller
            'bathroom' => $formData['bathroom'],
            'bed' => $formData['bed'],
            'shared_bathroom' => $formData['shared_bathroom'],
-           'address' => $formData['address']. ', ' . $formData['city'],
+           'address' => $formData['address'],
            'visible' => $formData['visible'],
            'lat' => $lat,
            'lon' => $lon,
