@@ -29,15 +29,18 @@ class RegisteredUserController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request): RedirectResponse
-    {
+    {   
+        $startDate = now();
+        $minAge = date('Y-m-d H:i',strtotime('-18 years',strtotime($startDate)));
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'date_of_birth' => ['required', 'date'],
+            'date_of_birth' => ['required', 'date', 'before:'.$minAge],
         ]);
 
+     
         $user = User::create([
             'name' => $request->name,
             'last_name' => $request->last_name,
