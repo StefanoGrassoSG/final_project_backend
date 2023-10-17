@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../../node_modules/rfs/scss.scss";
 @import "../scss/partials/login-page.scss";
+@import "../scss/partials/sponsorship.scss";
 
 * {
     font-family: 'Nunito', sans-serif;
@@ -50,41 +51,6 @@ label {
         line-height: middle;
     }
 }
-
-.form-sponsor {
-
-    .title-form-sponsor {
-        color: #3461AB;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .span-info-sponsor {
-        color: #888A8C;
-        font-weight: 800;
-    }
-
-    .btn-sponsor {
-        border: none;
-        cursor: pointer;
-    }
-
-    .form-check-input {
-        border-color: #00ABE8 !important;
-    }
-
-    .form-check-input:checked[type=radio] {
-        background-color: #3461AB !important;
-        border-color: #3461AB !important;
-    }
-
-    .checkbox-sponsor:hover {
-        cursor: pointer;
-    }
-
-
-}
-
 
 aside {
     background-color: #D2E6F8;
@@ -280,7 +246,7 @@ main {
                 }
 
                 form {
-                    label:not(.check-services) {
+                    label:not(.check-services, .form-check-label) {
                         font-weight: bold;
 
                     }
