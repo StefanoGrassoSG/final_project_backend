@@ -26,22 +26,22 @@
 
             <div class="d-flex align-items-center">
               <div class="mb-4 col-12 col-md-6">
-                <label for="exampleInputEmail1" class="form-label">Nome</label>
+                <label for="exampleInputEmail1" class="form-label">Nome <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" max="64" required>
               </div>
             </div>
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 me-5 col-12 col-md-3">
-                  <label for="exampleInputEmail1" class="form-label">Stanze</label>
+                  <label for="exampleInputEmail1" class="form-label">Stanze <span class="text-danger">*</span></label>
                   <input type="number" class="form-control" id="room" name="room" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
-                  <label for="exampleInputEmail1" class="form-label">N. letti</label>
+                  <label for="exampleInputEmail1" class="form-label">N. letti <span class="text-danger">*</span></label>
                   <input type="number" class="form-control" id="bed" name="bed" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
-                  <label for="exampleInputEmail1" class="form-label">N. bagni</label>
+                  <label for="exampleInputEmail1" class="form-label">N. bagni <span class="text-danger">*</span></label>
                   <input type="number" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="form-check me-2 mb-4 me-5 col-12 col-md-3">
@@ -54,18 +54,18 @@
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 col-12 col-md-3 me-5">
-                  <label for="city" class="form-label">Città</label>
+                  <label for="city" class="form-label">Città <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="city" name="city" aria-describedby="emailHelp" max="128" required>
                 </div>
                 <div class="mb-4 col-12 col-md-8">
-                  <label for="address" class="form-label">Indirizzo</label>
+                  <label for="address" class="form-label">Indirizzo <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" max="128" required>
                 </div>
             </div>
             
             <div class="d-flex align-items-center flex-wrap">
               <div class="mb-4 col-12 col-md-3 me-5">
-                  <label for="square_meter" class="form-label">Metratura</label>
+                  <label for="square_meter" class="form-label">Metratura <span class="text-danger">*</span></label>
                   <input type="number" class="form-control" id="square_meter" name="square_meter" aria-describedby="emailHelp" min="1" max="9999" required>
               </div>
               <div class="form-check mb-4">
@@ -93,7 +93,7 @@
             </div>
 
             <div class="mb-4 col-12 col-md-3">
-              <label for="price" class="form-label">Prezzo</label>
+              <label for="price" class="form-label">Prezzo <span class="text-danger">*</span></label>
               <input type="number" step=".01" class="form-control" id="price" name="price" aria-describedby="emailHelp" min="1" max="9999" required>
             </div>
 
@@ -104,7 +104,7 @@
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="col-12 col-md-5 mb-4">
-                <label for="cover_img" class="form-label">Immagine di copertina</label>
+                <label for="cover_img" class="form-label">Immagine di copertina <span class="text-danger">*</span></label>
                 <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999" required>
               </div>
               <div class="col-12 col-md-5 mx-0 mx-md-5 mb-4">                  
