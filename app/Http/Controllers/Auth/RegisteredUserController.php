@@ -31,14 +31,24 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {   
         $startDate = now();
-        $minAge = date('Y-m-d H:i',strtotime('-18 years',strtotime($startDate)));
+        $minAge = date('Y-m-d H:i',strtotime('-18 years',strtotime($startDate)));   
+
+        $customMessages = [
+            'required' => 'Il campo :attribute è obbligatorio.',
+            'max' => 'Il campo :attribute non può superare :max caratteri.',
+            'email' => 'Inserisci un indirizzo email valido.',
+            'unique' => 'Questo indirizzo email è già stato registrato.',
+            'confirmed' => 'La conferma della password non corrisponde.',
+            'before' => 'Devi avere almeno 18 anni per registrarti.',
+        ];
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'date_of_birth' => ['required', 'date', 'before:'.$minAge],
-        ]);
+        ], $customMessages);
 
      
         $user = User::create([

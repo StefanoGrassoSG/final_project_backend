@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedDecimal('price', $precision = 6, $scale = 2);
             $table->unsignedSmallInteger('square_meter');
             $table->text('description')->nullable();
-            $table->string('cover_img', 2048);
+            $table->string('cover_img', 2048)->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();
