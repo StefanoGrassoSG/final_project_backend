@@ -28,22 +28,22 @@
 
         <div class="d-flex align-items-center">
           <div class="mb-4 col-12 col-md-6">
-            <label for="exampleInputEmail1" class="form-label">Nome</label>
+            <label for="exampleInputEmail1" class="form-label">Nome <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $apartment->name) }}" aria-describedby="emailHelp" max="64" required>
           </div>
         </div>
 
         <div class="d-flex flex-wrap align-items-center">            
           <div class="mb-4 me-5 col-12 col-md-3">
-            <label for="exampleInputEmail1" class="form-label">Stanze</label>
+            <label for="exampleInputEmail1" class="form-label">Stanze <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="room" name="room" value="{{ old('room', $apartment->room) }}" aria-describedby="emailHelp" min="1" max="100" required>
           </div>
           <div class="mb-4 me-5 col-12 col-md-3">
-            <label for="exampleInputEmail1" class="form-label">N. letti</label>
+            <label for="exampleInputEmail1" class="form-label">N. letti <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="bed" name="bed" value="{{ old('bed', $apartment->bed) }}" aria-describedby="emailHelp" min="1" max="100" required>
           </div>
           <div class="mb-4 me-5 col-12 col-md-3">
-            <label for="exampleInputEmail1" class="form-label">N. bagni</label>
+            <label for="exampleInputEmail1" class="form-label">N. bagni <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="bathroom" name="bathroom" value="{{ old('room', $apartment->bathroom) }}" aria-describedby="emailHelp" min="1" max="100" required>
           </div>            
           <div class="form-check mb-4 me-5 col-12 col-md-3">
@@ -59,13 +59,13 @@
             <input type="text" class="form-control" id="city" name="city" value="{{ old('city', $apartment->city) }}" aria-describedby="emailHelp">
           </div> --}}
         <div class="mb-4 col-12 col-md-8">
-          <label for="address" class="form-label">Indirizzo Completo (Esempio: Via Vittorio Veneto 1, Roma) </label>
-          <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $apartment->address) }}" aria-describedby="emailHelp">
+          <label for="address" class="form-label">Indirizzo Completo (Esempio: Via Vittorio Veneto 1, Roma) <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $apartment->address) }}" aria-describedby="emailHelp" required>
         </div>
 
         <div class="d-flex align-items-center flex-wrap">
           <div class="mb-4 col-12 col-md-3 me-5">
-            <label for="square_meter" class="form-label">Metratura</label>
+            <label for="square_meter" class="form-label">Metratura <span class="text-danger">*</span></label>
             <input type="number" class="form-control" id="square_meter" name="square_meter" value="{{ old('square_meter', $apartment->square_meter) }}" aria-describedby="emailHelp" min="1" max="9999" required>
           </div>
           <div class="form-check mb-4">
@@ -100,7 +100,7 @@
         
         <div class="mb-4 col-12 col-md-3">
           <div class="mb-4">
-            <label for="price" class="form-label">Prezzo</label>
+            <label for="price" class="form-label">Prezzo <span class="text-danger">*</span></label>
             <input type="number" step=".01" class="form-control" id="price" name="price" value="{{ old('price', $apartment->price) }}" aria-describedby="emailHelp" min="1" max="9999" required>
           </div>
         </div>
@@ -112,7 +112,7 @@
         
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-12 col-md-5 mb-4">
-            <label for="cover_img" class="form-label">Cambia Immagine</label>
+            <label for="cover_img" class="form-label">Immagine di copertina <span class="text-danger">*</span></label>
             <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999" required>
           </div>
 
@@ -130,7 +130,7 @@
             <label class="form-label">Immagini extra</label>
             <div class="img-extra d-flex my-3 flex-wrap">
               @foreach ($extra_images as $item)
-                <div class="col-12 col-md mb-2">
+                <div class="col-12 col-md-4 mb-3">
                   <div class="me-4">
                     {{-- input per elimiare le immagini in PIU --}}
                     <label for="delete_img_{{$item->id}}">Elimina</label>
