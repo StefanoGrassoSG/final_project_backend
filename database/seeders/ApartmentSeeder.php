@@ -63,17 +63,16 @@ class ApartmentSeeder extends Seeder
         $sponsor = Sponsorship::all();
         foreach ($apt as $singleapt){
             $randServ = $serv->random(rand(1, 3))->pluck('id')->toArray();
-            $singleapt->services()->attach($randServ);
-            
             $randspons = $sponsor->random(rand(1, 3))->pluck('id')->toArray();
-            $singleapt->services()->attach($randspons);
+            
 
 
             //$startDate = now();  // Sostituisci con la tua data di inizio desiderata
            // $endDate = now()->addDays(1);  // Sostituisci con la tua data di fine desiderata
         
             //$singleapt->sponsorships()->attach($randspons, ['start_date' => $startDate, 'end_date' => $endDate]);
-            $singleapt->services()->attach($randServ);
+            $singleapt->services()->sync($randspons);
+            $singleapt->services()->sync($randServ);
         }
 
 }}

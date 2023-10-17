@@ -113,7 +113,7 @@
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-12 col-md-5 mb-4">
             <label for="cover_img" class="form-label">Immagine di copertina <span class="text-danger">*</span></label>
-            <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999" required>
+            <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999">
           </div>
 
           <div class="col-12 col-md-5 mx-0 mx-md-5 mb-4">
