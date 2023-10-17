@@ -74,7 +74,7 @@
                                 </div>
 
                                 <div>
-                                    <a href="{{ route('register') }}">
+                                    <a class="link-not-registered" href="{{ route('register') }}">
                                         {{ __('Non sei registrato? clicca qui!') }}
                                     </a>
                                 </div>
