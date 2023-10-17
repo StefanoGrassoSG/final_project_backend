@@ -32,7 +32,6 @@ Route::prefix('admin')
         Route::resource('sponsorship', SponsorshipController::class);
         Route::any('/token/{token}', [OrderController::class, 'generate'])->name('token');
         Route::post('/payment/{apartment}', [OrderController::class, 'makePayment'])->name('payment');
-        Route::post('test/{test}',[SetSponsorController::class,'test'])->name('test');
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
         Route::post('/singleApt', [MessageController::class, 'single'])->name('single');
         Route::resource('message', MessageController::class)->only([

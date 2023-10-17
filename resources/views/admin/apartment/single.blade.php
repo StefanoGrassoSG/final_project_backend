@@ -14,22 +14,22 @@
                 <img src="{{ Vite::asset('resources/img/logo_messaggi.png') }}" alt="" class="logo-add-create d-none d-sm-block">
             </div>
 
-                
-            <form action="{{ route('admin.single') }}" method="post" class="ms-5 mb-3">
-                @csrf
-                <label for="search">Filtra per appartamento</label>
-                <select id="search" name="apt_message">
-                    @foreach ($apartments as $singleApt)
-                        <option
-                        @if($apt->id == $singleApt->id)
-                            selected="selected"
-                        @endif
-                        value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
-                    @endforeach
-                </select>
-                <button type="submit">cerca</button>
-            </form>
-       
+            @if($mess) 
+                <form action="{{ route('admin.single') }}" method="post" class="ms-5 mb-3">
+                    @csrf
+                    <label for="search">Filtra per appartamento</label>
+                    <select id="search" name="apt_message">
+                        @foreach ($apartments as $singleApt)
+                            <option
+                            @if($apt->id == $singleApt->id)
+                                selected="selected"
+                            @endif
+                            value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit">cerca</button>
+                </form>
+            @endif
        
             @if(count($mess) > 0)   
                 @foreach ($mess as $singleMessage)

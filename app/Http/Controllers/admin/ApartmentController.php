@@ -127,6 +127,11 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {   
+        if ($apartment->user_id !== Auth::id()) {
+           
+            return abort(403, 'Unauthorized');
+        }
+        
         $todayDate = now()->setTimezone('Europe/Rome');
         return view('admin.apartment.show', compact('apartment', 'todayDate'));
     }
