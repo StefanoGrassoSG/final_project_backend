@@ -9,6 +9,8 @@
                 $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
            @endphp
            @if($lastSponsor >= $todayDate)
+            {{-- CONDIZIONE SE HAI SPONSOR ATTIVO --}}
+
                 la tua sponsor finisce {{ $lastSponsor }}
            @endif
         @endif
