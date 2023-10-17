@@ -86,7 +86,7 @@
                 @foreach ($service as $singleService)
                 <div class="check-box-services">
                   <label for="service-{{$singleService->id}}" class="check-services">{{$singleService->name}}</label>
-                  <input class="me-4 mb-4 check-box-services-input" type="checkbox" name="service[]" id="service-{{$singleService->id}}" value="{{$singleService->id}}">
+                  <input class="me-4 mb-2 check-box-services-input" type="checkbox" name="service[]" id="service-{{$singleService->id}}" value="{{$singleService->id}}">
                 </div>  
                 @endforeach
               </div>
