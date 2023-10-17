@@ -53,9 +53,9 @@
             </div>
             
             <div class="d-flex flex-wrap align-items-center">
-              <div id="tom" class="mb-4 col-12 col-md-3 me-5">
-				<label for="tom" class="form-label">Inserisci Indirizzo <span class="text-danger">*</span></label>
-				{{-- input di tom tom --}}
+              <div id="tom" class="mb-4 col-12 col-md-3 me-5 w-100">
+				          <label for="tom" class="form-label">Inserisci Indirizzo <span class="text-danger">*</span></label>
+				          {{-- input di tom tom --}}
               </div>
             </div>
             
