@@ -43,7 +43,7 @@
             <label for="password">
                 Email
             </label>
-            <input type="password" id="password" name="email">
+            <input type="email" id="password" name="email">
         </div>
 
 

@@ -193,7 +193,7 @@ class ApartmentController extends Controller
            'bathroom' => $formData['bathroom'],
            'bed' => $formData['bed'],
            'shared_bathroom' => $formData['shared_bathroom'],
-           'address' => $formData['address']. ', ' . $formData['city'],
+           'address' => $formData['address'],
            'visible' => $formData['visible'],
            'name' => $formData['name'],
            'price' => $formData['price'],
@@ -226,10 +226,15 @@ class ApartmentController extends Controller
         $extra_images = Image::where('apartment_id',$apartment->id)->get();
         if($extra_images){
            foreach($extra_images as $img){
-            Storage::delete($img->path);
+            if($img->path != null){
+                Storage::delete($img->path);
+             }
            };
         };
-        Storage::delete($apartment->cover_img);
+        if(!str_starts_with($apartment->cover_img,'uploads')){
+           Storage::delete($apartment->cover_img); 
+        }
+        
         $apartment->delete();
         return redirect()->route('admin.apartment.index');
     }

@@ -179,6 +179,7 @@ main {
     .main-section {
         height: 100%;
         position: relative;
+        overflow-y: hidden;
 
         .main-container {
             width: calc(100% - 20vw);

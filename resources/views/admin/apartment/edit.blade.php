@@ -52,13 +52,13 @@
               </div>            
             </div>
 
-            <div class="d-flex flex-wrap align-items-center">
+            {{-- <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 col-12 col-md-3 me-5">
                 <label for="city" class="form-label">Città</label>
                 <input type="text" class="form-control" id="city" name="city" value="{{ old('city', $apartment->city) }}" aria-describedby="emailHelp">
-              </div>
+              </div> --}}
               <div class="mb-4 col-12 col-md-8">
-                <label for="address" class="form-label">Indirizzo</label>
+                <label for="address" class="form-label">Indirizzo Completo</label>
                 <input type="text" class="form-control" id="address" name="address" value="{{ old('address', $apartment->address) }}" aria-describedby="emailHelp">
               </div>
             </div>
