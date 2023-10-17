@@ -51,16 +51,11 @@
                   </label>
                 </div>
             </div>
-
+            
             <div class="d-flex flex-wrap align-items-center">
-              <div class="mb-4 col-12 col-md-3 me-5">
-                  <label for="city" class="form-label">Città <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="city" name="city" aria-describedby="emailHelp" max="128" required>
-                </div>
-                <div class="mb-4 col-12 col-md-8">
-                  <label for="address" class="form-label">Indirizzo <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="address" name="address" aria-describedby="emailHelp" max="128" required>
-                </div>
+              <div id="tom" class="mb-4 col-12 col-md-3 me-5">
+
+              </div>
             </div>
             
             <div class="d-flex align-items-center flex-wrap">
@@ -121,4 +116,23 @@
           </form>
         </div>
     </div>
+
+    <script>
+        var options = {
+          searchOptions: {
+            key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
+            language: "en-GB",
+            limit: 5,
+          },
+          autocompleteOptions: {
+            key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
+            language: "en-GB",
+          },
+        }
+        
+        let tom = document.getElementById('tom');
+        var ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+        var searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+        tom.append(searchBoxHTML)
+    </script>
 @endsection
