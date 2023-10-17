@@ -15,10 +15,9 @@
             </div>
 
             @if($mess) 
-                <form action="{{ route('admin.single') }}" method="post" class="ms-5 mb-3">
+                <form action="{{ route('admin.single') }}" method="post" class="form-messages mb-4">
                     @csrf
-                    <label for="search">Filtra per appartamento</label>
-                    <select id="search" name="apt_message">
+                    <select id="search" name="apt_message" class="form-select border rounded-4 form-select-lg mb-3 d-inline">
                         @foreach ($apartments as $singleApt)
                             <option
                             @if($apt->id == $singleApt->id)
@@ -27,7 +26,7 @@
                             value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
                         @endforeach
                     </select>
-                    <button type="submit">cerca</button>
+                    <button class="btn btn-form-messages mx-3" type="submit">Filtra</button>
                 </form>
             @endif
        
