@@ -48,4 +48,20 @@ class ApartmentController extends Controller
     public function show() {
 
     }
+
+    public function searchApartment(Request $request) {
+
+        $data = $request->validate([
+            'data' => 'required'
+        ]);
+
+        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')->paginate();
+
+        return response()->json([
+                'success'=>true,
+                'message'=> $data,
+                'results' =>  $filterApt
+            ],200);
+    
+    }
 }
