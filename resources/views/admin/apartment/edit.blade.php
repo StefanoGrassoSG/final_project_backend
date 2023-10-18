@@ -143,11 +143,11 @@
                     {{-- input per elimiare le immagini in PIU --}}
                     <label for="delete_img_{{$item->id}}">Elimina</label>
                     <input type="checkbox" name="delete_imgs[{{$item->id}}]" id="delete_img_{{$item->id}}">
-                      <div class="img-fluid border rounded-4">
+                      <div class="img-fluid object-fit-cover">
                         @if($item->path)
-                          <img src="/storage/{{ $item->path }}" alt="" class="object-fit-contain border rounded-4">
+                          <img src="/storage/{{ $item->path }}" alt="" class=" border rounded-4">
                         @elseif($item->src) 
-                          <img src="{{ $item->src }}" alt="" class="object-fit-contain border rounded-4">
+                          <img src="{{ $item->src }}" alt="" class="border rounded-4">
                         @endif
                       </div>
                   </div>
