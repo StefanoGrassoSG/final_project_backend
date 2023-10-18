@@ -32,7 +32,11 @@
                         @if(str_starts_with($singleApt->cover_img,'uploads'))
                             <div class="img-div rounded-sm-top-4">
                                 <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
-                            </div>                    
+                            </div>
+                        @elseif ($singleApt->cover_img == null)
+                            <div class="img-div">
+                                <img src="{{ Vite::asset('resources/img/icon_img.png') }}" alt="" class="logo-add-index d-none d-sm-block">
+                            </div>
                         @else
                             <div class="img-div">
                                 <img class="" src="{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
