@@ -16,50 +16,53 @@
         @vite('resources/js/app.js')
     </head>
     <body>
-        
         <main>
             <div class="main-section d-flex">
-                
                 <div class="main-container-login">
-                    
                     <div class="main-main-login">
-
-                        <div class="title">
-
-                            <h2>
+                        <div class="title text-center">
+                            <h1>
                                 <span>b</span>-everywhere with <span>boolbnb</span>
-                            </h2>
-                            
+                            </h1>
                         </div>
-
+                        <div class="circle-1"></div>
+                        <div class="circle-2"></div>
+                        <div class="circle-3"></div>
+                        <div class="circle-4"></div>
+                        <div class="circle-5"></div>
+                        <div class="circle-6"></div>
                         <div class="card-login">
-
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-                        
-                                <!-- Email Address -->
-                                <div>
-                                    <label for="email">
-                                        Email
-                                    </label>
-                                    <input type="email" id="email" name="email">
+                                <div class="input-one">
+                                        <!-- Email Address -->
+                                    <div>
+                                        <label for="email">
+                                            Email:
+                                        </label>
+                                        <input type="email" id="email" name="email">
+                                    </div>
+                            
+                                    <!-- Password -->
+                                    <div class="mt-4">
+                                        <label for="password">
+                                            Password:
+                                        </label>
+                                        <input type="password" id="password" name="password">
+                                    </div>
                                 </div>
-                        
-                                <!-- Password -->
-                                <div class="mt-4">
-                                    <label for="password">
-                                        Password
-                                    </label>
-                                    <input type="password" id="password" name="password">
-                                </div>
-                        
+                                
                                 <!-- Remember Me -->
-                                <div class="block mt-4">
+                                <div class="block mt-2 input-two">
                                     <label for="remember_me">
-                                        <input id="remember_me" type="checkbox" name="remember">
+                                        <input id="remember_me" type="checkbox" name="remember" class="">
                                         <span>Remember me</span>
                                     </label>
                                 </div>
+
+                                <button type="submit" class="btn btn-secondary btn-login">
+                                    Log in
+                                </button>
                         
                                 <div class="flex items-center justify-end mt-4">
                                     @if (Route::has('password.request'))
@@ -67,10 +70,6 @@
                                             {{ __('Hai dimenticato la password?') }}
                                         </a>
                                     @endif
-                        
-                                    <button type="submit">
-                                        Log in
-                                    </button>
                                 </div>
 
                                 <div>
@@ -79,18 +78,10 @@
                                     </a>
                                 </div>
                             </form>
-
                         </div>
-
-                        
-                    
                     </div>
-                        
                 </div>
             </div>
         </main>
-        
-
-
     </body>
 </html>
