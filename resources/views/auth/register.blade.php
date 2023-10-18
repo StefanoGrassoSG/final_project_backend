@@ -32,6 +32,13 @@
                                     Compila per registrarti!
                                 </h2>
 
+                                <div class="circle-1"></div>
+                                <div class="circle-2"></div>
+                                <div class="circle-3"></div>
+                                <div class="circle-4"></div>
+                                <div class="circle-5"></div>
+                                <div class="circle-6"></div>
+
                                 @csrf
                         
                                 @if ($errors->any())
@@ -61,7 +68,7 @@
                         
                         
                                 <!-- date -->
-                                <div class="mt-4">
+                                <div id="date" class="mt-4">
                                     <label for="email">
                                         Data di nascita
                                     </label>
