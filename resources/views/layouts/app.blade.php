@@ -74,14 +74,14 @@
                                     <img src="{{ Vite::asset('resources/img/logo_messaggi.png') }}" alt="" class="img-fluid icon-messages-aside">
                                 </a>                             
                             </li>
-                            {{-- <li> 
+                            <li> 
                                 <a class="" href="{{ route('admin.dashboard') }}">
                                     <p class="stats-asidetext">
                                         Statistiche
                                     </p>
                                     <img src="{{ Vite::asset('resources/img/icon_stat.png') }}" alt="" class="img-fluid icon-stats-aside">
                                 </a>    
-                            </li> --}}
+                            </li>
                         </ul>
                     </div>
                 </aside>

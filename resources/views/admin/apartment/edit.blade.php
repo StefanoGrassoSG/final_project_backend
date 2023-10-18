@@ -114,13 +114,13 @@
         </div>
         
         <div class="mb-4 col-12 col-md-10">
-          <label for="description" class="form-label">Descrizione</label>
-          <input type="text" class="form-control" id="description" name="description" value="{{ old('description', $apartment->description) }}" aria-describedby="emailHelp">
+          <label for="description" class="form-label">Descrizione <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="description" name="description" value="{{ old('description', $apartment->description) }}" aria-describedby="emailHelp" required>
         </div>
         
         <div class="d-flex flex-wrap align-items-center">
           <div class="col-12 col-md-5 mb-4">
-            <label for="cover_img" class="form-label">Immagine di copertina <span class="text-danger">*</span></label>
+            <label for="cover_img" class="form-label">Immagine di copertina</label>
             <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999">
           </div>
 
