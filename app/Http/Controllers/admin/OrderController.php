@@ -24,9 +24,7 @@ class OrderController extends Controller
         $request->validate([
             'sponsor' => 'required'
         ]);
-        
         $sponsor = Sponsorship::where('id', $request['sponsor'])->first();
-       // dd($request);
         $result = $gateway->transaction()->sale([
             'amount' => $sponsor->price,
             'paymentMethodNonce' => $request->input('payment_method_nonce'),
@@ -34,8 +32,6 @@ class OrderController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-       // dd($result);
-        //dd($result);
         if($result->success){
             $data = [
                 'success' => true,
