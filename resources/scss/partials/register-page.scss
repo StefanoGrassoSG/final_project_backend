@@ -16,6 +16,7 @@ main {
                 width: 100vw;
                 display: flex;
                 justify-content: center;
+                align-items: center;
                 background-image: url(../img/img_login.jpg);
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -23,35 +24,43 @@ main {
                 
 
                 .card-register{
-                    margin-top: 250px;
-                    height: 540px;
-                    width: 520px;
+                    padding: 60px;
                     border-radius: 15px;
-                    background-color: #80c0ea79;
+                    background-color: #598ECA;
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
                     form{
                         color: #C4C3C4;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
 
                         h2{
                             margin-bottom: 30px;
                         }
                         
                         div{
-                            margin-bottom: 30px;
+                            margin-bottom: 10px;
 
                             label{
-
+                                display: block;
+                                font-weight: bold;
                             }
 
                             input{
                                 border-radius: 10px;
                                 border: none;
-                                margin-left: 8px;
+                                
                             }
                         }
+
+                        #date{
+                            margin-left: -48px;
+                        }
+
 
                         .register-button{
                             display: flex;
@@ -62,9 +71,16 @@ main {
                                 border-radius: 22px;
                                 border: none;
                                 padding: 7px 30px;
+                                margin-top: 15px;
                                 margin-left: 5px;
                                 margin-bottom: 10px;
-                                
+                                display: block;
+                                width: 100%;                 
+                                background-color: #00ABE8;  
+                            }
+
+                            button:hover{
+                                background-color: #3561AC;
                             }
 
                             a{
@@ -85,4 +101,150 @@ main {
             
         }
     }
+}
+
+
+ //ANIMAZIONE
+ .circle-1{
+    @keyframes scale {
+        0% {
+            transform: scale(0.5); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.5); 
+        }
+    }
+}
+.circle-2{
+    @keyframes scale {
+        0% {
+            transform: scale(0.4); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.4); 
+        }
+    }
+}
+.circle-3{
+    @keyframes scale {
+        0% {
+            transform: scale(0.5); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.5); 
+        }
+    }
+}
+.circle-4{
+    @keyframes scale {
+        0% {
+            transform: scale(0.5); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.5); 
+        }
+    }
+}
+.circle-5{
+    @keyframes scale {
+        0% {
+            transform: scale(0.4); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.4); 
+        }
+    }
+}
+.circle-6{
+    @keyframes scale {
+        0% {
+            transform: scale(0.4); 
+        }
+        50% {
+            transform: scale(0.1); 
+        }
+        100% {
+            transform: scale(0.4); 
+        }
+    }
+}
+
+.circle-1 {
+    width: 30px;
+    height: 30px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 4s infinite ease-in-out;
+    position: absolute;
+    top: 17px;
+    left: 240px;
+}
+.circle-2 {
+    width: 40px;
+    height: 40px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 5s infinite ease-in-out;
+    animation-delay: 1s;
+    position: absolute;
+    top: 10px;
+    left: 650px;
+}
+.circle-3 {
+    width: 20px;
+    height: 20px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 5s infinite ease-in-out;
+    animation-delay: 2s;
+    position: absolute;
+    top: 55px;
+    left: 523px;
+}
+.circle-4 {
+    width: 20px;
+    height: 20px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 5s infinite ease-in-out;
+    position: absolute;
+    top: 21px;
+    right: 70px;
+}
+.circle-5 {
+    width: 50px;
+    height: 50px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 5s infinite ease-in-out;
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 21px;
+    right: 200px;
+}
+.circle-6 {
+    width: 25px;
+    height: 25px;
+    background-color: #80BFEA;
+    border-radius: 50%;
+    animation: scale 5s infinite ease-in-out;
+    animation-delay: 0.5s;
+    position: absolute;
+    top: 21px;
+    right: 400px;
 }
