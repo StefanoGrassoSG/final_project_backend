@@ -3,35 +3,59 @@
     width: calc(100% - 60px);
     height: calc(100% - 10vh);
     margin: 30px;
-}
-.h2-show {
-    color: #3461AB;
-    font-weight: bold;
-}
 
-.rounded-line {
-    width: 100%;
-    height: 4px;
-    background-color: #888A8C;
-    border-radius: 10px;
-    margin-bottom: 9px;;
-}
-
-.info-single-ap {
-    ul{
-        padding: 0;
-        margin-bottom: 10px;
-        li {
-            list-style: none;
-            span {
-                color: #3461AB;
-                font-weight: bold;
+    .h2-show {
+        color: #3461AB;
+        font-weight: bold;
+    }
+    .h4-show {
+        color: #888A8C;
+        font-weight: bold;
+    }
+    
+    .rounded-line {
+        width: 100%;
+        height: 4px;
+        background-color:#15AAE3;
+        border-radius: 10px;
+        margin-bottom: 9px;;
+    }
+    
+    .info-single-ap {
+        ul{
+            padding: 0;
+            margin-bottom: 10px;
+            li {
+                list-style: none;
+                span {
+                    color: #3461AB;
+                    font-weight: bold;
+                }
             }
         }
     }
+    
+    .description-card {
+        font-weight: bold;
+        color: #3461AB;
+    }
+    
+    .info-sponsored {
+        margin-bottom: 10px;
+        background: rgb(210,230,248);
+        background: linear-gradient(90deg, rgba(210,230,248,1) 36%, rgba(255,255,255,1) 79%); 
+        border: none;
+        padding: 5px;
+        h5 {
+            font-weight: bold;
+            color:#3461AB;
+            display: inline;
+            margin-bottom: 0px;
+        }
+    }
+    
+    .info-services {
+        margin-left:10px;
+    }
 }
 
-.description-card {
-    font-weight: bold;
-    color: #3461AB;
-}

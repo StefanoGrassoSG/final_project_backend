@@ -5,26 +5,27 @@
 @section('main-content')
     <div class="container-show">
         <div class="row my-row justify-content-start">
-            @if(count($apartment->sponsorships) > 0)
-               @php $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
-                    $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
-               @endphp
-               @if($lastSponsor >= $todayDate)
-                    la tua sponsor finisce {{ $lastSponsor }}
-               @endif
-            @endif
-            <div class="d-flex justify-content-between">
-                <div class="title-main d-flex align-items-center ps-0">
+            <div class="d-flex justify-content-between ps-0">
+                <div class="title-main d-flex align-items-center">
                     <h1>
                       Il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
                     </h1>
                     <img src="{{ Vite::asset('resources/img/logo_ultimate.png') }}" alt="" class="logo-add-create d-none d-sm-block">
                 </div>
-                <div class="my-2">
-                    <a href="{{ route('admin.apartment.edit', ['apartment' => $apartment->id]) }}" class="btn btn-create-card">Modifica</a>
-                </div>
             </div>
-            <div class="col-6 ps-0 pe-0">
+            @if(count($apartment->sponsorships) > 0)
+                <div class="card rounded-4 info-sponsored p-3 d-flex justify-content-start mb-3">
+                    @php $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
+                            $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
+                    @endphp
+                    @if($lastSponsor >= $todayDate)
+                        <h5>
+                        la tua sponsor finisce: {{ $lastSponsor }}
+                        </h5>
+                    @endif
+                </div>
+            @endif 
+            <div class="col-sm-12 col-md-6 ps-0 pe-0">
                 <div class="img-fluid">
                     @if(str_starts_with($apartment->cover_img,'uploads'))
                         <img src="/storage/{{ $apartment->cover_img }}" alt="{{ $apartment->name }}" class="border rounded-4 w-100">
@@ -33,60 +34,82 @@
                     @endif
                 </div>
             </div>
-            <div class="col-6">
-                <h2 class="h2-show">
-                    {{ $apartment->name }}
-                </h2>
-                <span>
-                    indirizzo:
-                </span>
-                <h4>
-                    <span>{{ $apartment->address }}
+            <div class="col-sm-12 col-md-6 rounded-4">
+                <div class="d-flex align-items-center mb-2 name-ap">
+                    <h2 class="h2-show mb-0">
+                        {{ $apartment->name }}
+                    </h2>
+                </div>
+                <h4 class="h4-show name-address">
+                    {{ $apartment->address }}
                 </h4>
+                    <div class="d-flex align-items-center mb-2 btn-show">
+                        <div class="my-2">
+                            <a href="{{ route('admin.apartment.edit', [$apartment->id]) }}" class="btn btn-create-card">Modifica</a>
+                        </div>
+                        <div class="my-2 mx-2">
+                            <a href="{{ route('admin.token', [$apartment->id]) }}" class="btn btn-create-card">Sponsorizza</a>
+                        </div>
+                        <form action="{{route('admin.apartment.destroy',[$apartment->id])}}" method="POST" class="d-flex justify-content-center d-sm-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn d-block btn-create-card btn-create-card-out">
+                                    Elimina
+                            </button>
+                        </form>
+                    </div>
+
                 <div class="rounded-line"></div>
-                <div class="info-single-ap">
-                    <ul>
-                        <li>
-                            Ha <span>{{ $apartment->room }}</span> camere
-                        </li>
-                        <li>
-                            Ha <span>{{ $apartment->bed }}</span> letti
-                        </li>
-                        <li>
-                            Ha <span>{{ $apartment->bathroom }}</span> bagni
-                        </li>
-                        <li>
-                            @if ($apartment->shared_bathroom === true)
-                            Bagno condiviso: <span>si</span>
-                            @else
-                            Bagno condiviso: <span>no</span>
-                            @endif
-                        </li>
-                        <li>
-                            @if ($apartment->visible === true)
-                            App. visibile: <span>si</span>
-                            @else
-                            App. visibile: <span>no</span>
-                            @endif
-                        </li>
-                        <li>
-                            Il prezzo è: <span>{{ $apartment->price }} €</span>
-                        </li>
-                        <li>
-                            la metratura dell'app è: <span>{{ $apartment->square_meter }} mq.</span>
-                        </li>
-                    </ul>
-                    <h4 class="description-card">
-                        Servizi:
-                    </h4>
-                    <ul>
-                        @foreach ($apartment->services as $service)
-                        <li>{{ $service->name }}</li>
-                        @endforeach
-                    </ul>
+                <div class="info-single-ap d-flex info-details-query">
+                    <div class="info-details p-4">
+                        <h4 class="description-card">
+                            Info:
+                        </h4>
+                        <ul>
+                            <li>
+                                Ha <span>{{ $apartment->room }}</span> camere
+                            </li>
+                            <li>
+                                Ha <span>{{ $apartment->bed }}</span> letti
+                            </li>
+                            <li>
+                                Ha <span>{{ $apartment->bathroom }}</span> bagni
+                            </li>
+                            <li>
+                                @if ($apartment->shared_bathroom === true)
+                                Bagno condiviso: <span>si</span>
+                                @else
+                                Bagno condiviso: <span>no</span>
+                                @endif
+                            </li>
+                            <li>
+                                @if ($apartment->visible === true)
+                                App. visibile: <span>si</span>
+                                @else
+                                App. visibile: <span>no</span>
+                                @endif
+                            </li>
+                            <li>
+                                Il prezzo è: <span>{{ $apartment->price }} €</span>
+                            </li>
+                            <li>
+                                la metratura dell'app è: <span>{{ $apartment->square_meter }} mq.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-services p-4 rounded-4">
+                        <h4 class="description-card">
+                            Servizi:
+                        </h4>
+                        <ul>
+                            @foreach ($apartment->services as $service)
+                            <li>{{ $service->name }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-6 p-0">
+            <div class="col-sm-12 col-md-6 p-0">
                 <div class="p-4 border rounded-4 mt-3">
                     <h4 class="description-card">
                         Descrizione:

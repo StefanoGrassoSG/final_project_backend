@@ -187,4 +187,37 @@
             }
         }
     }
+    //PAG. SHOW
+    .container-show {
+        .info-sponsored {
+            margin-bottom: 10px;
+            background: rgb(210,230,248);
+            border: none;
+            padding: 5px;
+            text-align: center;
+        }
+    
+        .name-address, .name-ap, .info-services {
+            text-align: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    
+        .info-services {
+            text-align: center;
+            margin-left: 0px;
+        }
+    
+        .btn-show, .info-details-query{
+            flex-direction: column;
+        }
+        
+        .info-details {
+            text-align: center;
+        }
+    
+        .rounded-line {
+            margin-top: 25px;
+        }
+    }
 }
