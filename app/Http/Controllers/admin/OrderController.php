@@ -11,16 +11,18 @@ use App\Models\Apartment;
 
 class OrderController extends Controller
 {
-    public function generate(Request $request, Gateway $gateway, string $id) {
+    public function generate(Request $request, Gateway $gateway, string $id)
+    {
         $client = $gateway->clientToken()->generate();
-        
+
         $sponsorships = Sponsorship::all();
         $apartment = Apartment::where('id', $id)->first();
-      //  dd($sponsorships, $apartment);
-      return view('admin.apartment.payment', compact('client','sponsorships', 'apartment'));
+        //  dd($sponsorships, $apartment);
+        return view('admin.apartment.payment', compact('client', 'sponsorships', 'apartment'));
     }
 
-    public function makePayment(Request $request, Gateway $gateway, string $id) {
+    public function makePayment(Request $request, Gateway $gateway, string $id)
+    {
         $request->validate([
             'sponsor' => 'required'
         ]);
@@ -32,61 +34,55 @@ class OrderController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-        if($result->success){
+        if ($result->success) {
             $data = [
                 'success' => true,
                 'message' => 'transazione eseguita con successo'
-            ];    
-        
+            ];
+
             $this->test($request, $id);
             $apartment = Apartment::where('id', $id)->first();
-           //dd($apartment->id, $result);
-            return redirect()->route('admin.apartment.show', compact('apartment', 'result'));
+            //dd($apartment->id, $result);
+            return view('admin.apartment.successfulPayment', compact('apartment', 'result', 'sponsor'));
         }
         //DA RICOONTROLLARE QUESTO ELSE CHE DA FALSE A CASO
         else {
             $data = [
                 'success' => false,
                 'message' => 'transazione fallita'
-            ];    
-            return response()->json($data,401);
+            ];
+            return response()->json($data, 401);
         }
     }
 
     public function test($request, string $id)
-    {   
+    {
         $formdata = $request->validate([
             'sponsor' => 'required'
         ]);
 
-       // dd($request, $id);
+        // dd($request, $id);
         $sponsor = Sponsorship::where('id', $formdata['sponsor'])->first();
         $apartment = Apartment::where('id', $id)->first();
-        
-        if(count($apartment->sponsorships) > 0){
+
+        if (count($apartment->sponsorships) > 0) {
             $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
 
             $startDate = now();
 
-            if($lastSponsor >= $startDate) {
-                $endDate = date('Y-m-d H:i',strtotime('+'. $sponsor->time .'hours',strtotime($lastSponsor)));
-               // dd($sponsor->time);
-            }
-            else {
+            if ($lastSponsor >= $startDate) {
+                $endDate = date('Y-m-d H:i', strtotime('+' . $sponsor->time . 'hours', strtotime($lastSponsor)));
+                // dd($sponsor->time);
+            } else {
                 $endDate = now()->addHours($sponsor->time);
             }
 
             $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $lastSponsor, 'end_date' => $endDate]);
-        }
-        else {
+        } else {
             $startDate = now()->setTimezone('Europe/Rome');
             $endDate = now()->setTimezone('Europe/Rome')->addHours($sponsor->time);
 
             $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $startDate, 'end_date' => $endDate]);
-
-            
         }
-
     }
-    
 }
