@@ -41,9 +41,9 @@ class ApartmentSeeder extends Seeder
            // $fullNewImagePath = $newImagePath.'/'.$newImageName;
 
             Apartment::create([
-                'room' => fake()->randomDigit(),
-                'bed'  => fake()->randomDigit(),
-                'bathroom' => fake()->boolean(),
+                'room' => fake()->randomDigit(0),
+                'bed'  => fake()->randomDigit(0),
+                'bathroom' => fake()->randomDigit(0),
                 'shared_bathroom' => fake()->boolean(),
                 'address' => fake()->address(),
                 'lat' => fake()->latitude($min = -90, $max = 90),
