@@ -27,25 +27,25 @@
             <div class="d-flex align-items-center">
               <div class="mb-4 col-12 col-md-6">
                 <label for="exampleInputEmail1" class="form-label">Nome <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" max="64" required>
+                <input type="text" class="form-control" value="{{ old('name') }}" id="name" name="name" aria-describedby="emailHelp" max="64" required>
               </div>
             </div>
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">Stanze <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="room" name="room" aria-describedby="emailHelp" min="1" max="100" required>
+                  <input type="number" class="form-control"  value="{{ old('room') }}" id="room" name="room" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">N. letti <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="bed" name="bed" aria-describedby="emailHelp" min="1" max="100" required>
+                  <input type="number" class="form-control"  value="{{ old('bed') }}" id="bed" name="bed" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="mb-4 me-5 col-12 col-md-3">
                   <label for="exampleInputEmail1" class="form-label">N. bagni <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp" min="1" max="100" required>
+                  <input type="number" class="form-control"  value="{{ old('bathroom') }}" id="bathroom" name="bathroom" aria-describedby="emailHelp" min="1" max="100" required>
                 </div>
                 <div class="form-check me-2 mb-4 me-5 col-12 col-md-3">
-                  <input class="form-check-input" type="checkbox" name="shared_bathroom" value="" id="flexCheckDefault">
+                  <input class="form-check-input" type="checkbox" name="shared_bathroom"  value="{{ old('shared_bathroom') }}" value="" id="flexCheckDefault">
                   <label class="form-check-label" for="flexCheckDefault">
                     Bagno condiviso
                   </label>
@@ -62,10 +62,10 @@
             <div class="d-flex align-items-center flex-wrap">
               <div class="mb-4 col-12 col-md-3 me-5">
                   <label for="square_meter" class="form-label">Metratura <span class="text-danger">*</span></label>
-                  <input type="number" class="form-control" id="square_meter" name="square_meter" aria-describedby="emailHelp" min="1" max="9999" required>
+                  <input type="number" class="form-control"  value="{{ old('square_meter') }}" id="square_meter" name="square_meter" aria-describedby="emailHelp" min="1" max="9999" required>
               </div>
               <div class="form-check mb-4">
-                  <input class="form-check-input" type="checkbox" name="visible" value="" id="check-visible">
+                  <input class="form-check-input" type="checkbox"  value="{{ old('visible') }}" name="visible" id="check-visible">
                   <label class="form-check-label" for="check-visible">
                     Non visibile
                   </label>
@@ -90,18 +90,18 @@
 
             <div class="mb-4 col-12 col-md-3">
               <label for="price" class="form-label">Prezzo <span class="text-danger">*</span></label>
-              <input type="number" step=".01" class="form-control" id="price" name="price" aria-describedby="emailHelp" min="1" max="9999" required>
+              <input type="number" step=".01" class="form-control" id="price"  value="{{ old('price') }}" name="price" aria-describedby="emailHelp" min="1" max="9999" required>
             </div>
 
             <div class="mb-4 col-12 col-md-10">
-              <label for="description" class="form-label">Descrizione</label>
-              <input type="text" class="form-control" id="description" name="description" aria-describedby="emailHelp">
+              <label for="description" class="form-label">Descrizione <span class="text-danger">*</span></label>
+              <input type="text" class="form-control"  value="{{ old('description') }}" id="description" name="description" aria-describedby="emailHelp" required>
             </div>
 
             <div class="d-flex flex-wrap align-items-center">
               <div class="col-12 col-md-5 mb-4">
-                <label for="cover_img" class="form-label">Immagine di copertina <span class="text-danger">*</span></label>
-                <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999" required>
+                <label for="cover_img" class="form-label">Immagine di copertina</label>
+                <input type="file" class="form-control" accept="image/*" id="cover_img" name="cover_img" aria-describedby="emailHelp" max="9999">
               </div>
               <div class="col-12 col-md-5 mx-0 mx-md-5 mb-4">                  
                 {{-- <label for="add_imgs"> add more images</label>
