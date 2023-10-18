@@ -16,6 +16,16 @@
                     + Aggiungi
                 </a>
             </div>
+            <div>
+                @if(count($apartments) == 0)
+                    <div class="fs-2">
+                        Non hai appartamenti in affitto. 
+                    </div>
+                    <div class="fs-2">
+                        Clicca il <span class="b-blue">bottone</span> per aggiungere il tuo primo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>!
+                    </div>
+                @endif
+            </div>
             @foreach ($apartments as $singleApt)
             <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex flex-wrap">
                 <div class="col-12 col-md-4 col-lg-3 d-block d-sm-none d-md-block">
