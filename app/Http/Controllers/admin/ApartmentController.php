@@ -171,6 +171,9 @@ class ApartmentController extends Controller
                 if($extraImage->path){
                    Storage::delete($extraImage->path); 
                    $extraImage->delete();
+                }
+                elseif($extraImage->src){
+                    $extraImage->delete();
                 }  
             };
         };

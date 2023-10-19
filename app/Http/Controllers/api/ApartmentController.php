@@ -24,7 +24,7 @@ class ApartmentController extends Controller
 {
     public function index() {
 
-    $apartments = Apartment::paginate();
+    $apartments = Apartment::paginate(3);
     
     if($apartments) {
 
