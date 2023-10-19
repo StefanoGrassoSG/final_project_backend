@@ -64,4 +64,23 @@ class ApartmentController extends Controller
             ],200);
     
     }
+
+    public function singleApt(string $id){
+       
+        $apartment = Apartment::findOrFail($id);
+        if($apartment){
+            return response()->json([
+                'code' => 200,
+                'success' => true,
+                'results' => $apartment
+            ]); 
+        }
+        else{
+            return response()->json([
+                'success'=>false,
+                'message'=>'failed to find apartment'
+            ],404);
+        }
+        
+    }
 }
