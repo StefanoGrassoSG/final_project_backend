@@ -24,7 +24,7 @@ class ApartmentController extends Controller
 {
     public function index() {
 
-    $apartments = Apartment::paginate(3);
+    $apartments = Apartment::with('services','image')->paginate(3);
     
     if($apartments) {
 
@@ -55,7 +55,9 @@ class ApartmentController extends Controller
             'data' => 'required'
         ]);
 
-        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')->paginate(3);
+        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
+                                ->with('services','image')
+                                ->paginate(3);
 
         return response()->json([
                 'success'=>true,
@@ -63,5 +65,26 @@ class ApartmentController extends Controller
                 'results' =>  $filterApt
             ],200);
     
+    }
+
+    public function singleApt(string $id){
+       
+        $apartment = Apartment::where('id', $id)
+        ->with('services','image')
+        ->first();
+        if($apartment){
+            return response()->json([
+                'code' => 200,
+                'success' => true,
+                'results' => $apartment
+            ]); 
+        }
+        else{
+            return response()->json([
+                'success'=>false,
+                'message'=>'failed to find apartment'
+            ],404);
+        }
+        
     }
 }
