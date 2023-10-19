@@ -94,10 +94,9 @@
                         <div class="logo-complete col-4 text-center">
                             <img src="{{ Vite::asset('resources/img/logo_giusto.png') }}" alt="" class="img-fluid">
                         </div>
-                        <div class="col-4 text-end px-5">
+                        <div class="col-4 text-end px-5 d-flex justify-content-end align-items-center">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-    
                                 <button type="submit" class="btn btn-logout">
                                     <div class="d-flex align-items-center fw-bold">
                                         <div class="text-out-lg">
@@ -112,6 +111,11 @@
                                     </div>
                                 </button>
                             </form>
+                            <a href="http://localhost:5174/" class="ms-2 to-vue">
+                                <div class="text-out-lg btn btn-logout">
+                                    Vai al sito
+                                </div>
+                            </a>
                         </div>
                     </div>
                     

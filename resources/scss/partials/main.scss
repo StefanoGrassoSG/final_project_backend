@@ -16,6 +16,10 @@ main {
                 position: fixed;
                 z-index: 100;
 
+                .to-vue {
+                    text-decoration: none;
+                }
+
                 .btn-logout {
                     color: #7f7f7f;
                     font-weight: bolder;
