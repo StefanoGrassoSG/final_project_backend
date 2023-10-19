@@ -14,6 +14,12 @@ class View extends Model
 
     //RELATIONSHIPS
 
+    protected $fillable = [
+        'ip_adress',
+        'date',
+        'apartment_id'
+    ];
+
     public function apartment() {
 
     return $this->belongsTo(Apartment::class);
