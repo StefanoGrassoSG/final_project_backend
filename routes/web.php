@@ -20,7 +20,7 @@ use App\Http\Controllers\admin\SetSponsorController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::prefix('admin')
