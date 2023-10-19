@@ -9,16 +9,18 @@ use App\Models\View;
 class ViewController extends Controller
 {
     public function getIp(Request $request){
-        $ip = $request->validate([
-            'ip'=>'required'
+        $data = $request->validate([
+            'ip'=>'required',
+            'id'=>'required'
         ]);
         $date = date("Y-m-d");
-        // $date2 = date('Y-M-D',$date)
-        // $validateIp = View::where('ip',$ip)
-        //                 ->where('date',$date)
-        //                 ->first();
-        return response()->json([
-            'x'=>$date
-        ]);
+        $x = View::where('ip_adress',$data['ip'])->where('date', $date)->get();
+        if(count($x) == 0){
+                View::create([
+                'ip_adress' => $data['ip'],
+                'date'=> $date,
+                'apartment_id'=>$data['id']
+            ]);
+        }
     }
 }
