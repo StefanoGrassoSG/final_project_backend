@@ -55,7 +55,7 @@ class ApartmentController extends Controller
             'data' => 'required'
         ]);
 
-        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')->paginate();
+        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')->paginate(3);
 
         return response()->json([
                 'success'=>true,
