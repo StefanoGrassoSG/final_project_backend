@@ -87,4 +87,44 @@ class ApartmentController extends Controller
         }
         
     }
+
+    public function filterApt(Request $request) {
+        $data = $request->validate([
+            'numberOfBeds' => 'nullable|numeric',
+            'numberOfRooms' => 'nullable|numeric',
+            'price' => 'nullable|numeric',
+            'selectedServices' => 'nullable|array'
+        ]);
+
+        if (!array_key_exists('numberOfBeds', $data)) {
+            $data['numberOfBeds'] = 0;
+        }
+        if (!array_key_exists('numberOfRooms', $data)) {
+            $data['numberOfRooms'] = 0;
+        }
+        if (!array_key_exists('price', $data)) {
+            $data['price'] = 0;
+        }
+
+        if(count($data) == 0) {
+            $result = Apartment::with('services','image')->paginate(3);
+        }
+        else {
+            $result = Apartment::with('services', 'image')
+                                ->where('bed', '>=' , $data['numberOfBeds'])
+                                ->where('room', '>=' , $data['numberOfRooms'])
+                                ->where('price', '>=' , $data['price'])
+                                ->whereHas('services', function ($query) use ($data) {
+                                    $query->whereIn('service_id', $data['selectedServices']);
+                                }, '=', count($data['selectedServices']))
+                                ->get();
+        }
+
+        return response()->json([
+            'success'=>true,
+            'response'=> $data,
+            'results' => $result
+            
+        ],200);
+    }
 }

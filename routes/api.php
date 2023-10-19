@@ -27,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('apartment', [ApartmentController::class, 'index']);
 Route::post('apartment', [ApartmentController::class, 'searchApartment']);
+Route::post('filterApt', [ApartmentController::class, 'filterApt']);
 Route::get('apartment/{apartment}',[ApartmentController::class, 'singleApt']);
 Route::post('ip',[ViewController::class,'getIp']);
 Route::get('service',[ServicesController::class,'sendServices']);
