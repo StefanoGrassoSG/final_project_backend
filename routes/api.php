@@ -5,6 +5,8 @@ use App\Http\Controllers\admin\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\ApartmentController;
 use Illuminate\Routing\RouteRegistrar;
+use App\Http\Controllers\api\ViewController;
+use App\Http\Controllers\api\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('apartment', [ApartmentController::class, 'index']);
 Route::post('apartment', [ApartmentController::class, 'searchApartment']);
 Route::get('apartment/{apartment}',[ApartmentController::class, 'singleApt']);
+Route::post('ip',[ViewController::class,'getIp']);
+Route::get('service',[ServicesController::class,'sendServices']);
