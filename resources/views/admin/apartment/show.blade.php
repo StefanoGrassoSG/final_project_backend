@@ -113,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 p-0">
+            <div class="col-sm-12 col-md-6 p-1">
                 <div class="p-4 border rounded-4 mt-3">
                     <h4 class="description-card">
                         Descrizione:
@@ -121,6 +121,25 @@
                     <p>{{ $apartment->description }}</p>
                 </div>
             </div>
+            @if(count($apartment->image) > 0)
+                <div class="col-sm-12 col-md-6 p-1">
+                    <div class="p-4 border rounded-4 mt-3">
+                       <div class="d-flex flex-wrap p-0 g-0 m-0">
+                             @foreach ($apartment->image as $extraImage)
+                                <div class="col-6">
+                                    <div class="img-fluid">
+                                        @if($extraImage->path)
+                                            <img src="/storage/{{ $extraImage->path }}" alt="" class="border rounded-4 w-100">
+                                        @else 
+                                            <img src="{{ $extraImage->src}}" alt="" class="border rounded-4 w-100">
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                       </div>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
