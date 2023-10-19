@@ -22,7 +22,7 @@
                         Non hai appartamenti in affitto. 
                     </div>
                     <div class="fs-2">
-                        Clicca il <span class="b-blue">bottone</span> per aggiungere il tuo primo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>!
+                        Clicca il bottone per aggiungere il tuo primo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>!
                     </div>
                 @endif
             </div>

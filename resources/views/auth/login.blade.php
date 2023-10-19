@@ -77,6 +77,11 @@
                                         {{ __('Non sei registrato? clicca qui!') }}
                                     </a>
                                 </div>
+                                <div class="btn btn-secondary btn-login">
+                                    <a href="http://localhost:5174/" class="text-white">
+                                        Torna al sito
+                                    </a>
+                                </div>
                             </form>
                         </div>
                     </div>
