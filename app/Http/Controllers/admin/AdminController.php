@@ -52,10 +52,10 @@ class AdminController extends Controller
 		  $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
           ->join('users','apartments.user_id','=','users.id')
           ->where('user_id', $userId)
-		  ->selectRaw('* FROM ')
-		  ->distinct('views.date')
-		  ->get();
-        $arr=[];
+        ->selectRaw('* FROM ')
+        ->distinct('views.date')
+        ->get();
+          $arr=[];
         foreach($views as $view){
             $arr[] =$view;
         }

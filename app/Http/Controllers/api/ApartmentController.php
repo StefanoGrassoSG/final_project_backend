@@ -101,13 +101,13 @@ class ApartmentController extends Controller
             'selectedServices' => 'nullable|array'
         ]);
 
-        if (!array_key_exists('numberOfBeds', $data)) {
+        if (!array_key_exists('numberOfBeds', $data) || $data['numberOfBeds'] == '') {
             $data['numberOfBeds'] = 0;
         }
-        if (!array_key_exists('numberOfRooms', $data)) {
+        if (!array_key_exists('numberOfRooms', $data) || $data['numberOfRooms'] == '') {
             $data['numberOfRooms'] = 0;
         }
-        if (!array_key_exists('price', $data)) {
+        if (!array_key_exists('price', $data)  || $data['price'] == '') {
             $data['price'] = 0;
         }
 
