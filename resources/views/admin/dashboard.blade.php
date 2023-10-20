@@ -87,13 +87,13 @@
       
       <script>
         const ctx = document.getElementById('myChart');
-      
+        // const data = {{$x}}
         new Chart(ctx, {
           type: 'line',
           data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['a','b','c'],
             datasets: [{
-              label: '# of Votes',
+              label: '# of Views',
               data: [12, 19, 3, 5, 2, 3],
               borderWidth: 1
             }]
