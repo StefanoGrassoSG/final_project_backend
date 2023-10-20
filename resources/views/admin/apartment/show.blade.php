@@ -83,7 +83,7 @@
                                 Ha <span>{{ $apartment->bathroom }}</span> bagni
                             </li>
                             <li>
-                                <img src="{{ Vite::asset('resources/img/boo.png') }}" alt="" class="">
+                                <img src="{{ Vite::asset('resources/img/condivisione.png') }}" alt="" class="">
                                 @if ($apartment->shared_bathroom === true)
                                 Bagno condiviso: <span>si</span>
                                 @else
