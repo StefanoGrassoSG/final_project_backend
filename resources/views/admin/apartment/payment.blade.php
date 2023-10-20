@@ -48,7 +48,7 @@
                         <div>
                             <div class="form-check mb-4 d-flex align-items-center flex-column flex-sm-row mb-5">
                                 <img src="{{ Vite::asset('resources/img/icon_money_first.png') }}" alt="" class="icon-sponsor">
-                                <input class="form-check-input checkbox-sponsor mx-4 my-3" type="radio" name="sponsor" id="flexCheckDefault" value="{{ $sponsorships[0]->id }}">
+                                <input class="form-check-input checkbox-sponsor mx-4 my-3" type="radio" name="sponsor" id="flexCheckDefault" checked value="{{ $sponsorships[0]->id }}">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     <span class="span-info-sponsor">Prezzo: </span> {{$sponsorships[0]->price}}&euro;
                                     <br>
