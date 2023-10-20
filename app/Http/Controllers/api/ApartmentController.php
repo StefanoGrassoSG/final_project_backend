@@ -24,7 +24,9 @@ class ApartmentController extends Controller
 {
     public function index() {
 
-    $apartments = Apartment::with('services','image')->paginate(3);
+    $apartments = Apartment::with('services','image')
+                ->where('visible', 1)
+                ->paginate(3);
     
     if($apartments) {
 
@@ -56,6 +58,7 @@ class ApartmentController extends Controller
         ]);
 
         $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
+                                ->where('visible', 1)   
                                 ->with('services','image')
                                 ->paginate(3);
 
@@ -70,8 +73,9 @@ class ApartmentController extends Controller
     public function singleApt(string $id){
        
         $apartment = Apartment::where('id', $id)
-        ->with('services','image','user')
-        ->first();
+                                ->where('visible', 1)
+                                ->with('services','image','user')
+                                ->first();
 
         if($apartment){
             return response()->json([
@@ -108,10 +112,11 @@ class ApartmentController extends Controller
         }
 
         if(count($data) == 0) {
-            $result = Apartment::with('services','image')->paginate(3);
+            $result = Apartment::with('services','image')->where('visible', 1)->paginate(3);
         }
         else {
             $result = Apartment::with('services', 'image')
+                                ->where('visible', 1)
                                 ->where('bed', '>=' , $data['numberOfBeds'])
                                 ->where('room', '>=' , $data['numberOfRooms'])
                                 ->where('price', '>=' , $data['price'])
