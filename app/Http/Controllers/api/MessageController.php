@@ -15,14 +15,14 @@ class MessageController extends Controller
             'email'=>'required',
             'content'=>'required',
             'apartmentId'=>'required',
-            'date'=>'required'
+            'date'=>'nullable'
         ]);
-
+        $date = now()->setTimezone('Europe/Rome');
         $mess = Message::create([
             'name'=> $data['name'],
             'email'=> $data['email'],
             'object'=> $data['object'],
-            'date'=> $data['date'],
+            'date'=> $date,
             'content'=> $data['content'],
             'apartment_id'=> $data['apartmentId'],
         ]);
