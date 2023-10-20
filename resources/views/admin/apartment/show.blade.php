@@ -14,16 +14,16 @@
                 </div>
             </div>
             @if(count($apartment->sponsorships) > 0)
-                <div class="card rounded-4 info-sponsored p-3 d-flex justify-content-start mb-3">
                     @php $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
                             $startSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->start_date;
                     @endphp
                     @if($lastSponsor >= $todayDate)
-                        <h5>
-                        la tua sponsor finisce: {{ $lastSponsor }}
-                        </h5>
+                        <div class="card rounded-4 info-sponsored p-3 d-flex justify-content-start mb-3">
+                            <h5>
+                            la tua sponsor finisce: {{ $lastSponsor }}
+                            </h5>
+                        </div>    
                     @endif
-                </div>
             @endif 
             <div class="col-sm-12 col-md-6 ps-0 pe-0">
                 <div class="img-fluid">

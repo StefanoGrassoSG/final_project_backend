@@ -10,12 +10,11 @@ class MessageController extends Controller
 {
     public function getMessage(Request $request){
         $data= $request->validate([
-            'name'=> 'required',
-            'object'=>'nullable',
-            'email'=>'required',
-            'content'=>'required',
-            'apartmentId'=>'required',
-            'date'=>'nullable'
+            'name'=> 'required|string',
+            'object'=>'nullable|string',
+            'email'=>'required|email',
+            'content'=>'required|string',
+            'apartmentId'=>'required|numeric',
         ]);
         $date = now()->setTimezone('Europe/Rome');
         $mess = Message::create([
