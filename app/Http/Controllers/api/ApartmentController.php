@@ -70,8 +70,9 @@ class ApartmentController extends Controller
     public function singleApt(string $id){
        
         $apartment = Apartment::where('id', $id)
-        ->with('services','image')
+        ->with('services','image','user')
         ->first();
+
         if($apartment){
             return response()->json([
                 'code' => 200,

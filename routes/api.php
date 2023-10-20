@@ -7,6 +7,7 @@ use App\Http\Controllers\api\ApartmentController;
 use Illuminate\Routing\RouteRegistrar;
 use App\Http\Controllers\api\ViewController;
 use App\Http\Controllers\api\ServicesController;
+use App\Http\Controllers\api\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::post('filterApt', [ApartmentController::class, 'filterApt']);
 Route::get('apartment/{apartment}',[ApartmentController::class, 'singleApt']);
 Route::post('ip',[ViewController::class,'getIp']);
 Route::get('service',[ServicesController::class,'sendServices']);
+Route::post('message',[MessageController::class,'getMessage']);

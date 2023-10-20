@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Service;
 use App\Models\Image;
 use App\Models\Message;
+use App\Models\View;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
@@ -39,8 +40,21 @@ class AdminController extends Controller
             ->where('user_id', $userId)
             ->distinct('apartment_id')
             ->count();
-
         
-        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor'));
+        $views = View::join('apartments','views.apartment_id','=','apartments.id')
+          ->join('users','apartments.user_id','=','users.id')
+          ->where('user_id', $userId)
+          ->orderBy('views.date')
+          ->groupBy('views.date')
+          ->pluck('views.date');
+          
+        $arr=[];
+        foreach($views as $view){
+            $arr[] =$view;
+        }
+        $x = implode(",",$arr);
+        // dd($views);
+        
+        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','x'));
      }
 }
