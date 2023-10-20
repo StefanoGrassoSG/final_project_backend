@@ -12,6 +12,15 @@ class Message extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+        'name',
+        'email',
+        'object',
+        'content',
+        'apartment_id',
+        'date'
+    ];
+
     //RELATIONSHIPS
 
     public function apartment() {

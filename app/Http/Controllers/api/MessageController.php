@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Message;
 
 class MessageController extends Controller
 {
@@ -16,10 +17,28 @@ class MessageController extends Controller
             'apartmentId'=>'required',
             'date'=>'required'
         ]);
+
+        $mess = Message::create([
+            'name'=> $data['name'],
+            'email'=> $data['email'],
+            'object'=> $data['object'],
+            'date'=> $data['date'],
+            'content'=> $data['content'],
+            'apartment_id'=> $data['apartmentId'],
+        ]);
+
+        if($mess){
+           return response()->json([
+            'result'=>'true',
+            'message'=> 'message was sent successfully'
+        ],200); 
+        }
+        else{
+            return response()->json([
+                'result'=> 'false',
+                'message'=>'failed to send message'
+            ],402);
+        }
         
-        return response()->json([
-            'message'=>'ok',
-            'data'=>$data
-        ],200);
     }
 }
