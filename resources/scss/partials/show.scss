@@ -26,10 +26,18 @@
             padding: 0;
             margin-bottom: 10px;
             li {
+                margin-top: 5px;
+                display: flex;
                 list-style: none;
+                align-items: center;
                 span {
+                    margin: 0 5px;
                     color: #3461AB;
                     font-weight: bold;
+                }
+                img {
+                    margin-right:10px;
+                    width: 38px;
                 }
             }
         }

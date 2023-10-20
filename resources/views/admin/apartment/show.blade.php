@@ -65,21 +65,25 @@
 
                 <div class="rounded-line"></div>
                 <div class="info-single-ap d-flex info-details-query">
-                    <div class="info-details p-4">
+                    <div class="info-details ps-0 pt-2 pe-4 pb-4">
                         <h4 class="description-card">
                             Info:
                         </h4>
                         <ul>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/camere.png') }}" alt="" class="">
                                 Ha <span>{{ $apartment->room }}</span> camere
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/letti_giusto.png') }}" alt="" class="">
                                 Ha <span>{{ $apartment->bed }}</span> letti
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/bagni.png') }}" alt="" class="">
                                 Ha <span>{{ $apartment->bathroom }}</span> bagni
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/boo.png') }}" alt="" class="">
                                 @if ($apartment->shared_bathroom === true)
                                 Bagno condiviso: <span>si</span>
                                 @else
@@ -87,6 +91,7 @@
                                 @endif
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/visibile.png') }}" alt="" class="">
                                 @if ($apartment->visible === true)
                                 App. visibile: <span>si</span>
                                 @else
@@ -94,14 +99,16 @@
                                 @endif
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/prezzo.png') }}" alt="" class="">
                                 Il prezzo è: <span>{{ $apartment->price }} €</span>
                             </li>
                             <li>
+                                <img src="{{ Vite::asset('resources/img/metratura.png') }}" alt="" class="">
                                 la metratura dell'app è: <span>{{ $apartment->square_meter }} mq.</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="info-services p-4 rounded-4">
+                    <div class="info-services pt-2 pe-4 pb-4 rounded-4">
                         <h4 class="description-card">
                             Servizi:
                         </h4>
