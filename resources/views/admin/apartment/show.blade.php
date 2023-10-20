@@ -85,15 +85,15 @@
                             <li>
                                 <img src="{{ Vite::asset('resources/img/condivisione.png') }}" alt="" class="">
                                 @if ($apartment->shared_bathroom === true)
-                                Bagno condiviso: <span>si</span>
+                                Bagno condiviso: <span>sì</span>
                                 @else
                                 Bagno condiviso: <span>no</span>
                                 @endif
                             </li>
                             <li>
                                 <img src="{{ Vite::asset('resources/img/visibile.png') }}" alt="" class="">
-                                @if ($apartment->visible === true)
-                                App. visibile: <span>si</span>
+                                @if ($apartment->visible == true)
+                                App. visibile: <span>sì</span>
                                 @else
                                 App. visibile: <span>no</span>
                                 @endif
@@ -104,7 +104,7 @@
                             </li>
                             <li>
                                 <img src="{{ Vite::asset('resources/img/metratura.png') }}" alt="" class="">
-                                la metratura dell'app è: <span>{{ $apartment->square_meter }} mq.</span>
+                                La metratura dell'app è: <span>{{ $apartment->square_meter }} mq.</span>
                             </li>
                         </ul>
                     </div>
