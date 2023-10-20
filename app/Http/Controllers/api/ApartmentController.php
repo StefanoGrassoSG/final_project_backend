@@ -114,7 +114,7 @@ class ApartmentController extends Controller
         if(count($data) == 0) {
             $result = Apartment::with('services','image')->where('visible', 1)->paginate(3);
         }
-        else {
+        elseif(isset($data['selectedServices'])) {
             $result = Apartment::with('services', 'image')
                                 ->where('visible', 1)
                                 ->where('bed', '>=' , $data['numberOfBeds'])
@@ -125,7 +125,15 @@ class ApartmentController extends Controller
                                 }, '=', count($data['selectedServices']))
                                 ->get();
         }
-
+        else{
+            $result = Apartment::with('services', 'image')
+                                ->where('visible', 1)
+                                ->where('bed', '>=' , $data['numberOfBeds'])
+                                ->where('room', '>=' , $data['numberOfRooms'])
+                                ->where('price', '>=' , $data['price'])
+                                ->get();
+        }
+    
         return response()->json([
             'success'=>true,
             'response'=> $data,

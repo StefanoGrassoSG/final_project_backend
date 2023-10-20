@@ -47,14 +47,20 @@ class AdminController extends Controller
           ->orderBy('views.date')
           ->groupBy('views.date')
           ->pluck('views.date');
-          
+        
+		    
+		  $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
+          ->join('users','apartments.user_id','=','users.id')
+          ->where('user_id', $userId)
+		  ->selectRaw('* FROM ')
+		  ->distinct('views.date')
+		  ->get();
         $arr=[];
         foreach($views as $view){
             $arr[] =$view;
         }
-        $x = implode(",",$arr);
-        // dd($views);
+        dd($viewCount);
         
-        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','x'));
+        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','view','arr'));
      }
 }
