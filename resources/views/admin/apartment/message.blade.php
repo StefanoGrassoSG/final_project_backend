@@ -14,6 +14,14 @@
                 <img src="{{ Vite::asset('resources/img/logo_messaggi.png') }}" alt="" class="logo-add-create d-none d-sm-block">
             </div>
 
+            <div>
+                @if(count($messages) == 0)
+                    <div class="fs-2">
+                        Non hai nessun messaggio. 
+                    </div>
+                @endif
+            </div>
+
             @if($messages)
                 <form action="{{ route('admin.single') }}" method="post" class="form-messages mb-4 d-flex align-items-center">
                     @csrf
