@@ -122,12 +122,12 @@
         var options = {
           searchOptions: {
             key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
-            language: "en-GB",
+            language: "it-IT",
             limit: 5,
           },
           autocompleteOptions: {
             key: "KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6",
-            language: "en-GB",
+            language: "it-IT",
           },
         }
         
