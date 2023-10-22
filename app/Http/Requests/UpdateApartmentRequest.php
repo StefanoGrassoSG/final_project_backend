@@ -30,7 +30,7 @@ class UpdateApartmentRequest extends FormRequest
                 'shared_bathroom' => 'nullable|boolean',
                 'address' => 'required|string|max:128',
                 // 'city' => 'nullable|string|max:128',
-                'visible' => 'nullable|boolean',
+                'visible' => 'nullable',
                 'name' => 'required|string|max:64',
                 'price' => 'required|decimal:0,2|max:9999',
                 'square_meter' => 'required|numeric|max:9999',

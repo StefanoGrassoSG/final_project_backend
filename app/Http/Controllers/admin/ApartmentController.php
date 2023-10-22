@@ -184,22 +184,21 @@ class ApartmentController extends Controller
             }
             $img_path= Storage::put('uploads\Apartment',$formData['cover_img']);
         }
-
-     
-        if(!isset($formDAta['visible'])) {
-            $formData['visible'] = null;
-        }
-        if(!isset($formDAta['shared_bathroom'])) {
-            $formData['shared_bathroom'] = null;
-        }
-
-        if($formData['visible']) {
+        if(isset($formData['visible'])) {
             $formData['visible'] = false;
         }
-        else {
+        
+        if(!array_key_exists('visible', $formData)) {
             $formData['visible'] = true;
         }
-
+        dd($formData['visible']);
+        if(!isset($formData['shared_bathroom'])) {
+            $formData['shared_bathroom'] = null;
+        }
+        if(isset($formData['visible'])) {
+            $formData['visible'] = false;
+        }
+        
 
         $apartment->update([
             'room' => $formData['room'],
@@ -227,7 +226,14 @@ class ApartmentController extends Controller
                 
             }
         }
-        
+
+        // dd($formData['service']);
+        if(isset($formData['service'])){
+            $apartment->services()->sync($formData['service']);
+        }
+        else{
+            $apartment->services()->detach();
+        }
         return redirect()->route('admin.apartment.show', compact('apartment'));
     }
 
