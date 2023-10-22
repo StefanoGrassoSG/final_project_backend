@@ -191,7 +191,6 @@ class ApartmentController extends Controller
         if(!array_key_exists('visible', $formData)) {
             $formData['visible'] = true;
         }
-        dd($formData['visible']);
         if(!isset($formData['shared_bathroom'])) {
             $formData['shared_bathroom'] = null;
         }
