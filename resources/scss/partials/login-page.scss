@@ -4,6 +4,7 @@ main {
     height: 100vh;
     position: relative;
     .main-section {
+        overflow-x: hidden;
         height: 100%;
 
         .main-container-login {
