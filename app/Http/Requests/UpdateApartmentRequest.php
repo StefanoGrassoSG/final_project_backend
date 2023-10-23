@@ -35,7 +35,7 @@ class UpdateApartmentRequest extends FormRequest
                 'price' => 'required|decimal:0,2|max:9999',
                 'square_meter' => 'required|numeric|max:9999',
                 'description' => 'required|string',
-                'cover_img' => 'nullable|image|max:9999',
+                'cover_img' => 'nullable|image',
                 'service'=>'nullable|array',
                 'service.*'=>'exists:services,id',
                 'extra_imgs'=>'nullable|array',
