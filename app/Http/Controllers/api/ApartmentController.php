@@ -14,6 +14,8 @@ use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
 
 
+
+
 //HELPERS
 use Illuminate\Support\Facades\Auth;
 // facades
@@ -24,9 +26,19 @@ class ApartmentController extends Controller
 {
     public function index() {
 
-    $apartments = Apartment::with('services','image')
+    $unsponsoredApartments = Apartment::with('services','image', 'sponsorships')
+                ->where('visible', 1);
+
+
+    $sponsoredApartments = Apartment::with('services', 'image', 'sponsorships')
                 ->where('visible', 1)
-                ->paginate(3);
+                ->whereHas('sponsorships', function ($query) {
+                    $query->whereDate('end_date', '>=', now()->setTimezone('Europe/Rome'));
+                });
+
+                
+    $apartments = $sponsoredApartments->union($unsponsoredApartments)->paginate(3);
+    
     
     if($apartments) {
 
