@@ -41,7 +41,7 @@
 
                                 @csrf
                         
-                                @if ($errors->any())
+                                {{-- @if ($errors->any())
                                     <div class="alert alert-danger">
                                         <ul>
                                             @foreach ($errors->all() as $error)
@@ -49,56 +49,89 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                @endif
-                        
-                                <!-- Name -->
+                                @endif --}}
+                                    
+
                                 <div>
-                                    <label for="name">
-                                        Nome
-                                    </label>
-                                    <input type="text" id="name" name="name">
+
+                                    <div>
+                                        
+                                        <div>
+                                            
+                                            <!-- Name -->
+                                            <label for="name">
+                                                Nome
+                                            </label>
+                                            <input type="text" id="name" name="name">
+                                            @error('name')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                
+                                        <div>
+                                            <!-- Last-name -->
+                                            <label id="surname" for="name">
+                                                Cognome
+                                            </label>
+                                            <input type="text" id="name" name="last_name">
+                                            @error('last_name')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                
+                                
+                                        <!-- date -->
+                                        <div id="date" class="mt-4">
+                                            <label for="email">
+                                                Data di nascita
+                                            </label>
+                                            <input type="date" id="email" name="date_of_birth">
+                                            @error('date_of_birth')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+    
+                                    </div>
+    
+                                    <div class="col-right">
+                                        
+                                        <!-- email -->
+                                        <div class="mt-4">
+                                            <label for="password">
+                                                Email
+                                            </label>
+                                            <input type="email" id="password" name="email">
+                                            @error('email')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                
+                                
+                                        <!-- Password -->
+                                        <div class="mt-4">
+                                            <label for="password">
+                                                Password
+                                            </label>
+                                            <input type="password" id="password" name="password">
+                                            @error('password')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                
+                                        <!-- Confirm Password -->
+                                        <div id="pw2" class="mt-4">
+                                            <label for="password_confirmation">
+                                                Conferma Password
+                                            </label>
+                                            <input type="password" id="password_confirmation" name="password_confirmation">
+                                            @error('password_confirmation')
+                                                <div id="error" class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                 </div>
-                        
-                                <div>
-                                    <label for="name">
-                                        Cognome
-                                    </label>
-                                    <input type="text" id="name" name="last_name">
-                                </div>
-                        
-                        
-                                <!-- date -->
-                                <div id="date" class="mt-4">
-                                    <label for="email">
-                                        Data di nascita
-                                    </label>
-                                    <input type="date" id="email" name="date_of_birth">
-                                </div>
-                        
-                                <!-- email -->
-                                <div class="mt-4">
-                                    <label for="password">
-                                        Email
-                                    </label>
-                                    <input type="email" id="password" name="email">
-                                </div>
-                        
-                        
-                                <!-- Password -->
-                                <div class="mt-4">
-                                    <label for="password">
-                                        Password
-                                    </label>
-                                    <input type="password" id="password" name="password">
-                                </div>
-                        
-                                <!-- Confirm Password -->
-                                <div class="mt-4">
-                                    <label for="password_confirmation">
-                                        Conferma Password
-                                    </label>
-                                    <input type="password" id="password_confirmation" name="password_confirmation">
-                                </div>
+                                
                         
                                 <div class="register-button">
 
@@ -129,7 +162,9 @@
 </html>
 
 
-
+{{--  @error('title')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror --}}
 
 
 
