@@ -37,7 +37,7 @@ class ApartmentController extends Controller
                 });
 
                 
-    $apartments = $sponsoredApartments->union($unsponsoredApartments)->paginate(3);
+    $apartments = $sponsoredApartments->union($unsponsoredApartments)->paginate(6);
     
     
     if($apartments) {
