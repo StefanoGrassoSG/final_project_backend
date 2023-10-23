@@ -26,7 +26,7 @@
                     @endif
             @endif 
             <div class="col-sm-12 col-md-6 ps-0 pe-0">
-                <div class="img-fluid">
+                <div class="img-fluid img-cover-show">
                     @if(str_starts_with($apartment->cover_img,'uploads'))
                         <img src="/storage/{{ $apartment->cover_img }}" alt="{{ $apartment->name }}" class="border rounded-4 w-100">
                     @elseif ($apartment->cover_img == null)
@@ -39,15 +39,11 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 rounded-4">
-                <div class="d-flex align-items-center mb-2 name-ap">
+                <div class="d-block d-md-flex justify-content-md-between align-items-center mb-2 name-ap">
                     <h2 class="h2-show mb-0">
                         {{ $apartment->name }}
                     </h2>
-                </div>
-                <h4 class="h4-show name-address">
-                    {{ $apartment->address }}
-                </h4>
-                    <div class="d-flex align-items-center mb-2 btn-show">
+                    <div class="d-flex align-items-center btn-show">
                         <div class="my-2">
                             <a href="{{ route('admin.apartment.edit', [$apartment->id]) }}" class="btn btn-create-card">Modifica</a>
                         </div>
@@ -62,7 +58,10 @@
                             </button>
                         </form>
                     </div>
-
+                </div>
+                <h4 class="h4-show name-address">
+                    {{ $apartment->address }}
+                </h4>
                 <div class="rounded-line"></div>
                 <div class="info-single-ap d-flex info-details-query">
                     <div class="info-details ps-0 pt-2 pe-4 pb-4">
@@ -120,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 p-1">
+            <div class="col-sm-12 col-md-6 ps-0 p-1">
                 <div class="p-4 border rounded-4 mt-3">
                     <h4 class="description-card">
                         Descrizione:
@@ -129,12 +128,12 @@
                 </div>
             </div>
             @if(count($apartment->image) > 0)
-                <div class="col-sm-12 col-md-6 p-1">
+                <div class="col-sm-12 col-md-6">
                     <div class="p-4 border rounded-4 mt-3">
                        <div class="d-flex flex-wrap p-0 g-0 m-0">
                              @foreach ($apartment->image as $extraImage)
-                                <div class="col-6">
-                                    <div class="img-fluid">
+                                <div class="col-6 d-flex justify-content-center">
+                                    <div class="img-fluid img-extra-show mb-4">
                                         @if($extraImage->path)
                                             <img src="/storage/{{ $extraImage->path }}" alt="" class="border rounded-4 w-100">
                                         @else 
