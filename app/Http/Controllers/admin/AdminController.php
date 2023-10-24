@@ -40,27 +40,28 @@ class AdminController extends Controller
             ->where('user_id', $userId)
             ->distinct('apartment_id')
             ->count();
-        
-        $views = View::join('apartments','views.apartment_id','=','apartments.id')
+      
+          $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
           ->join('users','apartments.user_id','=','users.id')
           ->where('user_id', $userId)
-          ->orderBy('views.date')
-          ->groupBy('views.date')
-          ->pluck('views.date');
-        
-		    
-		  $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
-          ->join('users','apartments.user_id','=','users.id')
-          ->where('user_id', $userId)
-        ->selectRaw('* FROM ')
-        ->distinct('views.date')
-        ->get();
+          ->selectRaw('* FROM ')
+          ->distinct('views.date')
+          ->count();  
+
+          $countsByMonth = DB::table('views')
+          ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
+          ->groupBy('month')
+          ->get();
+          // dd($countsByMonth);
+  
           $arr=[];
-        foreach($views as $view){
-            $arr[] =$view;
-        }
-        dd($viewCount);
+  
+            foreach ($countsByMonth as $count) {
+            $arr[$count->month] = $count->count;
+            }
+		    
         
-        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','view','arr'));
+        
+        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr'));
      }
 }

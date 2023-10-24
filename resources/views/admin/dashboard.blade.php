@@ -42,7 +42,7 @@
                         Hai
                     </div>
                     <div class="count-number-card">
-                        {{count($viewCount)}}
+                        {{$viewCount}}
                     </div>
                     <div class="count-text-two">
                         Visualizzazioni
@@ -87,15 +87,49 @@
       
       <script>
         const ctx = document.getElementById('myChart');
-    
+        let data = @json($arr);
+        console.log(data);
+        console.log(data);
+        const finalData = [];
+        
+        for (let index = 1; index <= 12; index++) {
+            if(index <= 9) {
+                let obj = {
+                'month': index,
+                'count':data[`0${index}`]
+                }
+                
+                if(obj['count'] == undefined) {
+                    obj['count'] = 0
+                }
+                finalData.push(obj);
+            }
+            else{
+                let obj = {
+                'month': index,
+                'count':data[`${index}`]
+                }
+               
+                if(obj['count'] == undefined) {
+                    obj['count'] = 0
+                }
+                finalData.push(obj);
+            }
+
+        }
+        
+
+        console.log(finalData);
+
+
+
         new Chart(ctx, {
           type: 'line',
           data: {
-            labels: ['a','b','c'],
+            labels: finalData.map(row => row.month),
             datasets: [{
               label: '# of Views',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
+              data:  finalData.map(row => row.count)
             }]
           },
           options: {
