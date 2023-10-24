@@ -13,7 +13,7 @@
             </div>
 
             <div class="stats-container d-flex flex-wrap justify-content-between">
-                <div class="card-stats border rounded-4 col-4">
+                <div class="card-stats border rounded-4 col-12 col-sm-4">
                     <a href="{{ route('admin.message.index') }}">
                         <div class="count-text-one">
                             Hai
@@ -26,7 +26,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="card-stats border rounded-4 col-4">
+                <div class="card-stats border rounded-4 col-12 col-sm-4">
                     <div class="count-text-one">
                         Hai
                     </div>
@@ -37,18 +37,18 @@
                         Appartamenti
                     </div>
                 </div>
-                <div class="card-stats border rounded-4 col-4">
+                <div class="card-stats border rounded-4 col-12 col-sm-4">
                     <div class="count-text-one">
                         Hai
                     </div>
                     <div class="count-number-card">
-                        150
+                        {{count($viewCount)}}
                     </div>
                     <div class="count-text-two">
                         Visualizzazioni
                     </div>
                 </div>
-                <div class="card-stats border rounded-4 col-4">
+                <div class="card-stats border rounded-4 col-12 col-sm-4">
                     <a href="{{ route('admin.message.index') }}">
                         <div class="count-text-one">
                             Hai
@@ -61,7 +61,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="card-stats-large card-stats border rounded-4 col-6">
+                <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
                     <a href="{{ route('admin.message.index') }}">
                         <div class="count-text-one">
                             L'appartamento più visto:
@@ -87,7 +87,7 @@
       
       <script>
         const ctx = document.getElementById('myChart');
-        // const data = {{$x}}
+    
         new Chart(ctx, {
           type: 'line',
           data: {
