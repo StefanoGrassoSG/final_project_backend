@@ -26,20 +26,20 @@ class ApartmentController extends Controller
 {
     public function index() {
 
-    $unsponsoredApartments = Apartment::with('services','image', 'sponsorships')
-                ->where('visible', 1);
+    $sponsoredApartments = Apartment::has('sponsorships')
+    ->with(['sponsorships' => function ($query) {
+        $query->whereDate('end_date', '>=', now());
+    }])
+    ->with('sponsorships')
+    ->where('visible', 1);
 
+    $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+    ->with('sponsorships')
+    ->where('visible', 1);
 
-    $sponsoredApartments = Apartment::with('services', 'image', 'sponsorships')
-                ->where('visible', 1)
-                ->whereHas('sponsorships', function ($query) {
-                    $query->whereDate('end_date', '>=', now()->setTimezone('Europe/Rome'));
-                });
-
-                
-    $apartments = $sponsoredApartments->union($unsponsoredApartments)->paginate(6);
+    $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
     
-    
+    $apartments;
     if($apartments) {
 
         return response()->json([
@@ -59,9 +59,6 @@ class ApartmentController extends Controller
 
     }
 
-    public function show() {
-
-    }
 
     public function searchApartment(Request $request) {
 
@@ -69,15 +66,30 @@ class ApartmentController extends Controller
             'data' => 'required'
         ]);
 
-        $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
-                                ->where('visible', 1)   
-                                ->with('services','image')
-                                ->paginate(3);
+        // $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
+        //                         ->where('visible', 1)   
+        //                         ->with('services','image')
+        //                         ->paginate(3);
+
+        $sponsoredApartments = Apartment::has('sponsorships')
+        ->with(['sponsorships' => function ($query) {
+            $query->whereDate('end_date', '>=', now());
+        }])
+        ->where('visible', 1)
+        ->where('address', 'LIKE', '%' . $data['data'] . '%');
+        
+    
+        $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+        ->where('visible', 1)
+        ->where('address', 'LIKE', '%' . $data['data'] . '%');
+        
+    
+        $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
 
         return response()->json([
                 'success'=>true,
                 'message'=> $data,
-                'results' =>  $filterApt
+                'results' => $apartments
             ],200);
     
     }
@@ -113,10 +125,10 @@ class ApartmentController extends Controller
             'selectedServices' => 'nullable|array'
         ]);
 
-        if (!array_key_exists('numberOfBeds', $data) || $data['numberOfBeds'] == '') {
+        if (!array_key_exists('numberOfBeds', $data) || $data['numberOfBeds'] == '' || $data['numberOfBeds'] == null) {
             $data['numberOfBeds'] = 0;
         }
-        if (!array_key_exists('numberOfRooms', $data) || $data['numberOfRooms'] == '') {
+        if (!array_key_exists('numberOfRooms', $data) || $data['numberOfRooms'] == '' || $data['numberOfRooms'] == null) {
             $data['numberOfRooms'] = 0;
         }
         if (!array_key_exists('price', $data)  || $data['price'] == '') {
@@ -124,26 +136,65 @@ class ApartmentController extends Controller
         }
 
         if(count($data) == 0) {
-            $result = Apartment::with('services','image')->where('visible', 1)->paginate(3);
+            $sponsoredApartments = Apartment::has('sponsorships')
+            ->with(['sponsorships' => function ($query) {
+                $query->whereDate('end_date', '>=', now());
+            }])
+            ->where('visible', 1);
+
+            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+            ->where('visible', 1);
+
+            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
         }
+
+        // SERVICES QUERY
         elseif(isset($data['selectedServices'])) {
-            $result = Apartment::with('services', 'image')
-                                ->where('visible', 1)
-                                ->where('bed', '>=' , $data['numberOfBeds'])
-                                ->where('room', '>=' , $data['numberOfRooms'])
-                                ->where('price', '>=' , $data['price'])
-                                ->whereHas('services', function ($query) use ($data) {
-                                    $query->whereIn('service_id', $data['selectedServices']);
-                                }, '=', count($data['selectedServices']))
-                                ->get();
+
+            $sponsoredApartments = Apartment::has('sponsorships')
+            ->with(['sponsorships' => function ($query) {
+                $query->whereDate('end_date', '>=', now());
+            }])
+            ->with('services')
+            ->where('visible', 1)
+            ->where('bed', '>=' , $data['numberOfBeds'])
+            ->where('room', '>=' , $data['numberOfRooms'])
+            ->where('price', '>=' , $data['price'])
+            ->whereHas('services', function ($query) use ($data) {
+                $query->whereIn('service_id', $data['selectedServices']);
+            }, '=', count($data['selectedServices']));
+            
+
+            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+            ->with('services')
+            ->where('visible', 1)
+            ->where('bed', '>=' , $data['numberOfBeds'])
+            ->where('room', '>=' , $data['numberOfRooms'])
+            ->where('price', '>=' , $data['price'])
+            ->whereHas('services', function ($query) use ($data) {
+                $query->whereIn('service_id', $data['selectedServices']);
+            }, '=', count($data['selectedServices']));
+            
+
+            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
         }
         else{
-            $result = Apartment::with('services', 'image')
-                                ->where('visible', 1)
-                                ->where('bed', '>=' , $data['numberOfBeds'])
-                                ->where('room', '>=' , $data['numberOfRooms'])
-                                ->where('price', '>=' , $data['price'])
-                                ->get();
+            $sponsoredApartments = Apartment::has('sponsorships')
+            ->with(['sponsorships' => function ($query) {
+                $query->whereDate('end_date', '>=', now());
+            }])
+            ->where('visible', 1)
+            ->where('bed', '>=', $data['numberOfBeds'])
+            ->where('room', '>=', $data['numberOfRooms'])
+            ->where('price', '>=', $data['price']);
+
+            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+            ->where('visible', 1)
+            ->where('bed', '>=', $data['numberOfBeds'])
+            ->where('room', '>=', $data['numberOfRooms'])
+            ->where('price', '>=', $data['price']);
+
+            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
         }
     
         return response()->json([
