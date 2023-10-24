@@ -75,11 +75,13 @@ class ApartmentController extends Controller
         ->with(['sponsorships' => function ($query) {
             $query->whereDate('end_date', '>=', now());
         }])
+        ->with('sponsorships')
         ->where('visible', 1)
         ->where('address', 'LIKE', '%' . $data['data'] . '%');
         
     
         $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+        ->with('sponsorships')
         ->where('visible', 1)
         ->where('address', 'LIKE', '%' . $data['data'] . '%');
         
@@ -140,9 +142,11 @@ class ApartmentController extends Controller
             ->with(['sponsorships' => function ($query) {
                 $query->whereDate('end_date', '>=', now());
             }])
+            ->with('sponsorships')
             ->where('visible', 1);
 
             $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
+            ->with('sponsorships')
             ->where('visible', 1);
 
             $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
@@ -155,7 +159,7 @@ class ApartmentController extends Controller
             ->with(['sponsorships' => function ($query) {
                 $query->whereDate('end_date', '>=', now());
             }])
-            ->with('services')
+            ->with('services','sponsorhips')
             ->where('visible', 1)
             ->where('bed', '>=' , $data['numberOfBeds'])
             ->where('room', '>=' , $data['numberOfRooms'])
@@ -166,7 +170,7 @@ class ApartmentController extends Controller
             
 
             $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-            ->with('services')
+            ->with('services','sponsorhips')
             ->where('visible', 1)
             ->where('bed', '>=' , $data['numberOfBeds'])
             ->where('room', '>=' , $data['numberOfRooms'])
@@ -183,6 +187,7 @@ class ApartmentController extends Controller
             ->with(['sponsorships' => function ($query) {
                 $query->whereDate('end_date', '>=', now());
             }])
+            ->with('sponsorships')
             ->where('visible', 1)
             ->where('bed', '>=', $data['numberOfBeds'])
             ->where('room', '>=', $data['numberOfRooms'])
@@ -190,6 +195,7 @@ class ApartmentController extends Controller
 
             $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
             ->where('visible', 1)
+            ->with('sponsorships')
             ->where('bed', '>=', $data['numberOfBeds'])
             ->where('room', '>=', $data['numberOfRooms'])
             ->where('price', '>=', $data['price']);
