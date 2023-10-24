@@ -64,7 +64,7 @@
                 </h4>
                 <div class="rounded-line"></div>
                 <div class="info-single-ap d-flex info-details-query">
-                    <div class="info-details ps-0 pt-2 pe-4 pb-4">
+                    <div class="info-details ps-0 pt-2 pb-4">
                         <h4 class="description-card">
                             Info:
                         </h4>
@@ -111,7 +111,7 @@
                         <h4 class="description-card">
                             Servizi:
                         </h4>
-                        <ul>
+                        <ul class="d-flex flex-column align-items-center align-items-md-start">
                             @foreach ($apartment->services as $service)
                             <li>{{ $service->name }}</li>
                             @endforeach
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 ps-0 p-1">
+            <div class="col-sm-12 col-md-6 ps-0">
                 <div class="p-4 border rounded-4 mt-3">
                     <h4 class="description-card">
                         Descrizione:
@@ -132,8 +132,8 @@
                     <div class="p-4 border rounded-4 mt-3">
                        <div class="d-flex flex-wrap p-0 g-0 m-0">
                              @foreach ($apartment->image as $extraImage)
-                                <div class="col-6 d-flex justify-content-center">
-                                    <div class="img-fluid img-extra-show mb-4">
+                                <div class="col-12 col-md-6 d-flex justify-content-center">
+                                    <div class="img-fluid img-extra-show my-2">
                                         @if($extraImage->path)
                                             <img src="/storage/{{ $extraImage->path }}" alt="" class="border rounded-4 w-100">
                                         @else 
