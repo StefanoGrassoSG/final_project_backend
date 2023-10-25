@@ -63,35 +63,32 @@ class ApartmentController extends Controller
     public function searchApartment(Request $request) {
 
         $data = $request->validate([
-            'data' => 'required'
+            'data' => 'required',
+            'lat' => 'required',
+            'lon' => 'required'
         ]);
 
         // $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
         //                         ->where('visible', 1)   
         //                         ->with('services','image')
         //                         ->paginate(3);
+        $radius = 20000;
+        $lat = $data['lat'];
+        $lon = $data['lon'];
 
-        $sponsoredApartments = Apartment::has('sponsorships')
-        ->with(['sponsorships' => function ($query) {
-            $query->whereDate('end_date', '>=', now());
-        }])
-        ->with('sponsorships')
-        ->where('visible', 1)
-        ->where('address', 'LIKE', '%' . $data['data'] . '%');
-        
-    
-        $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-        ->with('sponsorships')
-        ->where('visible', 1)
-        ->where('address', 'LIKE', '%' . $data['data'] . '%');
-        
-    
-        $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
+        $apartments = Apartment::select('*')
+            ->with('sponsorships')
+            ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+            ->havingRaw("distance < ?", [$radius])
+            ->paginate(6);
+
 
         return response()->json([
                 'success'=>true,
                 'message'=> $data,
-                'results' => $apartments
+                'results' => $apartments,
+                'lat' => $lat,
+                'lon' =>  $lon
             ],200);
     
     }

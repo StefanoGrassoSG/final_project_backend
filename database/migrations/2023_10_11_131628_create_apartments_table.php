@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('bathroom');
             $table->boolean('shared_bathroom')->nullable();
             $table->string('address', 128);
-            $table->string('lat', 50)->nullable();
-            $table->string('lon', 50)->nullable();
+            $table->decimal('lat', 8, 6);
+            $table->decimal('lon', 9, 6);
             $table->boolean('visible')->nullable()->default(true);
             $table->string('name', 64);
             $table->unsignedDecimal('price', $precision = 6, $scale = 2);
