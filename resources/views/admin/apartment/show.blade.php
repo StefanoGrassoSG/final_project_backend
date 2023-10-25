@@ -30,7 +30,7 @@
                     @if(str_starts_with($apartment->cover_img,'uploads'))
                         <img src="/storage/{{ $apartment->cover_img }}" alt="{{ $apartment->name }}" class="border rounded-4 w-100">
                     @elseif ($apartment->cover_img == null)
-                        <div class="img-fluid border rounded-4">
+                        <div class="img-fluid">
                             <img src="{{ Vite::asset('resources/img/icon_img.png') }}" alt="" class="border rounded-4 w-100">
                         </div>
                     @else 

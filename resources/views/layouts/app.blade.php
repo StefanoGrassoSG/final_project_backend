@@ -87,14 +87,13 @@
                 </aside>
     
                 <div class="main-container">
-                    <div class="main-header d-flex justify-content-between align-items-center py-4 shadow p-2 mb-5 bg-body-tertiary rounded">
-                        <div class="col-4">
-                            
+                    <div class="main-header d-flex justify-content-between align-items-center py-4 shadow px-5 mb-5 bg-body-tertiary">
+                        <div class="col-4 d-none d-md-inline">
                         </div>
                         <div class="logo-complete col-4 text-center">
                             <img src="{{ Vite::asset('resources/img/logo_giusto.png') }}" alt="" class="img-fluid">
                         </div>
-                        <div class="col-4 text-end px-5 d-flex justify-content-end align-items-center">
+                        <div class="col-4 text-end d-flex justify-content-end align-items-center">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button type="submit" class="btn btn-logout">
