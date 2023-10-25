@@ -76,10 +76,13 @@ class ApartmentController extends Controller
         $lat = $data['lat'];
         $lon = $data['lon'];
 
-        $apartments = Apartment::select('*')
+        $apartments = Apartment::select('apartments.*')
+            ->where('visible', 1)
             ->with('sponsorships')
             ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
             ->havingRaw("distance < ?", [$radius])
+            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+            ->orderBy('apartment_sponsorship.end_date', 'desc')
             ->paginate(6);
 
 
