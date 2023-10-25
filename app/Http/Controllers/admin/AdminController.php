@@ -49,6 +49,9 @@ class AdminController extends Controller
           ->count();  
 
           $countsByMonth = DB::table('views')
+          ->join('apartments','views.apartment_id','=','apartments.id')
+          ->join('users','apartments.user_id','=','users.id')
+          ->where('user_id', $userId)
           ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
           ->groupBy('month')
           ->get();
