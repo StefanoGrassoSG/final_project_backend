@@ -77,9 +77,15 @@
             <input type="number" class="form-control" id="square_meter" name="square_meter" value="{{ old('square_meter', $apartment->square_meter) }}" aria-describedby="emailHelp" min="1" max="9999" required>
           </div>
           <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" name="visible"  id="check-visible">
+            <input @if($apartment->visible == 0) checked @endif class="form-check-input" type="radio" name="visible"  id="check-visible" value="0">
             <label class="form-check-label" for="check-visible">
               Non visibile
+            </label>
+          </div>
+          <div class="mx-2 form-check mb-4">
+            <input @if($apartment->visible == 1) checked @endif class="form-check-input" type="radio" name="visible"  id="check-visible1" value="1">
+            <label class="form-check-label" for="check-visible1">
+              Visibile
             </label>
           </div>
         </div>

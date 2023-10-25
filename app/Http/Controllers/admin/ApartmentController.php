@@ -184,33 +184,34 @@ class ApartmentController extends Controller
             }
             $img_path= Storage::put('uploads\Apartment',$formData['cover_img']);
         }
-        if(isset($formData['visible'])) {
-            $formData['visible'] = false;
-        }
-        
-        if(!array_key_exists('visible', $formData)) {
-            $formData['visible'] = true;
-        }
+
         if(!isset($formData['shared_bathroom'])) {
             $formData['shared_bathroom'] = null;
         }
-        if(isset($formData['visible'])) {
-            $formData['visible'] = false;
-        }
-        
 
+
+        $response = Http::withoutVerifying()->get('https://api.tomtom.com/search/2/geocode/'.$formData['address'].'.json?&key='.env('API_KEY'));
+
+            // Gestisci la risposta qui
+            $data = $response->json();
+       
+            $lat = $data['results'][0]['position']['lat'];
+            $lon =  $data['results'][0]['position']['lon'];
+        
         $apartment->update([
             'room' => $formData['room'],
-           'bathroom' => $formData['bathroom'],
-           'bed' => $formData['bed'],
-           'shared_bathroom' => $formData['shared_bathroom'],
-           'address' => $formData['address'],
-           'visible' => $formData['visible'],
-           'name' => $formData['name'],
-           'price' => $formData['price'],
-           'square_meter' => $formData['square_meter'],
-           'description' => $formData['description'],
-           'cover_img' => $img_path,
+            'bathroom' => $formData['bathroom'],
+            'bed' => $formData['bed'],
+            'shared_bathroom' => $formData['shared_bathroom'],
+            'address' => $formData['address'],
+            'lat'=>$lat,
+            'lon'=>$lon,
+            'visible' => $formData['visible'],
+            'name' => $formData['name'],
+            'price' => $formData['price'],
+            'square_meter' => $formData['square_meter'],
+            'description' => $formData['description'],
+            'cover_img' => $img_path,
         ]);
 
         // adding more images
