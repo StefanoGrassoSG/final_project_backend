@@ -4,7 +4,7 @@
 
 @section('main-content')
     <div class="row my-row">
-        <div class="title-main d-flex align-items-center justify-content-center justify-content-sm-start">
+        <div class="title-main d-flex align-items-center justify-content-center justify-content-sm-start ps-0">
             <h1>
               Sponsorizza il tuo bool<span class="b-blue">b</span>n<span class="b-blue">b</span>
             </h1>

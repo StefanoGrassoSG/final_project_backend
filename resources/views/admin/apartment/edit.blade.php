@@ -132,6 +132,15 @@
             <input type="file" class="form-control" accept="image/*" id="extra_imgs" name="extra_imgs[]" aria-describedby="emailHelp" multiple>
           </div>
         </div>
+            {{-- CAMPO PER LE IMMAGINA COPERTINA --}}
+        <div class="mb-4">
+          <label class="form-label">Immagine di copertina</label>
+          <div class="img-extra d-flex my-3 flex-wrap">
+            <div class="col-12 col-md-4 mb-3">
+              <img src="/storage/{{ $apartment->cover_img }}" alt="" class="border rounded-4">
+            </div>
+          </div>
+        </div>
             {{-- CAMPO PER LE IMMAGINI EXTRA --}}
         <div class="mb-4">
           @if ($extra_images)

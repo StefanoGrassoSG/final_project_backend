@@ -24,10 +24,13 @@ main {
                     color: #7f7f7f;
                     font-weight: bolder;
                     border-radius: 20px;
+                    
+                    .text-out-lg {
+                        margin-right: 5px;
+                    }
 
                     .user-logo {
                         width: 25px;
-                        margin-left: 5px;
                     }
                 }
 
