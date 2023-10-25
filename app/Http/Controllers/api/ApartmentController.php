@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Carbon;
 
 
 
@@ -68,22 +69,26 @@ class ApartmentController extends Controller
             'lon' => 'required'
         ]);
 
-        // $filterApt = Apartment::where('address', 'LIKE', '%' . $data['data'] . '%')
-        //                         ->where('visible', 1)   
-        //                         ->with('services','image')
-        //                         ->paginate(3);
         $radius = 20000;
         $lat = $data['lat'];
         $lon = $data['lon'];
 
+        $currentDate = Carbon::now(); 
+
         $apartments = Apartment::select('apartments.*')
-            ->where('visible', 1)
-            ->with('sponsorships')
-            ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
-            ->havingRaw("distance < ?", [$radius])
-            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
-            ->orderBy('apartment_sponsorship.end_date', 'desc')
-            ->paginate(6);
+        ->where('visible', 1)
+        ->with('sponsorships')
+        ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+        ->havingRaw("distance < ?", [$radius])
+        ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+        ->where(function($query) use ($currentDate) {
+            $query->whereNull('apartment_sponsorship.id') 
+                ->orWhere(function($query) use ($currentDate) {
+                    $query->where('apartment_sponsorship.end_date', '>=', $currentDate); 
+                });
+        })
+        ->orderBy('apartment_sponsorship.end_date', 'desc')
+        ->paginate(6);
 
 
         return response()->json([
