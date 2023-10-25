@@ -28,14 +28,14 @@
             </div>
             @foreach ($apartments as $singleApt)
                 <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex flex-wrap">
-                    <div class="col-12 col-md-4 col-lg-3 d-block d-sm-none d-md-block">
+                    <div class="col-12 col-md-4 col-lg-3 d-block d-sm-none d-md-block col-card">
                         @if(str_starts_with($singleApt->cover_img,'uploads'))
                             <div class="img-div rounded-sm-top-4">
                                 <img src="/storage/{{ $singleApt->cover_img }}" alt="{{ $singleApt->name }}">
                             </div>
                         @elseif ($singleApt->cover_img == null)
                             <div class="img-div">
-                                <img src="{{ Vite::asset('resources/img/icon_img.png') }}" alt="" class="logo-add-index d-none d-sm-block">
+                                <img src="{{ Vite::asset('resources/img/icon_img.png') }}" alt="" class="logo-add-index d-sm-block">
                             </div>
                         @else
                             <div class="img-div">
