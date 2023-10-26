@@ -67,10 +67,10 @@
                             L'appartamento più visto:
                         </div>
                         <div class="count-number-card">
-                            Nome app
+                            {{ $singleAptViews->name }}
                         </div>
                         <div class="count-text-two">
-                            Ha 100 visualizzazioni
+                            Ha {{ $singleAptViews->view_count }} visualizzazioni
                         </div>
                     </a>
                 </div>
