@@ -31,11 +31,11 @@ class ApartmentController extends Controller
     ->with(['sponsorships' => function ($query) {
         $query->whereDate('end_date', '>=', now());
     }])
-    ->with('sponsorships')
+    ->with('sponsorships', 'services', 'image')
     ->where('visible', 1);
 
     $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-    ->with('sponsorships')
+     ->with('sponsorships', 'services', 'image')
     ->where('visible', 1);
 
     $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
@@ -79,7 +79,7 @@ class ApartmentController extends Controller
 
         $apartments = Apartment::select('apartments.*')
         ->where('visible', 1)
-        ->with('sponsorships')
+        ->with('sponsorships', 'services', 'image')
         ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
         ->havingRaw("distance < ?", [$radius])
         ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
@@ -133,8 +133,18 @@ class ApartmentController extends Controller
             'numberOfBeds' => 'nullable|numeric',
             'numberOfRooms' => 'nullable|numeric',
             'price' => 'nullable|numeric',
-            'selectedServices' => 'nullable|array'
+            'selectedServices' => 'nullable|array',
+            'lat' => 'required',
+            'lon' => 'required',
+            'radius' => 'nullable'
         ]);
+
+        $radius = $data['radius'] * 1000;
+
+        $lat = $data['lat'];
+        $lon = $data['lon'];
+
+        $currentDate = Carbon::now(); 
 
         if (!array_key_exists('numberOfBeds', $data) || $data['numberOfBeds'] == '' || $data['numberOfBeds'] == null) {
             $data['numberOfBeds'] = 0;
@@ -145,77 +155,58 @@ class ApartmentController extends Controller
         if (!array_key_exists('price', $data)  || $data['price'] == '') {
             $data['price'] = 0;
         }
-
-        if(count($data) == 0) {
-            $sponsoredApartments = Apartment::has('sponsorships')
-            ->with(['sponsorships' => function ($query) {
-                $query->whereDate('end_date', '>=', now());
-            }])
-            ->with('sponsorships')
-            ->where('visible', 1);
-
-            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-            ->with('sponsorships')
-            ->where('visible', 1);
-
-            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
-        }
+       
 
         // SERVICES QUERY
-        elseif(isset($data['selectedServices'])) {
+        if(isset($data['selectedServices'])) {
 
-            $sponsoredApartments = Apartment::has('sponsorships')
-            ->with(['sponsorships' => function ($query) {
-                $query->whereDate('end_date', '>=', now());
-            }])
-            ->with('services','sponsorhips')
-            ->where('visible', 1)
+            $apartments = Apartment::select('apartments.*')
             ->where('bed', '>=' , $data['numberOfBeds'])
             ->where('room', '>=' , $data['numberOfRooms'])
             ->where('price', '>=' , $data['price'])
-            ->whereHas('services', function ($query) use ($data) {
-                $query->whereIn('service_id', $data['selectedServices']);
-            }, '=', count($data['selectedServices']));
-            
-
-            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-            ->with('services','sponsorhips')
             ->where('visible', 1)
-            ->where('bed', '>=' , $data['numberOfBeds'])
-            ->where('room', '>=' , $data['numberOfRooms'])
-            ->where('price', '>=' , $data['price'])
             ->whereHas('services', function ($query) use ($data) {
                 $query->whereIn('service_id', $data['selectedServices']);
-            }, '=', count($data['selectedServices']));
-            
-
-            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
+            }, '=', count($data['selectedServices']))
+            ->with('sponsorships', 'services', 'image')
+            ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+            ->havingRaw("distance < ?", [$radius])
+            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+            ->where(function($query) use ($currentDate) {
+                $query->whereNull('apartment_sponsorship.id') 
+                    ->orWhere(function($query) use ($currentDate) {
+                        $query->where('apartment_sponsorship.end_date', '>=', $currentDate); 
+                    });
+            })
+            ->orderBy('apartment_sponsorship.end_date', 'desc')
+            ->paginate(6);
+        
         }
         else{
-            $sponsoredApartments = Apartment::has('sponsorships')
-            ->with(['sponsorships' => function ($query) {
-                $query->whereDate('end_date', '>=', now());
-            }])
-            ->with('sponsorships')
+            $apartments = Apartment::select('apartments.*')
+            ->where('bed', '>=' , $data['numberOfBeds'])
+            ->where('room', '>=' , $data['numberOfRooms'])
+            ->where('price', '>=' , $data['price'])
             ->where('visible', 1)
-            ->where('bed', '>=', $data['numberOfBeds'])
-            ->where('room', '>=', $data['numberOfRooms'])
-            ->where('price', '>=', $data['price']);
-
-            $nonSponsoredApartments = Apartment::doesntHave('sponsorships')
-            ->where('visible', 1)
-            ->with('sponsorships')
-            ->where('bed', '>=', $data['numberOfBeds'])
-            ->where('room', '>=', $data['numberOfRooms'])
-            ->where('price', '>=', $data['price']);
-
-            $result = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
+            ->with('sponsorships', 'services', 'image')
+            ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+            ->havingRaw("distance < ?", [$radius])
+            ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
+            ->where(function($query) use ($currentDate) {
+                $query->whereNull('apartment_sponsorship.id') 
+                    ->orWhere(function($query) use ($currentDate) {
+                        $query->where('apartment_sponsorship.end_date', '>=', $currentDate); 
+                    });
+            })
+            ->orderBy('apartment_sponsorship.end_date', 'desc')
+            ->paginate(6);
         }
+        
     
         return response()->json([
             'success'=>true,
             'response'=> $data,
-            'results' => $result
+            'results' => $apartments
             
         ],200);
     }
