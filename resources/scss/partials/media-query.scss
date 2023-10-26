@@ -188,6 +188,39 @@
         }
     }
 
+
+    main{
+        .main-section{
+            .main-container-register{
+                .main-main-register{
+                    .card-register{
+                        form{
+                            div{
+                                flex-direction: column;
+
+                                .col-right{
+                                    margin-left: 0px;
+    
+                                    div{
+                                        margin-bottom: -1px;
+            
+                                    }
+                                }
+                            }
+
+                            .register-button{
+    
+                                button{
+                                    margin-top: 30px; 
+                                }
+    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     //PAG. SHOW
     .container-show {
         .info-sponsored {
