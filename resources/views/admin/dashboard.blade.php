@@ -14,6 +14,19 @@
 
             <div class="stats-container d-flex flex-wrap justify-content-between">
                 <div class="card-stats border rounded-4 col-12 col-sm-4">
+                    <a href="{{ route('admin.apartment.index') }}">
+                        <div class="count-text-one">
+                            Hai
+                        </div>
+                        <div class="count-number-card">
+                            {{ $apartments }}
+                        </div>
+                        <div class="count-text-two">
+                            Appartamenti
+                        </div>
+                    </a>
+                </div>
+                <div class="card-stats border rounded-4 col-12 col-sm-4">
                     <a href="{{ route('admin.message.index') }}">
                         <div class="count-text-one">
                             Hai
@@ -31,17 +44,6 @@
                         Hai
                     </div>
                     <div class="count-number-card">
-                        {{ $apartments }}
-                    </div>
-                    <div class="count-text-two">
-                        Appartamenti
-                    </div>
-                </div>
-                <div class="card-stats border rounded-4 col-12 col-sm-4">
-                    <div class="count-text-one">
-                        Hai
-                    </div>
-                    <div class="count-number-card">
                         {{$viewCount}}
                     </div>
                     <div class="count-text-two">
@@ -49,7 +51,6 @@
                     </div>
                 </div>
                 <div class="card-stats border rounded-4 col-12 col-sm-4">
-                    <a href="{{ route('admin.message.index') }}">
                         <div class="count-text-one">
                             Hai
                         </div>
@@ -58,8 +59,7 @@
                         </div>
                         <div class="count-text-two">
                             Bool Sponsor
-                        </div>
-                    </a>
+                        </div>                    
                 </div>
                 <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
                     <a href="{{ route('admin.message.index') }}">
