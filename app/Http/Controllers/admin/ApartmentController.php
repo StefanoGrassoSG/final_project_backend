@@ -250,7 +250,7 @@ class ApartmentController extends Controller
              }
            };
         };
-        if(!str_starts_with($apartment->cover_img,'uploads')){
+        if(!str_starts_with($apartment->cover_img,'uploads') && $apartment->covet_img != null){
            Storage::delete($apartment->cover_img); 
         }
         
