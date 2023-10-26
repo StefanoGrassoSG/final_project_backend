@@ -138,5 +138,6 @@
         tom.append(searchBoxHTML);
 		let x = document.getElementsByClassName("tt-search-box-input");
 		x[0].setAttribute("name", "address");
+    x[0].setAttribute("value", "{{ old('address') }}");
     </script>
 @endsection
