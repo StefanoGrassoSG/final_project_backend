@@ -64,12 +64,14 @@ class ApartmentController extends Controller
     public function searchApartment(Request $request) {
 
         $data = $request->validate([
-            'data' => 'required',
+            'city' => 'nullable',
             'lat' => 'required',
-            'lon' => 'required'
+            'lon' => 'required',
+            'radius' => 'nullable'
         ]);
 
-        $radius = 20000;
+        $radius = $data['radius'] * 1000;
+
         $lat = $data['lat'];
         $lon = $data['lon'];
 
@@ -96,7 +98,9 @@ class ApartmentController extends Controller
                 'message'=> $data,
                 'results' => $apartments,
                 'lat' => $lat,
-                'lon' =>  $lon
+                'lon' =>  $lon,
+                'radius' => $radius,
+                'test' => $data['radius']
             ],200);
     
     }
