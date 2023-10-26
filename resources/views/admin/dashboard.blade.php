@@ -91,11 +91,11 @@
         console.log(data);
         console.log(data);
         const finalData = [];
-        
+        let months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
         for (let index = 1; index <= 12; index++) {
             if(index <= 9) {
                 let obj = {
-                'month': index,
+                'month': months[index-1],
                 'count':data[`0${index}`]
                 }
                 
@@ -106,7 +106,7 @@
             }
             else{
                 let obj = {
-                'month': index,
+                'month': months[index-1],
                 'count':data[`${index}`]
                 }
                
