@@ -19,7 +19,7 @@ class MessageSeeder extends Seeder
                 'date' => fake()->date(),
                 'content' => fake()->paragraphs(3, true),
                 'email' => fake()->email(),
-                'apartment_id' => 1
+                'apartment_id' => rand(1, 28)
             ]);
         }
     }
