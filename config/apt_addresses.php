@@ -603,7 +603,8 @@ return [
         'price' => '',
         'square_meter' => '',
 
-    ],
+    ]
+
 ];
 
 // come fare il seedr in ApartmentSeeder quando è completo
@@ -626,6 +627,7 @@ return [
                 'address' => $singleAddress['address'],
                 'lat' => $singleAddress['lat'],
                 'lon' => $singleAddress['lon'],
+                'room' => $singleAddress['room']
                 'visible' => $singleAddress['visible'],,
                 'name' => $singleAddress['name'],,
                 'price' => $singleAddress['price'],,

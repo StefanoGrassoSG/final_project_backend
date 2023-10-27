@@ -13,13 +13,13 @@ class ImageSeeder extends Seeder
      */
     public function run(): void
     {   
-        Image::truncate();
+        //Image::truncate();
 
-        for ($i=0; $i < 30; $i++) { 
-            Image::create([
-                'src' => fake()->imageUrl(),
-                'apartment_id' => rand(1, 9)
-            ]);
-        }
+       // for ($i=0; $i < 30; $i++) { 
+         //   Image::create([
+           //     'src' => fake()->imageUrl(),
+             //   'apartment_id' => rand(1, 9)
+            //]);
+     //   }
     }
 }
