@@ -16,11 +16,11 @@ class ViewSeeder extends Seeder
 
         View::truncate();
         
-        for ($i=0; $i < 3000; $i++) { 
+        for ($i=0; $i < 30; $i++) { 
             View::create([
                 'ip_adress' => fake()->ipv6(),
                 'date' => fake()->date('2023-m-d'),
-                'apartment_id' => rand(1, 9)
+                'apartment_id' => 1
             ]);
         }
     }

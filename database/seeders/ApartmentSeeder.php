@@ -26,34 +26,28 @@ class ApartmentSeeder extends Seeder
         });
 
         
-       // if (Storage::disk('public')->exists('uploads/Apartment')) {
-         //   Storage::disk('public')->deleteDirectory('uploads/Apartment');
-       // }
-       // Storage::disk('public')->makeDirectory('uploads/Apartment');
+        $addresses =  config('apt_addresses');
 
-        for ($i=0; $i < 9; $i++) { 
+        Schema::withoutForeignKeyConstraints(function(){
+            Apartment::truncate();
+        });
 
-            $imgPath = fake()->imageUrl();
-           // $imgContent = file_get_contents($imgPath);
-
-           // $newImagePath = storage_path('app/public/uploads/Apartment');
-           // $newImageName = rand(1000, 9999).'-'.rand(1000, 9999).'-'.rand(1000, 9999).'.png';
-           // $fullNewImagePath = $newImagePath.'/'.$newImageName;
-
+        foreach($addresses as $singleAddress) { 
+            
             Apartment::create([
-                'room' => fake()->randomDigit(0),
-                'bed'  => fake()->randomDigit(0),
-                'bathroom' => fake()->randomDigit(0),
-                'shared_bathroom' => fake()->boolean(),
-                'address' => fake()->address(),
-                'lat' => fake()->latitude($min = -90, $max = 90),
-                'lon' => fake()->longitude($min = -180, $max = 180),
-                'visible' => true,
-                'name' => fake()->streetName(),
-                'price' => fake()->randomFloat(2, 50, 9999),
-                'square_meter' => fake()->randomNumber(3, false),
-                'description' => fake()->paragraphs(3, true),
-                'cover_img' =>  $imgPath,
+                'bed'  => $singleAddress['bed'],
+                'bathroom' => $singleAddress['bathroom'],
+                'shared_bathroom' => $singleAddress['shared_bathroom'],
+                'address' => $singleAddress['address'],
+                'lat' => $singleAddress['lat'],
+                'lon' => $singleAddress['lon'],
+                'room' => $singleAddress['room'],
+                'visible' => $singleAddress['visible'],
+                'name' => $singleAddress['name'],
+                'price' => $singleAddress['price'],
+                'square_meter' => $singleAddress['square_meter'],
+                'description' => $singleAddress['description'],
+                'cover_img' => $singleAddress['cover_img'],
                 'user_id' => rand(1, 2)
             ]);
         }
