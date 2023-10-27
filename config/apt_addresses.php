@@ -11,220 +11,536 @@ return [
         nella risposta json trovate 'position' e avete lat e lon
         in modo alternativo potete andare su laravel inserire indirizzo e andare nel db a ricavarvi lat e lon che usa la stessa funzione della chiamata a tomtom
     */
+    // esempio, attenetevi ai tipi delle colonne nella tabella del db
     [
         'address' => 'via vittorio veneto ,roma',
         'lat' => '41.90709',
         'lon' => '12.48991',
-        'cover_img'=> 'resources/img/apt_img/filename'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'BELLA CASA',
+        'bed'=>'12',
+        'bathroom'=>'3',
+        'shared_bathroom'=>'', /*boolean 1 0 true false */
+        'description'=>'affittami stronzo',
+        'visible'=>'true', /*boolean 1 0 true false */
+        'price'=>'199.99',/*decimal  */
+        'square_meter'=>'',
+
     ],
     // 7 indirizzi STEFANO
     [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     // 7 indirizzi Ale M
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     // 7 indirizzi PIERPAOLO
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     //  7 indirizzi EROS
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
     // 7 indirizzi ale ebr
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
    [
         'address' => '',
         'lat' => '',
         'lon' => '',
-        'cover_img'=> 'resources/img/apt_img/'
+        'cover_img'=> 'resources/img/apt_img/',
+        'name'=>'',
+        'bed'=>'',
+        'bathroom'=>'',
+        'shared_bathroom'=>'',
+        'description'=>'',
+        'visible'=>'',
+        'price'=>'',
+        'square_meter'=>'',
+
     ],
 ];
 
@@ -232,27 +548,27 @@ return [
 /*
     
     
-        $adresses =  config('apt_addresses');
+        $addresses =  config('apt_addresses');
 
         Schema::withoutForeignKeyConstraints(function(){
             Apartment::truncate();
         });
 
-        foreach($singleAddress as $adresses) { 
+        foreach($singleAddress as $addresses) { 
             
             Apartment::create([
-                'room' => fake()->randomDigit(),
-                'bed'  => fake()->randomDigit(),
-                'bathroom' => fake()->boolean(),
-                'shared_bathroom' => fake()->boolean(),
+                'room' => $singleAddress['room'],
+                'bed'  => $singleAddress['bed'],
+                'bathroom' => $singleAddress['bathroom'],
+                'shared_bathroom' => $singleAddress['shared_bathroom'],
                 'address' => $singleAddress['address'],
                 'lat' => $singleAddress['lat'],
                 'lon' => $singleAddress['lon'],
-                'visible' => true,
-                'name' => fake()->streetName(),
-                'price' => fake()->randomFloat(2, 50, 9999),
-                'square_meter' => fake()->randomNumber(3, false),
-                'description' => fake()->paragraphs(3, true),
+                'visible' => $singleAddress['visible'],,
+                'name' => $singleAddress['name'],,
+                'price' => $singleAddress['price'],,
+                'square_meter' => $singleAddress['square_meter'],,
+                'description' => $singleAddress['description'],,
                 'cover_img' => $singleAddress['cover_img'],
                 'user_id' => rand(1, 2)
             ]);
