@@ -113,12 +113,15 @@
                 if(obj['count'] == undefined) {
                     obj['count'] = 0
                 }
-                finalData.push(obj);
+                finalData.push(obj)
             }
-
+          
         }
         
-
+        if(finalData[10].month == 'Novembre' || finalData[11].month == 'Dicembre') {
+            finalData[10].count = 0
+            finalData[11].count = 0
+        }
         console.log(finalData);
 
 
