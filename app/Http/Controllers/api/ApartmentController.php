@@ -38,7 +38,7 @@ class ApartmentController extends Controller
      ->with('sponsorships', 'services', 'image')
     ->where('visible', 1);
 
-    $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(6);
+    $apartments = $sponsoredApartments->union($nonSponsoredApartments)->paginate(12);
     
     $apartments;
     if($apartments) {
@@ -80,7 +80,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::select('apartments.*')
         ->where('visible', 1)
         ->with('sponsorships', 'services', 'image')
-        ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+        ->selectRaw("12371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
         ->havingRaw("distance < ?", [$radius])
         ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
         ->where(function($query) use ($currentDate) {
@@ -90,7 +90,7 @@ class ApartmentController extends Controller
                 });
         })
         ->orderBy('apartment_sponsorship.end_date', 'desc')
-        ->paginate(6);
+        ->paginate(12);
 
 
         return response()->json([
@@ -179,7 +179,7 @@ class ApartmentController extends Controller
                     });
             })
             ->orderBy('apartment_sponsorship.end_date', 'desc')
-            ->paginate(6);
+            ->paginate(12);
         
         }
         else{
@@ -199,7 +199,7 @@ class ApartmentController extends Controller
                     });
             })
             ->orderBy('apartment_sponsorship.end_date', 'desc')
-            ->paginate(6);
+            ->paginate(12);
         }
         
     
