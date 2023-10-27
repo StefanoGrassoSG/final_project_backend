@@ -37,15 +37,6 @@ class Apartment extends Model
         'user_id'
     ];
 
-    public function getFullCoverImgAttribute()
-    {
-        if ($this->cover_img) {
-            return asset('storage/'.$this->cover_img);
-        }
-        else {
-            return null;
-        }
-    }
     
     //RELATIONSHIPS
 

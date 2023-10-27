@@ -1,48 +1,22 @@
 <?php
 return [
-    // es indirizzo PREFERIBILMENTE INDIRIZZI NELLA VOSTR CITTA ENTRO 20-35km distanza l'uno dall'altro
-    // (so che non serve l'array di array associativi ma è più ordinato visivamente per noi scriverli)
-    /*
-        vanno inseriti a mano inoltre lat e lon
-        dovete fare una chiamata axios su postman del vostro indirizzo al tomtom con la vostra APIKEY
-        indirizzo e APIKEY sono params della chiamata url di tomtom
-        e nella risposta json avrete i campi latitudine e longitudine da inserire
-        https://api.tomtom.com/search/2/geocode/INDIRIZZO.json?&key=KEiNGuhsySt5PgvkmCw7C9Sb5vGdacR6
-        nella risposta json trovate 'position' e avete lat e lon
-        in modo alternativo potete andare su laravel inserire indirizzo e andare nel db a ricavarvi lat e lon che usa la stessa funzione della chiamata a tomtom
-    */
-    // esempio, attenetevi ai tipi delle colonne nella tabella del db
-    [
-        'address' => 'via vittorio veneto ,roma',
-        'lat' => '41.90709',
-        'lon' => '12.48991',
-        'cover_img'=> 'public/apt_img/',
-        'name'=>'BELLA CASA',
-        'bed'=>'12',
-        'room' => '8',
-        'bathroom'=>'3',
-        'shared_bathroom'=>'', /*boolean 1 0 true false */
-        'description'=>'affittami stronzo',
-        'visible'=>'true', /*boolean 1 0 true false */
-        'price'=>'199.99',/*decimal  */
-        'square_meter'=>'',
 
-    ],
     // 7 indirizzi STEFANO
     [
-        'address' => '',
-        'lat' => '',
-        'lon' => '',
-        'cover_img'=> 'public/apt_img/',
-        'name'=>'',
-        'bed'=>'',
-        'room' => '',
-        'bathroom'=>'',
-        'shared_bathroom'=>'',
-        'description'=>'',
-        'visible'=>'',
-        'price'=>'',
-        'square_meter'=>'',
+        'address' => 'Vico di Pellicceria, 16124 Genova GE, Italia',
+        'lat' => '44.4109216',
+        'lon' => '8.9302048',
+        'cover_img'=> 'public/apt_img/attico.centro.storico.webp',
+        'name'=>'Attico esclusivo Centro Storico',
+        'bed'=>2,
+        'room' => 1,
+        'bathroom'=>1,
+        'shared_bathroom'=>0,
+        'description'=> "Rilassati e ricaricati in quest'oasi di quiete ed eleganza. Attico lussuoso privato con terrazza e jacuzzi uso esclusivo affacciato sul museo di Pelliceria, a due passi dall'Acquario e dal Porto Antico nel cuore del Centro Storico di Genova.
+        Appartamento nuovo arredato con ricercatezza e marchi importanti e dotato di ogni confort, il palazzo d'interesse storico-artistico è stato completamente ristrutturato ed è dotato di ascensore, palestra condominiale e zona relax",
+        'visible'=>1,
+        'price'=> 99,
+        'square_meter'=> 150,
 
     ],
     [
@@ -615,6 +589,7 @@ return [
                 'address' => $singleAddress['address'],
                 'lat' => $singleAddress['lat'],
                 'lon' => $singleAddress['lon'],
+                'room' => $singleAddress['room']
                 'visible' => $singleAddress['visible'],,
                 'name' => $singleAddress['name'],,
                 'price' => $singleAddress['price'],,
