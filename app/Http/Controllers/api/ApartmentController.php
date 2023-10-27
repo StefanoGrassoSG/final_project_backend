@@ -80,7 +80,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::select('apartments.*')
         ->where('visible', 1)
         ->with('sponsorships', 'services', 'image')
-        ->selectRaw("12371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
+        ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(lat)) * cos(radians(lon) - radians(?)) + sin(radians(?)) * sin(radians(lat))) * 1000) AS distance", [$lat, $lon, $lat])
         ->havingRaw("distance < ?", [$radius])
         ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
         ->where(function($query) use ($currentDate) {
