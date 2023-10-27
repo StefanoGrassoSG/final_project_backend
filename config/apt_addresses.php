@@ -474,7 +474,7 @@ return [
         'address' => 'Via Vittorio Veneto, 00187 Roma',
         'lat' => '41.9088566',
         'lon' => '12.4887586',
-        'cover_img'=> '/apt_img/shak.jpg',
+        'cover_img'=> '/apt_img/shak7.jpg',
         'name'=>'Exorcist House',
         'bed'=>14,
         'room' => 20,
