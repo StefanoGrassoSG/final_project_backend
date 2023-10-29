@@ -23,15 +23,18 @@
             </div>
 
             @if($messages)
+            <div class="col-12 col-md-3">
                 <form action="{{ route('admin.single') }}" method="post" class="form-messages mb-4 d-flex align-items-center">
                     @csrf
-                    <select id="search" name="apt_message" class="form-select border rounded-4 form-select-md d-inline">
+                    <select id="search" name="apt_message" class="form-select border rounded-4 form-select-md d-inline w-100">
                         @foreach ($apartments as $singleApt)
                             <option value="{{ $singleApt->id }}">{{ $singleApt->name }}</option>
                         @endforeach
                     </select>
                     <button type="submit" class="btn btn-form-messages mx-3">Filtra</button>
                 </form>
+            </div>
+                
             @endif
 
 

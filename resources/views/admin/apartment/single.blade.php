@@ -15,9 +15,10 @@
             </div>
 
             @if($mess) 
+            <div class="col-12 col-md-3">
                 <form action="{{ route('admin.single') }}" method="post" class="form-messages mb-4 d-flex align-items-center">
                     @csrf
-                    <select id="search" name="apt_message" class="form-select border rounded-4 form-select-md d-inline">
+                    <select id="search" name="apt_message" class="form-select border rounded-4 form-select-md d-inline w-100">
                         @foreach ($apartments as $singleApt)
                             <option
                             @if($apt->id == $singleApt->id)
@@ -28,6 +29,7 @@
                     </select>
                     <button class="btn btn-form-messages mx-3" type="submit">Filtra</button>
                 </form>
+            </div>
             @endif
        
             @if(count($mess) > 0)   
