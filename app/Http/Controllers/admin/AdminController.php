@@ -60,13 +60,14 @@ class AdminController extends Controller
           $arr[$count->month] = $count->count;
           }
 		    
-        $singleAptViews = View::select('apartments.name', DB::raw('count(apartment_id) as view_count'))
+        $singleAptViews = View::select('apartments.id', 'apartments.name', DB::raw('count(apartment_id) as view_count'))
         ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
-        ->join('users','apartments.user_id','=','users.id')
+        ->join('users', 'apartments.user_id', '=', 'users.id')
         ->where('user_id', $userId)
-        ->groupBy('apartments.name')
+        ->groupBy('apartments.id', 'apartments.name')
         ->orderByDesc('view_count')
         ->first();
+      
     
     
           

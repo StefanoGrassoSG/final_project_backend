@@ -3,6 +3,7 @@
 @section('page-title', 'Dashboard')
 
 @section('main-content')
+
     <div class="row my-row">
         <div class="col">
             <div class="title-main d-flex align-items-center">
@@ -62,7 +63,7 @@
                         </div>                    
                 </div>
                 <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
-                    <a href="{{ route('admin.message.index') }}">
+                    <a href="{{ route('admin.apartment.show', ['apartment' => $singleAptViews->id]) }}">
                         <div class="count-text-one">
                             L'appartamento più visto:
                         </div>
