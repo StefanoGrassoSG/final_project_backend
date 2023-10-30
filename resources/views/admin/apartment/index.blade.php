@@ -27,6 +27,7 @@
                 @endif
             </div>
             @foreach ($apartments as $singleApt)
+            {{-- {{dd($singleApt->sponsorships)}} --}}
                 <div class="card-apartment d-block my-3 border rounded-4 d-sm-flex flex-wrap">
                     <div class="col-12 col-md-4 col-lg-3 d-block d-sm-none d-md-block col-card">
                         @if(str_starts_with($singleApt->cover_img,'uploads'))
@@ -60,6 +61,15 @@
                             <li class="d-none d-sm-block">
                                 <span class="span-info-apt">Prezzo: </span>{{ $singleApt->price }} &euro;
                             </li>
+                            @if(count($singleApt->sponsorships) > 0)
+                                <li class="d-none d-sm-block">
+                                    <span class="span-info-apt sponsor-span">Sponsorizzato </span>
+                                </li>
+                            @endif
+
+
+
+                            
                         </ul>
                     </div>
                     <div class="col-12 col-sm-4 col-md-3 col-lg-3 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block d-md-inline">

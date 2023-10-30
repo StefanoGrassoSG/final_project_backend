@@ -22,57 +22,58 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function dashboard() {
+  public function dashboard()
+  {
 
-        $user = Auth::user();
-        $userId = Auth::id();
-        $apartments = Apartment::where('user_id', $user['id'])->count();
-       
-     
-       $mess = Message::join('apartments','messages.apartment_id','=','apartments.id')
-          ->join('users','apartments.user_id','=','users.id')
-          ->where('user_id', $userId)
-          ->count();
-     
-        $sponsor = DB::table('apartment_sponsorship')
-            ->join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
-            ->join('users','apartments.user_id','=','users.id')
-            ->where('user_id', $userId)
-            ->distinct('apartment_id')
-            ->count();
-      
-        $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
-        ->join('users','apartments.user_id','=','users.id')
-        ->where('user_id', $userId)
-        ->selectRaw('* FROM ')
-        ->distinct('views.date')
-        ->count();  
+    $user = Auth::user();
+    $userId = Auth::id();
+    $apartments = Apartment::where('user_id', $user['id'])->count();
 
-        $countsByMonth = DB::table('views')
-        ->join('apartments','views.apartment_id','=','apartments.id')
-        ->join('users','apartments.user_id','=','users.id')
-        ->where('user_id', $userId)
-        ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
-        ->groupBy('month')
-        ->get();
 
-          foreach ($countsByMonth as $count) {
-          $arr[$count->month] = $count->count;
-          }
-		    
-        $singleAptViews = View::select('apartments.name', DB::raw('count(apartment_id) as view_count'))
-        ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
-        ->join('users','apartments.user_id','=','users.id')
-        ->where('user_id', $userId)
-        ->groupBy('apartments.name')
-        ->orderByDesc('view_count')
-        ->first();
-    
-    
-          
-          
-        
-        
-        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr', 'singleAptViews'));
-     }
+    $mess = Message::join('apartments', 'messages.apartment_id', '=', 'apartments.id')
+      ->join('users', 'apartments.user_id', '=', 'users.id')
+      ->where('user_id', $userId)
+      ->count();
+
+    $sponsor = DB::table('apartment_sponsorship')
+      ->join('apartments', 'apartment_sponsorship.apartment_id', '=', 'apartments.id')
+      ->join('users', 'apartments.user_id', '=', 'users.id')
+      ->where('user_id', $userId)
+      ->distinct('apartment_id')
+      ->count();
+
+    $viewCount = View::join('apartments', 'views.apartment_id', '=', 'apartments.id')
+      ->join('users', 'apartments.user_id', '=', 'users.id')
+      ->where('user_id', $userId)
+      ->selectRaw('* FROM ')
+      ->distinct('views.date')
+      ->count();
+
+    $countsByMonth = DB::table('views')
+      ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
+      ->join('users', 'apartments.user_id', '=', 'users.id')
+      ->where('user_id', $userId)
+      ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
+      ->groupBy('month')
+      ->get();
+
+    foreach ($countsByMonth as $count) {
+      $arr[$count->month] = $count->count;
+    }
+
+    $singleAptViews = View::select('apartments.id', 'apartments.name', DB::raw('count(apartment_id) as view_count'))
+      ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
+      ->join('users', 'apartments.user_id', '=', 'users.id')
+      ->where('user_id', $userId)
+      ->groupBy('apartments.id', 'apartments.name')
+      ->orderByDesc('view_count')
+      ->first();
+
+
+
+
+
+
+    return view('admin.dashboard', compact('apartments', 'mess', 'sponsor', 'viewCount', 'arr', 'singleAptViews'));
+  }
 }

@@ -8,18 +8,21 @@ use App\Models\View;
 
 class ViewController extends Controller
 {
-    public function getIp(Request $request){
+    public function getIp(Request $request)
+    {
         $data = $request->validate([
-            'ip'=>'required',
-            'id'=>'required'
+            'ip' => 'required',
+            'id' => 'required'
         ]);
         $date = date("Y-m-d");
-        $x = View::where('ip_adress',$data['ip'])->where('date', $date)->get();
-        if(count($x) == 0){
-                View::create([
+        $x = View::where('ip_adress', $data['ip'])
+            ->where('date', $date)
+            ->where('apartment_id', $data['id'])->get();
+        if (count($x) == 0) {
+            View::create([
                 'ip_adress' => $data['ip'],
-                'date'=> $date,
-                'apartment_id'=>$data['id']
+                'date' => $date,
+                'apartment_id' => $data['id']
             ]);
         }
     }
