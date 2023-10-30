@@ -13,8 +13,7 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Carbon;
-
-
+use Illuminate\Support\Facades\DB;
 
 
 //HELPERS
@@ -89,8 +88,10 @@ class ApartmentController extends Controller
                     $query->where('apartment_sponsorship.end_date', '>=', $currentDate); 
                 });
         })
-        ->orderBy('apartment_sponsorship.end_date', 'desc')
+        ->groupBy('apartments.id')
+        ->orderByRaw('MAX(apartment_sponsorship.end_date) DESC')
         ->paginate(12);
+    
 
 
         return response()->json([
