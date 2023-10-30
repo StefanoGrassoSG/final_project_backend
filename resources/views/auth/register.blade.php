@@ -53,7 +53,7 @@
                                             <label for="name">
                                                 Nome
                                             </label>
-                                            <input type="text" id="name" name="name">
+                                            <input type="text" id="name" name="name" value="{{old('name')}}">
                                             @error('name')
                                                 <div id="error" class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -64,7 +64,7 @@
                                             <label id="surname" for="name">
                                                 Cognome
                                             </label>
-                                            <input type="text" id="name" name="last_name">
+                                            <input type="text" id="name" name="last_name" value="{{old('last_name')}}">
                                             @error('last_name')
                                                 <div id="error" class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -76,7 +76,7 @@
                                             <label for="email">
                                                 Data di nascita
                                             </label>
-                                            <input type="date" id="email" name="date_of_birth">
+                                            <input type="date" id="email" name="date_of_birth" value="{{old('date_of_birth')}}">
                                             @error('date_of_birth')
                                                 <div id="error" class="alert alert-danger">{{ $message }}</div>
                                             @enderror
@@ -91,7 +91,7 @@
                                             <label for="password">
                                                 Email
                                             </label>
-                                            <input type="email" id="password" name="email">
+                                            <input type="email" id="password" name="email" value="{{old('email')}}">
                                             @error('email')
                                                 <div id="error" class="alert alert-danger">{{ $message }}</div>
                                             @enderror
