@@ -60,6 +60,11 @@
                             <li class="d-none d-sm-block">
                                 <span class="span-info-apt">Prezzo: </span>{{ $singleApt->price }} &euro;
                             </li>
+                            @if (count($singleApt->sponsorships)>0)
+                                <li class="d-none d-sm-block">
+                                    <span class="span-info-apt">SPONSORIZZATO </span>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                     <div class="col-12 col-sm-4 col-md-3 col-lg-3 pt-3 px-3 px-md-5 action-apt d-flex flex-column align-items-center d-sm-block d-md-inline">
