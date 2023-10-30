@@ -46,7 +46,7 @@ class ApartmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreApartmentRequest $request)
+    public function store(StoreApartmentRequest $request, Apartment $apartment)
     {   
 
        
@@ -119,7 +119,7 @@ class ApartmentController extends Controller
             }
         }
 
-        return redirect()->route('admin.apartment.index');
+        return redirect()->route('admin.apartment.show', compact('apartment'));
     }
 
     /**
