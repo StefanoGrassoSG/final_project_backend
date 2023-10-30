@@ -55,10 +55,16 @@ class AdminController extends Controller
         ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
         ->groupBy('month')
         ->get();
-
-          foreach ($countsByMonth as $count) {
+		
+		if(count($countsByMonth) >0 ){
+			foreach ($countsByMonth as $count) {
           $arr[$count->month] = $count->count;
           }
+		}
+		else{
+			$arr= [];
+		}
+          
 		    
         $singleAptViews = View::select('apartments.id', 'apartments.name', DB::raw('count(apartment_id) as view_count'))
         ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
@@ -68,12 +74,19 @@ class AdminController extends Controller
         ->orderByDesc('view_count')
         ->first();
       
-    
-    
+		if($singleAptViews){
+			return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr', 'singleAptViews'));
+		}
+		else{
+			return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr'));
+		}
+          
+            
+          
           
           
         
         
-        return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr', 'singleAptViews'));
+        
      }
 }

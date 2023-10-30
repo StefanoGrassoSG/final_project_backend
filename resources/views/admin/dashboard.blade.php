@@ -63,7 +63,8 @@
                         </div>                    
                 </div>
                 <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
-                    <a href="{{ route('admin.apartment.show', ['apartment' => $singleAptViews->id]) }}">
+                    @if(isset($singleAptViews))
+                      <a href="{{ route('admin.apartment.show', ['apartment' => $singleAptViews->id]) }}">  
                         <div class="count-text-one">
                             L'appartamento più visto:
                         </div>
@@ -74,6 +75,8 @@
                             Ha {{ $singleAptViews->view_count }} visualizzazioni
                         </div>
                     </a>
+                    @endif
+
                 </div>
             </div>
         </div>
