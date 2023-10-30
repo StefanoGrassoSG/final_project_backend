@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\orders\OrderRequest;
 use App\Models\Sponsorship;
 use App\Models\Apartment;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -67,7 +68,6 @@ class OrderController extends Controller
 
         if (count($apartment->sponsorships) > 0) {
             $lastSponsor = $apartment->sponsorships[count($apartment->sponsorships) - 1]->pivot->end_date;
-
             $startDate = now();
 
             if ($lastSponsor >= $startDate) {
@@ -78,6 +78,7 @@ class OrderController extends Controller
             }
 
             $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $lastSponsor, 'end_date' => $endDate]);
+            DB::table('apartment_sponsorship')->where('end_date',$lastSponsor)->delete();
         } else {
             $startDate = now()->setTimezone('Europe/Rome');
             $endDate = now()->setTimezone('Europe/Rome')->addHours($sponsor->time);
