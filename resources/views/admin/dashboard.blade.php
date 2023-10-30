@@ -62,8 +62,8 @@
                             Bool Sponsor
                         </div>                    
                 </div>
-                <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
                     @if(isset($singleAptViews))
+                    <div class="card-stats-large card-stats border rounded-4 col-12 col-sm-6">
                       <a href="{{ route('admin.apartment.show', ['apartment' => $singleAptViews->id]) }}">  
                         <div class="count-text-one">
                             L'appartamento più visto:
@@ -75,9 +75,9 @@
                             Ha {{ $singleAptViews->view_count }} visualizzazioni
                         </div>
                     </a>
+                </div>
                     @endif
 
-                </div>
             </div>
         </div>
     </div>
