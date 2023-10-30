@@ -14,7 +14,9 @@ class ViewController extends Controller
             'id'=>'required'
         ]);
         $date = date("Y-m-d");
-        $x = View::where('ip_adress',$data['ip'])->where('date', $date)->get();
+        $x = View::where('ip_adress',$data['ip'])
+            ->where('date', $date)
+            ->where('apartment_id',$data['id'])->get();
         if(count($x) == 0){
                 View::create([
                 'ip_adress' => $data['ip'],
