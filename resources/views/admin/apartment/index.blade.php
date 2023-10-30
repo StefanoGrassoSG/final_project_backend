@@ -62,7 +62,7 @@
                             </li>
                             @if (count($singleApt->sponsorships)>0)
                                 <li class="d-none d-sm-block">
-                                    <span class="span-info-apt">SPONSORIZZATO </span>
+                                    <span class="span-info-apt span-sponsor">SPONSORIZZATO </span>
                                 </li>
                             @endif
                         </ul>
