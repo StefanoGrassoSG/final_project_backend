@@ -20,7 +20,7 @@
                     @if($lastSponsor >= $todayDate)
                         <div class="card rounded-4 info-sponsored p-3 d-flex justify-content-start mb-3">
                             <h5>
-                            La tua sponsor finisce: {{ date('y/m/d h:i',strtotime($lastSponsor))}}
+                            La tua sponsor finisce: {{ date('d/m/y h:i',strtotime($lastSponsor))}}
                             </h5>
                         </div>    
                     @endif
