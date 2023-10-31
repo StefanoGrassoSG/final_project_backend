@@ -50,7 +50,7 @@
                         <div class="my-2 mx-2">
                             <a href="{{ route('admin.token', [$apartment->id]) }}" class="btn btn-create-card">Sponsorizza</a>
                         </div>
-                        <form action="{{route('admin.apartment.destroy',[$apartment->id])}}" method="POST" class="d-flex justify-content-center d-sm-block">
+                        <form action="{{route('admin.apartment.destroy',[$apartment->id])}}" method="POST" class="d-flex justify-content-center d-sm-block" onsubmit="return confirm('Vuoi eliminare questo appartamento?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn d-block btn-create-card btn-create-card-out">
