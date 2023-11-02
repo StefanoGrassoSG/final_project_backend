@@ -78,7 +78,7 @@ class OrderController extends Controller
             }
 
             $apartment->sponsorships()->attach($sponsor->id, ['start_date' => $lastSponsor, 'end_date' => $endDate]);
-            DB::table('apartment_sponsorship')->where('end_date',$lastSponsor)->delete();
+            // DB::table('apartment_sponsorship')->where('end_date',$lastSponsor)->delete();
         } else {
             $startDate = now()->setTimezone('Europe/Rome');
             $endDate = now()->setTimezone('Europe/Rome')->addHours($sponsor->time);
