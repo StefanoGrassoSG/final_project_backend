@@ -92,8 +92,7 @@
       <script>
         const ctx = document.getElementById('myChart');
         let data = @json($arr);
-        console.log(data);
-        console.log(data);
+        console.log('data',data);
         const finalData = [];
         let months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
         for (let index = 1; index <= 12; index++) {
@@ -122,11 +121,7 @@
           
         }
         
-        if(finalData[10].month == 'Novembre' || finalData[11].month == 'Dicembre') {
-            finalData[10].count = 0
-            finalData[11].count = 0
-        }
-        console.log(finalData);
+        console.log('finaldata',finalData);
 
 
 

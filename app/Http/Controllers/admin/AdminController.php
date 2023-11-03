@@ -44,9 +44,10 @@ class AdminController extends Controller
         $viewCount = View::join('apartments','views.apartment_id','=','apartments.id')
         ->join('users','apartments.user_id','=','users.id')
         ->where('user_id', $userId)
-        ->selectRaw('* FROM ')
+        // ->selectRaw('* FROM ')
         ->distinct('views.date')
         ->count();  
+
 
         $countsByMonth = DB::table('views')
         ->join('apartments','views.apartment_id','=','apartments.id')
@@ -55,6 +56,7 @@ class AdminController extends Controller
         ->selectRaw('DATE_FORMAT(date, "%m") as month, count(*) as count')
         ->groupBy('month')
         ->get();
+        
 		
 		if(count($countsByMonth) >0 ){
 			foreach ($countsByMonth as $count) {
@@ -64,7 +66,7 @@ class AdminController extends Controller
 		else{
 			$arr= [];
 		}
-          
+        //   dd($arr);
 		    
         $singleAptViews = View::select('apartments.id', 'apartments.name', DB::raw('count(apartment_id) as view_count'))
         ->join('apartments', 'views.apartment_id', '=', 'apartments.id')
@@ -73,6 +75,7 @@ class AdminController extends Controller
         ->groupBy('apartments.id', 'apartments.name')
         ->orderByDesc('view_count')
         ->first();
+
       
 		if($singleAptViews){
 			return view('admin.dashboard',compact('apartments', 'mess', 'sponsor','viewCount','arr', 'singleAptViews'));
